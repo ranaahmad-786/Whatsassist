@@ -1,0 +1,27 @@
+{
+  "name": "whatsassist-backend",
+  "version": "1.0.0",
+  "description": "WhatsAssist - WhatsApp AI Customer Resolution Agent Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node tests/run-tests.js"
+  },
+  "author": "Muhammad Ahmad Khan - 24-ST-027",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "pino": "^10.4.0",
+    "qrcode": "^1.5.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

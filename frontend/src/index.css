@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for Elite Glassmorphism & WhatsApp Palettes */
+:root, html.light, body.light {
+  --wa-bg-page: #f0f4f9;
+  --wa-bg-card: rgba(255, 255, 255, 0.85);
+  --wa-bg-card-solid: #ffffff;
+  --wa-bg-input: rgba(255, 255, 255, 0.9);
+  --wa-border: rgba(203, 213, 225, 0.8);
+  --wa-border-subtle: rgba(226, 232, 240, 0.6);
+  --wa-text-title: #0f172a;
+  --wa-text-body: #334155;
+  --wa-text-muted: #64748b;
+  --wa-glass-bg: rgba(255, 255, 255, 0.75);
+  --wa-glass-border: rgba(255, 255, 255, 0.6);
+  --wa-bubble-in: #ffffff;
+  --wa-bubble-out: #d9fdd3;
+  --wa-bubble-in-border: #e2e8f0;
+  --wa-bubble-out-border: #bbf7d0;
+  color-scheme: light;
+}
+
+html.dark, body.dark {
+  --wa-bg-page: #0b141a;       /* Classic WhatsApp Web dark mode background */
+  --wa-bg-card: rgba(17, 27, 33, 0.85);
+  --wa-bg-card-solid: #111b21;
+  --wa-bg-input: rgba(32, 44, 51, 0.8);
+  --wa-border: rgba(51, 65, 85, 0.5);
+  --wa-border-subtle: rgba(30, 41, 59, 0.6);
+  --wa-text-title: #e9edef;
+  --wa-text-body: #d1d7db;
+  --wa-text-muted: #8696a0;
+  --wa-glass-bg: rgba(17, 27, 33, 0.78);
+  --wa-glass-border: rgba(255, 255, 255, 0.08);
+  --wa-bubble-in: #202c33;
+  --wa-bubble-out: #005c4b;
+  --wa-bubble-in-border: rgba(255, 255, 255, 0.05);
+  --wa-bubble-out-border: #026955;
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--wa-bg-page) !important;
+  color: var(--wa-text-body) !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Master Classes */
+.glass-panel {
+  background: var(--wa-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--wa-glass-border);
+}
+
+.glass-card {
+  background: var(--wa-bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--wa-glass-border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 35px -10px rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.glass-input {
+  background: var(--wa-bg-input);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--wa-border);
+  color: var(--wa-text-title);
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+}
+
+/* Authentic WhatsApp Web Chat Wallpaper Background Pattern */
+.wa-chat-wallpaper-light {
+  background-color: #efeae2;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 20%),
+    linear-gradient(135deg, rgba(220, 248, 198, 0.08) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(220, 248, 198, 0.08) 25%, transparent 25%);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+}
+
+.wa-chat-wallpaper-dark {
+  background-color: #0b141a;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(0, 92, 75, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(18, 140, 126, 0.08) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Ambient Glow Animations */
+@keyframes ambientGlow {
+  0%, 100% {
+    transform: scale(1) translate(0px, 0px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1) translate(10px, -10px);
+    opacity: 0.75;
+  }
+}
+
+.animate-ambient {
+  animation: ambientGlow 12s ease-in-out infinite;
+}
+
+/* Browser autofill reset */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--wa-text-title) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--wa-bg-input) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
