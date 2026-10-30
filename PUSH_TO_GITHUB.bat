@@ -62,7 +62,7 @@ echo Pushing project to GitHub...
 echo Note: If a browser popup opens, click Sign in with your browser to authorize.
 echo.
 
-git push -u origin main
+git push -u origin main --force
 
 if errorlevel 1 (
     echo.
