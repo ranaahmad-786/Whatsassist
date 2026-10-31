@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-10-31T13:24:15.789Z",
+      "updated_at": "2026-10-31T14:12:49.319Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -170,6 +170,39 @@
       "is_active": 1,
       "created_at": "2026-10-30T12:55:04.831Z",
       "updated_at": "2026-10-30T12:55:04.831Z"
+    },
+    {
+      "id": "f87e7cda-095c-4e59-b165-4cfb1bfa26bd",
+      "merchant_id": "ad8c9f5c-e90b-423d-8453-13eca88b3280",
+      "phone_number_id": "PHONE_ad8c9f5c",
+      "waba_id": "WABA_ad8c9f5c",
+      "webhook_verify_token": "verify_ad8c9f5c",
+      "fallback_threshold": 0.65,
+      "is_active": 1,
+      "created_at": "2026-10-31T14:27:40.919Z",
+      "updated_at": "2026-10-31T14:27:40.919Z"
+    },
+    {
+      "id": "c5ba6f92-1b21-41a0-969c-b7688fff757b",
+      "merchant_id": "1dcfa4a0-2f6f-49cf-a863-6f0e6e719157",
+      "phone_number_id": "PHONE_1dcfa4a0",
+      "waba_id": "WABA_1dcfa4a0",
+      "webhook_verify_token": "verify_1dcfa4a0",
+      "fallback_threshold": 0.65,
+      "is_active": 1,
+      "created_at": "2026-10-31T14:30:53.691Z",
+      "updated_at": "2026-10-31T14:30:53.691Z"
+    },
+    {
+      "id": "58fde61c-47c6-46f7-8a53-e25001c50ecd",
+      "merchant_id": "fd939460-5a4c-4075-aa7d-a0e436c945fa",
+      "phone_number_id": "PHONE_fd939460",
+      "waba_id": "WABA_fd939460",
+      "webhook_verify_token": "verify_fd939460",
+      "fallback_threshold": 0.65,
+      "is_active": 1,
+      "created_at": "2026-10-31T14:32:58.527Z",
+      "updated_at": "2026-10-31T14:32:58.527Z"
     }
   ],
   "customers": [
@@ -819,6 +852,36 @@
       "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
       "created_at": "2026-10-30T12:55:04.856Z",
       "updated_at": "2026-10-30T12:55:04.856Z"
+    },
+    {
+      "id": "67672cc7-f175-40e8-9779-7d58b479cb4c",
+      "merchant_id": "ad8c9f5c-e90b-423d-8453-13eca88b3280",
+      "file_name": "hours.txt",
+      "total_chunks": 1,
+      "status": "INDEXED",
+      "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "created_at": "2026-10-31T14:27:40.951Z",
+      "updated_at": "2026-10-31T14:27:40.951Z"
+    },
+    {
+      "id": "a313d7b0-afcc-4551-a4ac-b70d0dc7d7f2",
+      "merchant_id": "1dcfa4a0-2f6f-49cf-a863-6f0e6e719157",
+      "file_name": "hours.txt",
+      "total_chunks": 1,
+      "status": "INDEXED",
+      "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "created_at": "2026-10-31T14:30:53.721Z",
+      "updated_at": "2026-10-31T14:30:53.721Z"
+    },
+    {
+      "id": "3b09fca3-14cb-42a9-bc18-f64a9993e58e",
+      "merchant_id": "fd939460-5a4c-4075-aa7d-a0e436c945fa",
+      "file_name": "hours.txt",
+      "total_chunks": 1,
+      "status": "INDEXED",
+      "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "created_at": "2026-10-31T14:32:58.558Z",
+      "updated_at": "2026-10-31T14:32:58.558Z"
     }
   ],
   "document_chunks": [
@@ -965,6 +1028,33 @@
       "chunk_index": 0,
       "created_at": "2026-10-30T12:55:04.865Z",
       "updated_at": "2026-10-30T12:55:04.865Z"
+    },
+    {
+      "id": "1c2b4fbd-bb6e-4b02-8cbe-96ab3986afff",
+      "document_id": "67672cc7-f175-40e8-9779-7d58b479cb4c",
+      "merchant_id": "ad8c9f5c-e90b-423d-8453-13eca88b3280",
+      "chunk_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "chunk_index": 0,
+      "created_at": "2026-10-31T14:27:40.960Z",
+      "updated_at": "2026-10-31T14:27:40.960Z"
+    },
+    {
+      "id": "1be06d94-11a8-415a-a1ba-de6fd3735310",
+      "document_id": "a313d7b0-afcc-4551-a4ac-b70d0dc7d7f2",
+      "merchant_id": "1dcfa4a0-2f6f-49cf-a863-6f0e6e719157",
+      "chunk_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "chunk_index": 0,
+      "created_at": "2026-10-31T14:30:53.732Z",
+      "updated_at": "2026-10-31T14:30:53.732Z"
+    },
+    {
+      "id": "92e3a1b9-7c2c-4612-9fe8-54289fd82084",
+      "document_id": "3b09fca3-14cb-42a9-bc18-f64a9993e58e",
+      "merchant_id": "fd939460-5a4c-4075-aa7d-a0e436c945fa",
+      "chunk_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "chunk_index": 0,
+      "created_at": "2026-10-31T14:32:58.567Z",
+      "updated_at": "2026-10-31T14:32:58.567Z"
     }
   ],
   "leads": [
@@ -1198,6 +1288,17 @@
       "extracted_details": "{\"order_code\":\"ZP-ORD-9468\",\"items\":[\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\"],\"amount\":38500}",
       "created_at": "2026-10-31T13:24:04.959Z",
       "updated_at": "2026-10-31T13:24:04.959Z"
+    },
+    {
+      "id": "d94734ca-7ef2-4e3c-9f14-35f032e59c6c",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust_order",
+      "session_id": "sess_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-5167\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923001234567\"}",
+      "created_at": "2026-10-31T14:32:40.749Z",
+      "updated_at": "2026-10-31T14:32:40.749Z"
     }
   ],
   "products": [
@@ -1291,7 +1392,7 @@
       "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
       "category": "Air Conditioners",
       "price": 142000,
-      "stock_quantity": 6,
+      "stock_quantity": 5,
       "specs": [
         "1.5 Ton T3 Inverter Compressor",
         "Energy Saving Inverter (Up to 60% Saving)",
@@ -1304,7 +1405,7 @@
       "inquiry_count": 95,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-30T12:45:51.080Z"
+      "updated_at": "2026-10-31T14:32:40.720Z"
     },
     {
       "id": "prod-ac-haier-06",
@@ -1734,6 +1835,26 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-10-31T13:24:04.948Z",
       "updated_at": "2026-10-31T13:24:26.213Z"
+    },
+    {
+      "id": "53fe6b4f-9416-4738-abfc-f916507ee92b",
+      "order_code": "ZP-ORD-5167",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_name": "WhatsApp Customer",
+      "customer_phone": "+923001234567",
+      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "items": [
+        {
+          "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
+          "price": 142000,
+          "quantity": 1
+        }
+      ],
+      "total_amount": 142000,
+      "order_status": "CONFIRMED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-10-31T14:32:40.740Z",
+      "updated_at": "2026-10-31T14:32:40.740Z"
     }
   ],
   "repairs": [

@@ -1,8 +1,7 @@
 /**
- * WhatsAssist - Intelligent AI Orchestrator & Live Gemini LLM Engine
- * Connects directly to Google Gemini Flash API via Generative Language API.
- * Combines Live Generative AI with Relational Context (RAG), Order Placement,
- * Guided Technical Diagnostics, and Repair Token Resolution for ZepTech Smart Electronics & E-Mobility.
+ * WhatsAssist - Intelligent AI Brain & Live Gemini LLM Engine
+ * Dual-Mode Shop Assistant: General Small Talk + Dynamic Inventory & Context Injected RAG
+ * Strict Anti-Hallucination Guardrails for ZepTech Smart Electronics & E-Mobility Store.
  *
  * @author Muhammad Ahmad Khan - 24-ST-027
  * @institution Punjab Tianjin University of Technology (PTUT), Lahore
@@ -17,10 +16,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
  * Call live Google Gemini Generative AI API with fallback across official production flash models.
  */
 async function callLiveGemini(systemPrompt, userQuery, timeoutMs = 7000) {
-  // Official active Google Gemini models
   const models = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
 
-  // Skip if key is not configured
   if (!GEMINI_API_KEY || GEMINI_API_KEY.includes('your_') || GEMINI_API_KEY.trim().length === 0) {
     return null;
   }
@@ -38,8 +35,8 @@ async function callLiveGemini(systemPrompt, userQuery, timeoutMs = 7000) {
           systemInstruction: { parts: [{ text: systemPrompt }] },
           contents: [{ role: 'user', parts: [{ text: userQuery }] }],
           generationConfig: {
-            temperature: 0.6,
-            maxOutputTokens: 750,
+            temperature: 0.65,
+            maxOutputTokens: 800,
           }
         }),
         signal: controller.signal
@@ -56,7 +53,6 @@ async function callLiveGemini(systemPrompt, userQuery, timeoutMs = 7000) {
       }
     } catch (err) {
       clearTimeout(timer);
-      // Suppress network isolation errors gracefully
     }
   }
 
@@ -76,38 +72,147 @@ function getRagContext(merchantId, query) {
   }
 }
 
+/**
+ * Shop Core Metadata
+ */
+const SHOP_METADATA = {
+  name: 'ZepTech Smart Electronics & E-Mobility Store',
+  founder: 'Muhammad Ahmad Khan (24-ST-027), BS Software Engineering Technology, PTUT Lahore',
+  location: 'Shop #14, Main Market, Gulberg III, Lahore, Pakistan',
+  timings: 'Monday to Saturday: 10:00 AM - 10:00 PM | Sunday: 2:00 PM - 10:00 PM',
+  contactPhone: '+92 300 1234567',
+  deliveryPolicy: 'Free Cash on Delivery (COD) within 24-48 hours across Lahore. Safe courier shipping across Pakistan.',
+  paymentMethods: 'Cash on Delivery (COD), JazzCash, EasyPaisa, Direct Bank Transfer (Meezan/HBL)',
+  warranties: {
+    ebike: '3-Year motor warranty & 1-Year lithium battery warranty',
+    acAndFridge: '10-Year compressor warranty & 1-Year PCB circuit warranty',
+    microwave: '2-Year magnetron heating warranty',
+    repairs: '30-Day unconditional money-back service warranty'
+  }
+};
+
+/**
+ * Detect language: Roman Urdu / Urdu vs English
+ */
+function detectIsUrdu(query) {
+  const urduKeywords = [
+    'kya', 'hai', 'hy', 'hain', 'kaise', 'kese', 'theek', 'mera', 'meri', 'mere', 'chahiye',
+    'kharidna', 'btao', 'batao', 'kitne', 'kitna', 'kitni', 'kahan', 'kab', 'khulta', 'band',
+    'hota', 'hoti', 'hoga', 'hogi', 'ap', 'aap', 'mujhe', 'mujhy', 'hmary', 'humary', 'salam',
+    'walaikum', 'bhai', 'shukriya', 'meharbani', 'bhejo', 'mangwana', 'discount', 'sasta',
+    'chal', 'nahi', 'ni', 'kr', 'rha', 'rhi', 'dost', 'tum', 'kis', 'chez', 'cheez', 'kaam',
+    'kam', 'wala', 'wali', 'walay', 'pe', 'py', 'se', 'sy', 'bhi', 'kro', 'karo', 'dekho',
+    'bhaiya', 'janab', 'sir', 'konsa', 'konsi', 'achha', 'acha', 'bura', 'mil', 'sakta', 'sakti',
+    'sunao', 'sunayein', 'haal', 'or', 'aur', 'jazakallah', 'jazakallahu'
+  ];
+  const qLower = query.toLowerCase();
+  return urduKeywords.some(w => new RegExp(`\\b${w}\\b`, 'i').test(qLower));
+}
+
+/**
+ * Classify user intent into Dual Modes:
+ * - MODE_GENERAL_CHAT: Small talk, greetings, greetings, feelings, timings, address, thank you
+ * - MODE_GUARDRAIL_UNAVAILABLE: Products completely outside shop catalog (e.g. mobile, laptop)
+ * - MODE_REPAIR_TRACKING: REP-xxx lookup
+ * - MODE_ORDER_BOOKING: Buy / Checkout
+ * - MODE_SHOP_PRODUCT_QUERY: Catalog, pricing, specs, fault diagnostics
+ */
+function classifyIntent(qLower) {
+  // 1. Guardrail for non-inventory domains
+  const nonStoreItems = ['iphone', 'mobile phone', 'smartphone', 'laptop', 'macbook', 'clothing', 'kapre', 'shoes', 'solar panel', 'car ', 'jewelry'];
+  if (nonStoreItems.some(item => qLower.includes(item))) {
+    return 'MODE_GUARDRAIL_UNAVAILABLE';
+  }
+
+  // 2. Repair Tracking
+  if ((qLower.includes('repair') || qLower.includes('token') || qLower.includes('receipt') || qLower.includes('theek hua')) &&
+      (qLower.match(/rep-\d+/i) || qLower.match(/\b\d{3,5}\b/))) {
+    return 'MODE_REPAIR_TRACKING';
+  }
+
+  // 3. Conversational Order Placement
+  if (qLower.includes('order') || qLower.includes('buy') || qLower.includes('purchase') ||
+      qLower.includes('kharidna') || qLower.includes('mangwana') || qLower.includes('checkout') ||
+      qLower.includes('bhejo') || qLower.includes('deliver kro')) {
+    return 'MODE_ORDER_BOOKING';
+  }
+
+  // 4. General Small Talk & FAQs
+  const isSmallTalk = /^(salam|assalam|aoa|hello|hi|hey|kya haal|kaise ho|kese ho|kaisay ho|good morning|good evening|adab|thanks|thank you|shukriya|jazakallah|ok|theek hai|theek hy|acha|sahi|done)\b/i.test(qLower) ||
+                      qLower.includes('kaise ho') || qLower.includes('kaisay ho') || qLower.includes('kese ho') ||
+                      qLower.includes('kya haal') || qLower.includes('kya hal') || qLower.includes('how are you') ||
+                      qLower.includes('sunao') || qLower.includes('sunayein') ||
+                      qLower.includes('thank') || qLower.includes('shukriya') || qLower.includes('jazakallah') ||
+                      qLower.includes('who are you') || qLower.includes('kon ho') || qLower.includes('bot ho') ||
+                      qLower.includes('shop timing') || qLower.includes('shop kahan') || qLower.includes('location') ||
+                      qLower.includes('address') || (qLower.length <= 15 && (qLower.includes('hi') || qLower.includes('hello')));
+
+  const isProductRelated = qLower.includes('ac') || qLower.includes('bike') || qLower.includes('oven') ||
+                           qLower.includes('fridge') || qLower.includes('tv') || qLower.includes('price') ||
+                           qLower.includes('rate') || qLower.includes('kitne') || qLower.includes('stock') ||
+                           qLower.includes('cooling') || qLower.includes('heat') || qLower.includes('battery');
+
+  if (isSmallTalk && !isProductRelated) {
+    return 'MODE_GENERAL_CHAT';
+  }
+
+  return 'MODE_SHOP_PRODUCT_QUERY';
+}
+
 const geminiService = {
+  /**
+   * Main entry point for generating intelligent, context-aware answers
+   */
   async generateAnswer(businessName, context, query, customerPhone = '+923001234567', customerName = 'Valued Customer', merchantId = null) {
     const qLower = query.toLowerCase().trim();
     const allProducts = db.findAll('products') || [];
     const allRepairs = db.findAll('repairs') || [];
     const activeMerchantId = merchantId || (allProducts.length > 0 ? allProducts[0].merchant_id : '1c8b9736-ad03-4251-bacf-1e1bff38fd00');
 
-    // Auto-fetch RAG context if empty
+    // 1. Context & Live Inventory Extraction
     let activeContext = context;
     if (!activeContext || activeContext.trim().length === 0) {
       activeContext = getRagContext(activeMerchantId, query);
     }
 
-    // Language detection: Check for Roman Urdu / Urdu markers
-    const urduKeywords = [
-      'kya', 'hai', 'hy', 'hain', 'kaise', 'kese', 'theek', 'mera', 'meri', 'mere', 'chahiye',
-      'kharidna', 'btao', 'batao', 'kitne', 'kitna', 'kitni', 'kahan', 'kab', 'khulta', 'band',
-      'hota', 'hoti', 'hoga', 'hogi', 'ap', 'aap', 'mujhe', 'mujhy', 'hmary', 'humary', 'salam',
-      'walaikum', 'bhai', 'shukriya', 'meharbani', 'bhejo', 'mangwana', 'discount', 'sasta',
-      'chal', 'nahi', 'ni', 'kr', 'rha', 'rhi', 'dost', 'tum', 'kis', 'chez', 'cheez', 'kaam',
-      'kam', 'wala', 'wali', 'walay', 'pe', 'py', 'se', 'sy', 'bhi', 'kro', 'karo', 'dekho',
-      'bhaiya', 'janab', 'sir', 'konsa', 'konsi', 'achha', 'acha', 'bura', 'mil', 'sakta', 'sakti'
-    ];
-    const isUrdu = urduKeywords.some(w => new RegExp(`\\b${w}\\b`, 'i').test(qLower));
+    const isUrdu = detectIsUrdu(query);
+    const intentMode = classifyIntent(qLower);
 
     // =========================================================================
-    // 1. REPAIR & WARRANTY STATUS TRACKING (Token lookup e.g. REP-101, REP-102)
+    // A. STRICT GUARDRAIL: Proactively block hallucinations on non-catalog items
+    // =========================================================================
+    if (intentMode === 'MODE_GUARDRAIL_UNAVAILABLE') {
+      if (isUrdu) {
+        return `Maazrat janab! Hamare paas yeh item available nahi hai.
+
+ZepTech Smart Electronics & E-Mobility par hum strictly in products aur services mein deal karte hain:
+1. Inverter ACs (Gree, Haier - 1 Ton & 1.5 Ton)
+2. Smart E-Bikes (ZepTech Thunder 70cc & Eco Commuter)
+3. Convection & Microwave Ovens (Dawlance & Haier)
+4. Inverter Refrigerators & 4K Smart Android TVs
+5. Complete Hardware Repair & Maintenance Services (30-day warranty)
+
+Agar aap ko in mein se kisi product ke rates, specs ya booking ki zaroorat ho to zaroor batayein!`;
+      }
+      return `We apologize, but that item is not available in our store inventory.
+
+At ${SHOP_METADATA.name}, we strictly specialize in:
+1. DC Inverter Air Conditioners (Gree, Haier)
+2. Smart Electric Bikes (ZepTech Thunder 70cc & Eco Commuter)
+3. Convection Microwave & Baking Ovens (Dawlance, Haier)
+4. Inverter Refrigerators & 4K Smart Android TVs
+5. Hardware Diagnostics & Maintenance (with 30-day warranty)
+
+Please let us know if you would like pricing or details for any of our available appliances or e-bikes!`;
+    }
+
+    // =========================================================================
+    // B. REPAIR & WARRANTY STATUS TRACKING (Token lookup e.g. REP-101)
     // =========================================================================
     const tokenMatch = query.match(/REP-\d+/i) || query.match(/#?(\d{3,5})/);
-    const isRepairIntent = qLower.includes('repair') || qLower.includes('token') || qLower.includes('receipt') ||
-                           qLower.includes('mera ac') || qLower.includes('mera oven') || qLower.includes('meri bike') ||
-                           qLower.includes('theek hua') || qLower.includes('ready hua') || qLower.includes('fault');
+    const isRepairIntent = intentMode === 'MODE_REPAIR_TRACKING' ||
+                           qLower.includes('repair') || qLower.includes('token') ||
+                           qLower.includes('mera ac') || qLower.includes('mera oven') || qLower.includes('meri bike');
 
     if (tokenMatch && isRepairIntent) {
       const rawToken = tokenMatch[0].toUpperCase();
@@ -117,10 +222,10 @@ const geminiService = {
 
       if (repair) {
         const stageMap = {
-          'RECEIVED': isUrdu ? '1/4 دکان پر موصول ہو چکا ہے (Received)' : '1/4 Received at Center',
-          'DIAGNOSING': isUrdu ? '2/4 انجینئر ٹیسٹ کر رہا ہے (Under Bench Diagnosis)' : '2/4 Under Bench Diagnosis',
-          'IN_PROGRESS': isUrdu ? '3/4 پرزہ جات کی تبدیلی جاری ہے (Component Replacement in Progress)' : '3/4 Component Replacement in Progress',
-          'READY_FOR_PICKUP': isUrdu ? '4/4 مکمل تیار ہے! آکر لے جائیں (Ready for Pickup / Delivery)' : '4/4 Ready for Pickup / Delivery'
+          'RECEIVED': isUrdu ? '1/4 Received at Counter (Workshop mein jama ho chuka hai)' : '1/4 Received at Center',
+          'DIAGNOSING': isUrdu ? '2/4 Under Bench Diagnosis (Engineer check kar raha hai)' : '2/4 Under Bench Diagnosis',
+          'IN_PROGRESS': isUrdu ? '3/4 Component Replacement in Progress (Repairing jaari hai)' : '3/4 Component Replacement in Progress',
+          'READY_FOR_PICKUP': isUrdu ? '4/4 Ready for Pickup (Mukammal tayyar hai, le jayen!)' : '4/4 Ready for Pickup / Delivery'
         };
 
         const repairCard = JSON.stringify({
@@ -135,41 +240,36 @@ const geminiService = {
         });
 
         if (isUrdu) {
-          return `🔍 *${businessName} رپیر ٹریکنگ رپورٹ:*
-📋 ٹوکن نمبر: *${repair.token_number}*
-🛠️ ڈیوائس / آئٹم: *${repair.item_name}*
-⚠️ رپورٹ کردہ خرابی: ${repair.issue_reported}
-📊 موجودہ سٹیٹس: *${stageMap[repair.status] || repair.status}*
-💰 تخمینہ خرچہ: *Rs. ${repair.estimated_cost.toLocaleString()}* (${repair.warranty_days} دن کی سروس وارنٹی شامل)
-👨‍🔧 ٹیکنیشن ریمارکس: "${repair.technician_notes}"
+          return `ZepTech Repair Tracking Report:
+Token Number: ${repair.token_number}
+Device / Item: ${repair.item_name}
+Reported Issue: ${repair.issue_reported}
+Current Status: ${stageMap[repair.status] || repair.status}
+Estimated Bill: Rs. ${repair.estimated_cost.toLocaleString()} (${repair.warranty_days} din ki service warranty shamil)
+Technician Notes: "${repair.technician_notes}"
 
-${repair.status === 'READY_FOR_PICKUP' ? '✅ *آپ کی ڈیوائس مکمل ٹیسٹ ہو کر تیار ہے!* برائے مہربانی رسید لے کر دکان تشریف لائیں یا ہوم ڈلیوری کیلئے بتائیں۔' : '⏳ ہمارے چیف انجینئر آپ کی ڈیوائس پر کام کر رہے ہیں۔ جیسے ہی ٹیسٹنگ مکمل ہوگی آپ کو اطلاع مل جائے گی۔'}<!-- REPAIR_DATA: ${repairCard} -->`;
+${repair.status === 'READY_FOR_PICKUP' ? 'Aap ki device mukammal test ho kar tayyar hai! Baraye meharbani receipt le kar shop tashreef layen ya home delivery ke liye batayein.' : 'Hamare chief engineer aap ki device par kaam kar rahe hain. Jese hi bench testing complete hogi aap ko notify kar diya jaye ga.'}<!-- REPAIR_DATA: ${repairCard} -->`;
         }
 
-        return `🔍 *${businessName} Official Repair Tracking:*
-📋 Token Number: *${repair.token_number}*
-🛠️ Item: *${repair.item_name}*
-⚠️ Reported Fault: ${repair.issue_reported}
-📊 Current Status: *${stageMap[repair.status] || repair.status}*
-💰 Estimated Bill: *Rs. ${repair.estimated_cost.toLocaleString()}* (${repair.warranty_days}-Day Service Warranty Included)
-👨‍🔧 Technician Notes: "${repair.technician_notes}"
+        return `${businessName} Official Repair Tracking:
+Token Number: ${repair.token_number}
+Item: ${repair.item_name}
+Reported Fault: ${repair.issue_reported}
+Current Status: ${stageMap[repair.status] || repair.status}
+Estimated Bill: Rs. ${repair.estimated_cost.toLocaleString()} (${repair.warranty_days}-Day Service Warranty Included)
+Technician Notes: "${repair.technician_notes}"
 
-${repair.status === 'READY_FOR_PICKUP' ? '✅ *Your device is fully repaired, bench-tested, and ready for pickup!* Please bring your receipt to the shop or reply here for courier dispatch.' : '⏳ Our engineers are currently working on your device. We will update you as soon as testing is complete.'}<!-- REPAIR_DATA: ${repairCard} -->`;
+${repair.status === 'READY_FOR_PICKUP' ? 'Your device is fully repaired, bench-tested, and ready for pickup! Please bring your receipt to the shop or reply here for courier dispatch.' : 'Our engineers are currently working on your device. We will update you as soon as testing is complete.'}<!-- REPAIR_DATA: ${repairCard} -->`;
       }
     }
 
     // =========================================================================
-    // 2. CONVERSATIONAL ORDER PLACEMENT (Strict Category & Brand Resolution)
+    // C. CONVERSATIONAL ORDER PLACEMENT (Strict Inventory Resolution & Atomic Stock)
     // =========================================================================
-    const isOrderIntent = qLower.includes('order') || qLower.includes('buy') || qLower.includes('purchase') ||
-                          qLower.includes('kharidna') || qLower.includes('mangwana') || qLower.includes('checkout') ||
-                          qLower.includes('bhejo') || qLower.includes('deliver kro') || qLower.includes('chahiye lena');
-
-    if (isOrderIntent && (qLower.includes('now') || qLower.includes('please') || qLower.includes('this') ||
+    if (intentMode === 'MODE_ORDER_BOOKING' && (qLower.includes('now') || qLower.includes('please') || qLower.includes('this') ||
                           qLower.includes('deliver') || qLower.includes('ac') || qLower.includes('bike') ||
                           qLower.includes('ebike') || qLower.includes('oven') || qLower.includes('fridge') ||
-                          qLower.includes('tv') || qLower.includes('washing') || qLower.includes('protector') ||
-                          qLower.includes('lahore') || qLower.includes('house') || qLower.includes('street'))) {
+                          qLower.includes('tv') || qLower.includes('lahore') || qLower.includes('house') || qLower.includes('street'))) {
 
       let candidatePool = [...allProducts];
       if (qLower.includes('ac') || qLower.includes('air conditioner') || qLower.includes('split') || qLower.includes('inverter ac')) {
@@ -182,10 +282,6 @@ ${repair.status === 'READY_FOR_PICKUP' ? '✅ *Your device is fully repaired, be
         candidatePool = allProducts.filter(p => p.category === 'Refrigerators');
       } else if (qLower.includes('tv') || qLower.includes('led')) {
         candidatePool = allProducts.filter(p => p.category === 'LED TVs');
-      } else if (qLower.includes('washing') || qLower.includes('machine')) {
-        candidatePool = allProducts.filter(p => p.category === 'Household Electronics');
-      } else if (qLower.includes('protector') || qLower.includes('surge')) {
-        candidatePool = allProducts.filter(p => p.category === 'Accessories');
       }
 
       let targetProduct = null;
@@ -261,39 +357,33 @@ ${repair.status === 'READY_FOR_PICKUP' ? '✅ *Your device is fully repaired, be
         });
 
         if (isUrdu) {
-          return `🎉 *مبارک ہو! آپ کا آرڈر کامیابی سے بک ہو گیا ہے!*
-📦 آرڈر کوڈ: *${orderCode}*
-👤 کسٹمر کا نام: *${finalCustomerName}*
-🛒 پروڈکٹ: *${targetProduct.title}*
-💰 کل رقم: *Rs. ${targetProduct.price.toLocaleString()}* (کیش آن ڈلیوری / COD)
-📍 ڈلیوری ایڈریس: *${finalAddress}*
-🚚 ترسیل کا وقت: *24 سے 48 گھنٹے* (لاہور میں فری ڈلیوری + آفیشل کمپنی وارنٹی کارڈ)
+          return `Mubarak ho! Aap ka order kamyabi se book ho gaya hai!
+Order Code: ${orderCode}
+Customer Name: ${finalCustomerName}
+Product: ${targetProduct.title}
+Total Bill: Rs. ${targetProduct.price.toLocaleString()} (Cash on Delivery / COD)
+Delivery Address: ${finalAddress}
+Estimated Delivery: 24 se 48 ghante (Lahore mein Free Home Delivery + Official Warranty Card)
 
-ہماری ڈسپیچ ٹیم روانگی سے قبل آپ کے نمبر ${customerPhone} پر کال کرے گی۔ ${businessName} کا انتخاب کرنے کا شکریہ!<!-- ORDER_DATA: ${orderCard} -->`;
+Hamari dispatch team rawangi se pehle aap ke phone number ${customerPhone} par call karegi. ${businessName} ka intikhab karne ka shukriya!<!-- ORDER_DATA: ${orderCard} -->`;
         }
 
-        return `🎉 *CONGRATULATIONS! YOUR ORDER IS CONFIRMED!*
-📦 Order ID: *${orderCode}*
-👤 Customer Name: *${finalCustomerName}*
-🛒 Item: *${targetProduct.title}*
-💰 Total Amount: *Rs. ${targetProduct.price.toLocaleString()}* (Cash on Delivery)
-📍 Delivery Address: *${finalAddress}*
-🚚 Estimated Delivery: *24 to 48 Hours* across Lahore with official brand warranty & testing seal!
+        return `CONGRATULATIONS! YOUR ORDER IS CONFIRMED!
+Order ID: ${orderCode}
+Customer Name: ${finalCustomerName}
+Item: ${targetProduct.title}
+Total Amount: Rs. ${targetProduct.price.toLocaleString()} (Cash on Delivery)
+Delivery Address: ${finalAddress}
+Estimated Delivery: 24 to 48 Hours across Lahore with official brand warranty & testing seal!
 
 Our dispatch team will confirm by phone at ${customerPhone} before delivery. Thank you for choosing ${businessName}!<!-- ORDER_DATA: ${orderCard} -->`;
       }
     }
 
     // =========================================================================
-    // 3. PRODUCT CARDS APPENDAGE (Recommendations & Inquiries)
+    // D. PRODUCT CARDS APPENDAGE (Recommendations & Inquiries)
     // =========================================================================
     let cardsJson = null;
-    const isRecommendationIntent = qLower.includes('recommend') || qLower.includes('suggest') || qLower.includes('best') ||
-                                  qLower.includes('under') || qLower.includes('below') || qLower.includes('budget') ||
-                                  qLower.includes('chahiye') || qLower.includes('price') || qLower.includes('stock') ||
-                                  qLower.includes('rate') || qLower.includes('kitne ka') || qLower.includes('bikna') ||
-                                  qLower.includes('sasta') || qLower.includes('available');
-
     let matchingCategoryProducts = [];
     if (qLower.includes('ebike') || qLower.includes('e-bike') || qLower.includes('bike') || qLower.includes('motorcycle') || qLower.includes('scooter')) {
       matchingCategoryProducts = allProducts.filter(p => p.category === 'E-Bikes');
@@ -305,13 +395,9 @@ Our dispatch team will confirm by phone at ${customerPhone} before delivery. Tha
       matchingCategoryProducts = allProducts.filter(p => p.category === 'Refrigerators');
     } else if (qLower.includes('tv') || qLower.includes('led') || qLower.includes('screen')) {
       matchingCategoryProducts = allProducts.filter(p => p.category === 'LED TVs');
-    } else if (qLower.includes('wash') || qLower.includes('machine')) {
-      matchingCategoryProducts = allProducts.filter(p => p.category === 'Household Electronics');
-    } else if (qLower.includes('protector') || qLower.includes('surge') || qLower.includes('voltage')) {
-      matchingCategoryProducts = allProducts.filter(p => p.category === 'Accessories');
     }
 
-    if (isRecommendationIntent && matchingCategoryProducts.length > 0) {
+    if (matchingCategoryProducts.length > 0 && intentMode === 'MODE_SHOP_PRODUCT_QUERY') {
       const topP = matchingCategoryProducts.slice(0, 3);
       cardsJson = JSON.stringify({
         type: 'products',
@@ -328,35 +414,54 @@ Our dispatch team will confirm by phone at ${customerPhone} before delivery. Tha
     }
 
     // =========================================================================
-    // 4. LIVE GOOGLE GEMINI FLASH INTELLIGENCE ENGINE (If connected & online)
+    // E. LIVE GOOGLE GEMINI FLASH INTELLIGENCE ENGINE (With Injected Context)
     // =========================================================================
-    const catalogSummary = allProducts.map(p =>
-      `- [${p.category}] ${p.title} | Price: Rs. ${p.price.toLocaleString()} | Stock: ${p.stock_quantity} units | Specs: ${Array.isArray(p.specs) ? p.specs.join(', ') : p.specs}`
+    const inventorySummary = allProducts.map(p =>
+      `- [${p.category}] ${p.title} | Price: Rs. ${p.price.toLocaleString()} PKR | Stock: ${p.stock_quantity} units | Key Specs: ${Array.isArray(p.specs) ? p.specs.join(', ') : p.specs}`
     ).join('\n');
 
-    const systemPrompt = `You are WhatsAssist AI, the official, intelligent, friendly, and expert Customer Resolution Agent for "${businessName}" (ZepTech Smart Electronics & E-Mobility Store) located at Shop #14, Main Market, Gulberg III, Lahore, Pakistan.
-Founder & Lead Engineer: Muhammad Ahmad Khan (24-ST-027), BS Software Engineering Technology, PTUT Lahore.
-Store Timings: Monday to Saturday 10:00 AM - 10:00 PM, Sunday 2:00 PM - 10:00 PM.
-Contact Phone: +92 300 1234567. Delivery: Free Cash on Delivery (COD) within 24-48 hours in Lahore. Nationwide courier delivery available.
-Warranties:
-- 3-Year motor & 1-Year lithium battery on E-Bikes
-- 10-Year compressor warranty on Inverter ACs & Refrigerators
-- 2-Year magnetron on Microwave & Convection Ovens
-- 30-Day satisfaction warranty on all repair & maintenance services.
+    const systemPrompt = `You are WhatsAssist AI, the official, intelligent, friendly, and context-aware customer resolution assistant for "${SHOP_METADATA.name}".
+Founder & Lead Engineer: ${SHOP_METADATA.founder}.
 
-LIVE STORE INVENTORY:
-${catalogSummary}
+=== SHOP CORE PROFILE ===
+- Store Name: ${SHOP_METADATA.name}
+- Location: ${SHOP_METADATA.location}
+- Operating Timings: ${SHOP_METADATA.timings}
+- Contact / WhatsApp: ${SHOP_METADATA.contactPhone}
+- Delivery Policy: ${SHOP_METADATA.deliveryPolicy}
+- Payment Methods: ${SHOP_METADATA.paymentMethods}
+- Warranties:
+  * E-Bikes: ${SHOP_METADATA.warranties.ebike}
+  * Inverter ACs & Refrigerators: ${SHOP_METADATA.warranties.acAndFridge}
+  * Microwave & Ovens: ${SHOP_METADATA.warranties.microwave}
+  * Repair Services: ${SHOP_METADATA.warranties.repairs}
 
-RAG KNOWLEDGE ASSETS:
-${activeContext || 'All standard ZepTech verified operating procedures and manuals apply.'}
+=== LIVE DATABASE INVENTORY (STRICT SOURCE OF TRUTH) ===
+${inventorySummary}
 
-CORE BEHAVIOR INSTRUCTIONS:
-1. Always answer the specific question asked directly, accurately, and politely.
-2. If the user asks in Urdu or Roman Urdu (e.g. "kya haal hai", "ac cooling nahi kar raha", "e-bike kitne ki hai"), reply in natural, fluent, friendly Roman Urdu.
-3. If they ask in English, reply in polished, professional English.
-4. For technical diagnostics (e.g. AC compressor tripping, microwave not heating, e-bike battery cut-off, fridge warm), give 2-3 step-by-step practical troubleshooting instructions.
-5. For pricing and stock, quote the EXACT prices from the live inventory above.
-6. To place an order, invite them to reply: "Order [Product Name], [Name], [Delivery Address in Lahore]" for instant Cash on Delivery confirmation.`;
+=== RAG KNOWLEDGE ASSETS ===
+${activeContext || 'All official ZepTech verified diagnostic steps, technical manuals, and warranties apply.'}
+
+=== DUAL-MODE OPERATIONAL GUIDELINES ===
+1. GENERAL / SMALL TALK MODE:
+   - If the user sends greetings (e.g. "Salam", "Hello", "Hi"), asks how you are ("Kaisay ho?", "Kya haal hai?"), inquires about shop timings or location, or expresses thanks ("Shukriya", "Thank you", "Ok"):
+   - Respond naturally, warmly, and like a polite human shop representative.
+   - DO NOT dump the full product catalog or unprompted price lists when the customer is merely saying hello or asking casual questions.
+
+2. SHOP & PRODUCT QUERY MODE:
+   - When the user asks about products, prices, stock availability, repairs, or technical problems:
+   - Answer directly using the exact details from the LIVE DATABASE INVENTORY above.
+   - For technical diagnostics (AC cooling issues, microwave heating failures, e-bike range/battery), provide 2-3 step practical troubleshooting advice.
+
+3. STRICT ANTI-HALLUCINATION GUARDRAILS:
+   - NEVER make up or invent products, models, or prices that are NOT listed in the LIVE DATABASE INVENTORY table above.
+   - If a customer asks for a product that is not in our inventory (e.g. mobile phones, laptops, solar panels, clothing, or out-of-stock items), politely explain that we do not carry that item, and invite them to explore our available inventory (Inverter ACs, E-Bikes, Microwave Ovens, Refrigerators, and Smart TVs).
+   - NEVER quote false prices or unauthorized discounts. Always quote exact prices from the inventory.
+
+4. LANGUAGE FLUENCY & TONE:
+   - If the customer writes in Roman Urdu or Urdu, respond in warm, natural, friendly, and respectful Roman Urdu.
+   - If the customer writes in English, respond in polished, professional, and friendly English.
+   - Keep answers clean, conversational, and direct.`;
 
     const liveAIResponse = await callLiveGemini(systemPrompt, query);
 
@@ -368,252 +473,238 @@ CORE BEHAVIOR INSTRUCTIONS:
     }
 
     // =========================================================================
-    // 5. AUTONOMOUS INTELLIGENT EXPERT ENGINE (Offline / Local NLP Engine)
-    // Runs when live Gemini API is offline, key is invalid, or without internet.
-    // Answers every domain question in fluent Roman Urdu or English!
+    // F. AUTONOMOUS INTELLIGENT EXPERT ENGINE (Offline / Sandbox NLP Engine)
+    // Runs when live Gemini API key is unconfigured or without external internet.
+    // Answers small talk, diagnostics, inventory queries, and FAQs fluently!
     // =========================================================================
 
-    // A. Greetings & Conversational Politeness
-    if (/^(salam|assalam|aoa|hello|hi|hey|kya haal|kaise ho|kese ho|good morning|good evening|adab)\b/i.test(qLower)) {
-      if (isUrdu) {
-        return `و علیکم السلام! *${businessName}* (اسمارٹ الیکٹرانکس اینڈ ای-موبیلٹی) میں خوش آمدید! 👋
-میں آپ کا AI کسٹمر اسسٹنٹ ہوں۔
+    // 1. Mode: General Small Talk & Casual Human Greetings
+    if (intentMode === 'MODE_GENERAL_CHAT') {
+      // Greetings & "Kaisay ho"
+      if (qLower.includes('kaise ho') || qLower.includes('kese ho') || qLower.includes('kaisay ho') || qLower.includes('kya haal') || qLower.includes('how are you')) {
+        if (isUrdu) {
+          return `Walaikum Assalam! Main bilkul theek hoon, Allah ka shukr hai. Aap sunayein, aap kaisay hain?
 
-ہم آپ کی درج ذیل معاملات میں مدد کر سکتے ہیں:
-1. 🛵 *اسمارٹ الیکٹرک بائیکس* (Lithium Battery, 80km Range, زیرو پٹرول خرچہ)
-2. ❄️ *ڈی سی انورٹر اے سی* (Gree Fairy اور Haier Puri - 60% بجلی بچت)
-3. 🍲 *بیکنگ اینڈ مائیکرو ویو اوون* (Dawlance & Haier Convection)
-4. 🧊 *ریفریجریٹر اور ایل ای ڈی ٹی وی* (4K UHD Smart Android)
-5. 🔧 *ہارڈویئر ریپیر اور وارنٹی ٹریکنگ* (ٹوکن جیسے REP-101)
-6. 🚚 *لاہور میں مفت کیش آن ڈلیوری (COD)*
+ZepTech Smart Electronics & E-Mobility mein aap ka khair-maqdam hai! Aaj main aap ki kis cheez mein madad kar sakta hoon?`;
+        }
+        return `Hello! I am doing great, thank you for asking! How are you doing today?
 
-آج ہم آپ کی کیا مدد کر سکتے ہیں؟`;
+Welcome to ${SHOP_METADATA.name}! How may I assist you today with our electronics, e-bikes, or repair services?`;
       }
-      return `Hello and welcome to *${businessName} Smart Electronics & E-Mobility*! 👋
-I am your WhatsAssist AI Assistant.
 
-How can I help you today?
-- 🛵 Explore **Smart E-Bikes** (70cc Lithium, 80km range, zero petrol cost)
-- ❄️ Inquire about **DC Inverter ACs** (Gree Fairy & Haier Puri Inverter)
-- 🍲 **Baking & Microwave Ovens** (Dawlance Convection & Grill)
-- 🧊 **Refrigerators & 4K Smart Android TVs**
-- 🛠️ Track an ongoing hardware repair (e.g. *REP-101*)
-- 🚚 Order with free **Cash on Delivery (COD)** in Lahore!
+      // Greetings: Salam / Hello / Hi
+      if (/^(salam|assalam|aoa|hello|hi|hey|good morning|good evening|adab)\b/i.test(qLower)) {
+        if (isUrdu) {
+          return `Walaikum Assalam! ZepTech Smart Electronics & E-Mobility Store mein khush-amdeed! 👋
 
-What would you like to know?`;
+Main aap ka AI shop assistant hoon. Hum aap ko Inverter ACs, Smart E-Bikes, Microwave Ovens, Refrigerators, LED TVs aur hardware repairs ke baray mein mukammal rehnumai aur best rates faraham karte hain.
+
+Aap kis product ya service ke baray mein janna chahtay hain?`;
+        }
+        return `Hello and welcome to ${SHOP_METADATA.name}! 👋
+
+I am your WhatsAssist AI shop assistant. We specialize in Inverter ACs, Smart E-Bikes, Baking Ovens, Refrigerators, 4K Smart TVs, and certified repair services.
+
+How can I help you today?`;
+      }
+
+      // Thanks & Gratitude
+      if (qLower.includes('thank') || qLower.includes('shukriya') || qLower.includes('jazakallah') || qLower.includes('meharbani')) {
+        if (isUrdu) {
+          return `Bohat bohat shukriya! Yeh hamara farz hai. Agar aap ko kisi bhi appliance ya e-bike ke baray mein mazeed koi maloomat chahiye ho ya order karna ho to zaroor batayein. Apna bohat khayal rakhein! 😊`;
+        }
+        return `You are very welcome! It is our pleasure to assist you. If you ever need any details on our products, warranties, or orders, feel free to message anytime. Have a wonderful day! 😊`;
+      }
+
+      // Acknowledgments: Theek hai / Ok / Acha
+      if (qLower === 'ok' || qLower === 'theek hai' || qLower === 'theek hy' || qLower === 'acha' || qLower === 'sahi' || qLower === 'done') {
+        if (isUrdu) {
+          return `Zabardast! Jab bhi aap ko kisi electronics item, e-bike ya repair service ki zaroorat ho, bas yahan message kar dein. ZepTech hamesha aap ki khidmat ke liye hazir hai!`;
+        }
+        return `Understood! Whenever you need any information, orders, or repair updates, just drop a message here. ZepTech is always ready to assist you!`;
+      }
+
+      // Store Timings & Operating Hours
+      if (qLower.includes('timing') || qLower.includes('time') || qLower.includes('hours') || qLower.includes('khulta') || qLower.includes('band')) {
+        if (isUrdu) {
+          return `ZepTech Store Timings & Operating Hours:
+- Monday se Saturday: Subah 10:00 AM se Raat 10:00 PM tak
+- Sunday: Dopehar 2:00 PM se Raat 10:00 PM tak
+
+Aap hamari shop Shop #14, Main Market, Gulberg III Lahore par visit kar saktay hain ya WhatsApp par 24/7 order book karwa saktay hain!`;
+        }
+        return `${SHOP_METADATA.name} Store Timings:
+- Monday – Saturday: 10:00 AM to 10:00 PM
+- Sunday: 2:00 PM to 10:00 PM
+
+You are warmly welcome to visit our experience center at Shop #14, Main Market, Gulberg III, Lahore, or order directly here via WhatsApp!`;
+      }
+
+      // Location & Address
+      if (qLower.includes('location') || qLower.includes('address') || qLower.includes('kahan') || qLower.includes('where') || qLower.includes('shop')) {
+        if (isUrdu) {
+          return `ZepTech Store Location:
+Address: Shop #14, Main Market, Gulberg III, Lahore, Pakistan.
+Contact: +92 300 1234567
+
+Tamam products par pure Lahore mein 24 se 48 ghante ke andar Free Cash on Delivery (COD) bhi dastiyab hai!`;
+        }
+        return `${SHOP_METADATA.name} Location & Address:
+Address: Shop #14, Main Market, Gulberg III, Lahore, Pakistan.
+Phone: +92 300 1234567
+
+Free Cash on Delivery (COD) within 24-48 hours is also available across all areas of Lahore!`;
+      }
+
+      // Identity & Owner
+      if (qLower.includes('who are you') || qLower.includes('kon ho') || qLower.includes('owner') || qLower.includes('ahmad khan') || qLower.includes('bot')) {
+        if (isUrdu) {
+          return `Main WhatsAssist AI hoon — ZepTech Smart Electronics & E-Mobility Store ka official intelligent customer assistant.
+
+Yeh platform Muhammad Ahmad Khan (24-ST-027), BS Software Engineering Technology, PTUT Lahore ne design aur develop kiya hai. Main real WhatsApp, live inventory aur Google Gemini AI ke sath kaam karta hoon.`;
+        }
+        return `I am WhatsAssist AI, the official customer representative for ${SHOP_METADATA.name}.
+Engineered by Muhammad Ahmad Khan (24-ST-027), BS Software Engineering Technology at Punjab Tianjin University of Technology (PTUT), Lahore.`;
+      }
     }
 
-    // B. Identity, Owner & Project Background
-    if (qLower.includes('who are you') || qLower.includes('kon ho') || qLower.includes('owner') ||
-        qLower.includes('ahmad khan') || qLower.includes('fyp') || qLower.includes('ptut') || qLower.includes('bot ho')) {
-      if (isUrdu) {
-        return `میں *WhatsAssist AI* ہوں — *${businessName} اسمارٹ الیکٹرانکس* کا باضابطہ خودکار اسسٹنٹ۔
-یہ جدید پراجیکٹ **محمد احمد خان (24-ST-027)** نے شعبہ سافٹ ویئر انجینئرنگ ٹیکنالوجی، **پنجاب تیانجن یونیورسٹی آف ٹیکنالوجی (PTUT) لاہور** میں تیار کیا ہے۔
-
-ہمارا نظام ریئل واٹس ایپ، مصنوعی ذہانت (Google Gemini AI + RAG)، اور خودکار آرڈر و ریپیر ٹریکنگ کے ساتھ کام کرتا ہے۔ دکان مین مارکیٹ، گلبرگ III لاہور میں واقع ہے۔`;
-      }
-      return `I am *WhatsAssist AI*, the intelligent customer agent for *${businessName} Smart Electronics & E-Mobility*.
-This enterprise solution was engineered by **Muhammad Ahmad Khan (24-ST-027)**, BS Software Engineering Technology at **Punjab Tianjin University of Technology (PTUT), Lahore**.
-
-Our platform features live WhatsApp integration, Google Gemini Generative AI, Retrieval-Augmented Generation (RAG), and autonomous order/repair tracking.`;
-    }
-
-    // C. Store Location, Address, Directions & Timings
-    if (qLower.includes('location') || qLower.includes('address') || qLower.includes('kahan') ||
-        qLower.includes('where') || qLower.includes('shop') || qLower.includes('timing') ||
-        qLower.includes('time') || qLower.includes('hours') || qLower.includes('khulta') || qLower.includes('band')) {
-      if (isUrdu) {
-        return `📍 *${businessName} دکان کا پتہ اور اوقات کار:*
-🏢 پتہ: **شاپ نمبر 14، مین مارکیٹ، گلبرگ III، لاہور، پاکستان**
-⏰ اوقات:
-• پیر تا ہفتہ: **صبح 10:00 بجے سے رات 10:00 بجے تک**
-• اتوار: **دوپہر 2:00 بجے سے رات 10:00 بجے تک**
-📞 رابطہ نمبر: **+92 300 1234567**
-🚚 ڈلیوری: پورے لاہور میں 24 سے 48 گھنٹے کے اندر فری کیش آن ڈلیوری (COD) دستیاب ہے۔ آپ تشریف بھی لا سکتے ہیں!`;
-      }
-      return `📍 *${businessName} Store Location & Operating Hours:*
-🏢 Address: **Shop #14, Main Market, Gulberg III, Lahore, Pakistan**
-⏰ Operating Hours:
-• Monday – Saturday: **10:00 AM to 10:00 PM**
-• Sunday: **2:00 PM to 10:00 PM**
-📞 Contact: **+92 300 1234567**
-🚚 Delivery: Free 24-48 hour Cash on Delivery across Lahore. You are always welcome to visit our experience center!`;
-    }
-
-    // D. Delivery, Shipping, COD & Payment Methods
-    if (qLower.includes('delivery') || qLower.includes('charges') || qLower.includes('cod') ||
-        qLower.includes('payment') || qLower.includes('jazzcash') || qLower.includes('easypaisa') ||
-        qLower.includes('bank') || qLower.includes('installment') || qLower.includes('qist')) {
-      if (isUrdu) {
-        return `🚚 *ڈلیوری اور پیمنٹ کی معلومات:*
-1. **لاہور میں ترسیل:** تمام پروڈکٹس پر **فری کیش آن ڈلیوری (Free COD)** 24 سے 48 گھنٹے کے اندر کی جاتی ہے۔
-2. **دیگر شہر:** ٹی سی ایس (TCS) اور لیپرڈ کوریئر کے ذریعے 3-4 کاروباری دنوں میں بحفاظت ترسیل۔
-3. **ادائیگی کے طریقے:**
-   • کیش آن ڈلیوری (COD - سامان چیک کر کے پیسے دیں)
-   • آن لائن بینک ٹرانسفر (Meezan / HBL / Bank Alfalah)
-   • جاز کیش (JazzCash) اور ایزی پیسہ (EasyPaisa)
-4. **آسان اقساط (Installments):** منتخب کریڈٹ کارڈز پر 0% مارک اپ کے ساتھ 3 سے 6 ماہ کی آسان اقساط دستیاب ہیں۔`;
-      }
-      return `🚚 *Delivery & Payment Options at ${businessName}:*
-1. **Free Cash on Delivery (COD):** Available across Lahore within 24-48 hours. Inspect before you pay!
-2. **Nationwide Shipping:** Dispatched via insured TCS/Leopard courier across Pakistan (3-4 working days).
-3. **Payment Methods:**
-   • Cash on Delivery (COD)
-   • Direct Bank Transfer (Meezan / HBL / Bank Alfalah)
-   • JazzCash & EasyPaisa
-4. **Easy Installment Plans (EMI):** 3 to 6-month installment plans available on major credit cards with 0% markup at our store.`;
-    }
-
-    // E. Warranty, Guarantee & Returns
-    if (qLower.includes('warranty') || qLower.includes('guarantee') || qLower.includes('return') ||
-        qLower.includes('claim') || qLower.includes('policy')) {
-      if (isUrdu) {
-        return `🛡️ *${businessName} وارنٹی اور ریٹرن پالیسی:*
-1. 🛵 **ای-بائیکس:** 3 سال موٹر وارنٹی اور 1 سال لتھیم بیٹری کی آفیشل وارنٹی۔
-2. ❄️ **انورٹر اے سی اور فریج:** 10 سال کمپریسر اور 1 سال کٹ وارنٹی۔
-3. 🍲 **مائیکروویو اور اوون:** 2 سال میگنیٹران (Magnetron) وارنٹی۔
-4. 🔧 **تمام ریپیر سروسز:** 30 دن کی اطمینان بخش منی بیک سروس وارنٹی۔
-5. 🔄 **7 دن کی ریپلیسمنٹ:** اگر پروڈکٹ میں کوئی مینوفیکچرنگ خرابی ہو تو 7 دن میں بل اور باکس کے ساتھ تبدیل کی جا سکتی ہے۔`;
-      }
-      return `🛡️ *${businessName} Official Warranty & Guarantee Policies:*
-1. 🛵 **Smart E-Bikes:** 3-Year motor warranty & 1-Year lithium battery warranty.
-2. ❄️ **Inverter ACs & Refrigerators:** 10-Year compressor warranty & 1-Year PCB circuit warranty.
-3. 🍲 **Microwave & Convection Ovens:** 2-Year magnetron heating warranty.
-4. 🔧 **All Repair Services:** 30-Day unconditional service guarantee.
-5. 🔄 **7-Day Return/Exchange:** Defective items with original packaging can be replaced within 7 days.`;
-    }
-
-    // F. Technical Support: AC Troubleshooting (Not cooling, tripping, gas, filters)
+    // 2. Technical Diagnostics: Inverter AC Troubleshooting
     const isAcFault = (qLower.includes('ac') || qLower.includes('cooling') || qLower.includes('split') || qLower.includes('air conditioner')) &&
                       (qLower.includes('not cooling') || qLower.includes('cooling nahi') || qLower.includes('cooling ni') ||
-                       qLower.includes('thanda nahi') || qLower.includes('thanda ni') || qLower.includes('thandi nahi') || qLower.includes('thandi ni') ||
-                       qLower.includes('trip') || qLower.includes('leak') || qLower.includes('error') || qLower.includes('fault') ||
-                       qLower.includes('cooling kam') || qLower.includes('gas') || qLower.includes('chalta nahi') || qLower.includes('chalta ni'));
+                       qLower.includes('thanda nahi') || qLower.includes('thanda ni') || qLower.includes('trip') ||
+                       qLower.includes('leak') || qLower.includes('gas') || qLower.includes('fault'));
 
     if (isAcFault) {
       if (isUrdu) {
-        return `❄️ *انورٹر اے سی کولنگ نہ کرنے پر رہنمائی (Technical Diagnostics):*
-اگر آپ کا اے سی چل رہا ہے لیکن ٹھنڈی ہوا نہیں دے رہا تو یہ 4 بنیادی اقدامات کریں:
-1. **فلٹر چیک کریں:** انڈور یونٹ کا فرنٹ پینل کھول کر دونوں ایئر فلٹرز نیم گرم پانی سے دھوئیں (گرد سے ہوا بلاک ہو جاتی ہے)۔
-2. **ریموٹ سیٹنگ:** یقینی بنائیں کہ ریموٹ **COOL موڈ** پر ہے اور ٹمپریچر 24°C یا 22°C سیٹ ہے (FAN یا DRY موڈ پر نہ ہو)۔
-3. **آؤٹ ڈور کمپریسر چیک کریں:** 3 منٹ بعد چیک کریں کہ باہر والا فین اور کمپریسر چل رہا ہے۔ اگر کمپریسر ٹرپ کر رہا ہے تو کیپیسیٹر یا وولٹیج کا مسئلہ ہے۔
-4. **گیس کا معائنہ:** اگر پائپوں پر برف (Frost) جم رہی ہو تو ریفریجرینٹ گیس لیک ہو سکتی ہے۔
+        return `Inverter AC Cooling Issue Diagnostics (Engineering Guide):
+Agar aap ka AC chal raha hai magar cooling nahi kar raha to yeh 4 cheezein check karein:
+1. Air Filters: Indoor unit ka front cover khol kar dono filters saaf karein. Blocked filters se 60% cooling drop ho jati hai.
+2. Remote Setting: Remote par check karein ke 'COOL' mode (snowflake icon) set ho aur temperature 22°C ya 24°C ho (FAN ya DRY mode par na ho).
+3. Outdoor Unit & Compressor: Check karein ke outdoor fan aur compressor chal rahe hain. Agar compressor awaz de kar trip kar jata hai to run-capacitor ya PCB circuit board ka issue ho sakta hai.
+4. Gas Leakage: Agar indoor ke copper pipes par baraf (frost) jam rahi hai to gas leak hone ka imkaan hai.
 
-🔧 اگر مسئلہ حل نہ ہو تو ہمارا مستند ٹیکنیشن آپ کے گھر آ کر مکمل تسلی کے ساتھ چیک کر سکتا ہے۔ ریپیر بک کرنے کیلئے رابطہ کریں۔`;
+Agar issue solve na ho to hamare certified technician ki home service visit book karwane ke liye humein yahan batayein (30-day service warranty shamil hai).`;
       }
-      return `❄️ *Inverter AC Diagnostic & Troubleshooting Guide:*
-If your AC runs but is not cooling effectively, follow these 4 engineering troubleshooting steps:
-1. **Clean Air Filters:** Open the indoor panel and wash both filters. Blocked filters reduce airflow by over 60%.
-2. **Verify Remote Mode:** Ensure your remote is set to **COOL mode** (snowflake icon) at 24°C or 22°C, not FAN or DRY mode.
-3. **Inspect Outdoor Unit:** Check if the outdoor compressor hums and fan spins. If it hums and clicks off, the run capacitor or PCB board requires bench testing.
-4. **Check for Frost/Ice:** Frost on the thin copper pipe indicates refrigerant gas leakage or an expansion valve blockage.
+      return `Inverter AC Technical Diagnostic Guide:
+If your AC is running but failing to cool properly, check these 4 points:
+1. Clean Air Filters: Dirty filters choke airflow by over 60%. Rinse them with lukewarm water.
+2. Verify Remote Mode: Ensure the remote is strictly on COOL mode (snowflake icon) at 24°C, not FAN or DRY mode.
+3. Check Outdoor Compressor: Inspect if the outdoor compressor hums and fan rotates. Frequent tripping indicates a failed capacitor or PCB voltage fault.
+4. Check for Frost/Ice: Frost on copper pipe flares indicates low refrigerant gas pressure.
 
-🔧 ZepTech offers certified home technician visits across Lahore with a 30-day service warranty. Reply here to schedule an inspection!`;
+ZepTech provides certified technician home visits across Lahore backed by a 30-day service warranty!`;
     }
 
-    // G. Technical Support: Microwave Oven Troubleshooting (Not heating, sparking)
-    const isOvenFault = (qLower.includes('oven') || qLower.includes('microwave') || qLower.includes('micro wave')) &&
-                        (qLower.includes('garam') || qLower.includes('heat') || qLower.includes('spark') ||
-                         qLower.includes('blast') || qLower.includes('awaz') || qLower.includes('plate') ||
-                         qLower.includes('kharab') || qLower.includes('shola'));
+    // 3. Technical Diagnostics: Microwave Oven Troubleshooting
+    const isOvenFault = (qLower.includes('oven') || qLower.includes('microwave')) &&
+                        (qLower.includes('garam') || qLower.includes('heat') || qLower.includes('spark') || qLower.includes('kharab'));
 
     if (isOvenFault) {
       if (isUrdu) {
-        return `🍲 *مائیکروویو اوون گرم نہ کرنے کی وجوہات اور حل:*
-1. **میگنیٹران (Magnetron) کی کمزوری:** اگر اوون روشن ہے اور گھوم رہا ہے مگر کھانا ٹھنڈا رہتا ہے تو ہائی وولٹیج ڈائیوڈ (Diode) یا میگنیٹران جل چکا ہے۔
-2. **ہائی وولٹیج فیوز:** اندرونی پروٹیکشن فیوز اڑ جانے سے ہیٹنگ مکمل بند ہو جاتی ہے۔
-3. **اندر چنگاریاں (Sparking):** اندر والی میکا شیٹ (Mica Waveguide Cover) پر چکنائی لگنے سے اسپارک پیدا ہوتا ہے۔ اسے صاف کریں یا 300 روپے میں تبدیل کرائیں۔
+        return `Microwave Oven Not Heating Diagnostics:
+1. Magnetron / High Voltage Diode: Agar oven chalta hai aur plate ghoomti hai magar khana garam nahi hota to magnetron tube ya diode kamzor ho chuka hai.
+2. High Voltage Fuse: Bijli ke jhatkay (power surges) se internal 5kV protection fuse urr jata hai.
+3. Sparking / Sholay: Agar andar sparking ho rahi hai to right-side wali Mica Waveguide sheet par oil laga hota hai, usay saaf karein ya replace karwayen.
 
-⚠️ *اہم احتیاط:* مائیکروویو کو خود نہ کھولیں کیونکہ کپیسیٹر میں 2000 وولٹ سے زیادہ کرنٹ محفوظ ہوتا ہے۔ ہماری ورکشاپ لائیں، 30 منٹ میں ڈائیگنوس ہو جائے گا!`;
+Safety Warning: Microwave oven ko kabhi khud mat kholein kyunke iska capacitor band halat mein bhi 2000 Volts se zyada current store rakhta hai. Hamari workshop Shop #14 Main Market Gulberg III layen, 30 minutes mein bench test ho jaye ga!`;
       }
-      return `🍲 *Microwave Oven Not Heating - Troubleshooting Steps:*
-1. **Failed Magnetron or Diode:** If the timer runs and turntable rotates but food stays cold, the high-voltage diode or magnetron tube has failed.
-2. **Blown High-Voltage Fuse:** Power surges frequently trip the internal 5kV protection fuse.
-3. **Internal Sparking:** Arcing occurs when food residue accumulates on the Mica waveguide cover sheet on the right inner wall. Replace the mica sheet immediately.
+      return `Microwave Oven Not Heating - Technical Troubleshooting:
+1. Magnetron / Diode Failure: If the turntable spins and light operates but food remains cold, the high-voltage diode or magnetron has failed.
+2. Internal High-Voltage Fuse: Power spikes often blow the 5kV safety fuse.
+3. Internal Sparking / Arcing: Residue on the Mica waveguide cover creates sparks. Clean or replace the mica sheet immediately.
 
-⚠️ *Safety Warning:* Never disassemble a microwave oven yourself. The high-voltage capacitor stores over 2,000V even when unplugged. Bring it to ZepTech for safe 30-minute diagnosis!`;
+Safety Caution: Never open a microwave yourself; high-voltage capacitors retain dangerous charge. Bring it to ZepTech for safe 30-minute diagnosis!`;
     }
 
-    // H. Technical Support: E-Bike Battery & Mileage (Range, charging, battery drain)
+    // 4. Technical Diagnostics: E-Bike Battery & Mileage
     if ((qLower.includes('bike') || qLower.includes('ebike') || qLower.includes('battery')) &&
-        (qLower.includes('range') || qLower.includes('km') || qLower.includes('charge') ||
-         qLower.includes('drain') || qLower.includes('speed') || qLower.includes('chalti'))) {
+        (qLower.includes('range') || qLower.includes('km') || qLower.includes('charge') || qLower.includes('speed') || qLower.includes('chalti'))) {
       if (isUrdu) {
-        return `🛵 *زیپ ٹیک تھنڈر ای-بائیک (ZepTech Thunder E-Bike) کی خصوصیات:*
-• **ایک چارج پر مائلیج:** **70 سے 80 کلومیٹر** حقیقی رینج (لاہور کے روڈز پر تصدیق شدہ)
-• **بیٹری ٹیکنالوجی:** **60V / 24Ah Grade-A Lithium-ion** (3 سال لائف سائیکل)
-• **چارجنگ کا وقت:** عام 220V ساکٹ پر **3.5 سے 4 گھنٹے** میں فل چارج
-• **ٹاپ اسپیڈ:** **60 کلومیٹر فی گھنٹہ** (3 اسپیڈ موڈز: Eco, Normal, Sports)
-• **خرچہ بچت:** صرف **0.70 روپے فی کلومیٹر**، جبکہ 70cc پٹرول بائیک کا خرچہ 7-8 روپے فی کلومیٹر ہے۔ آپ ماہانہ **15,000 سے 20,000 روپے** پٹرول بچا سکتے ہیں!
-• **قیمت:** **Rs. 145,000** (کیش آن ڈلیوری اور ٹیسٹ رائیڈ دستیاب)`;
+        return `ZepTech Thunder 70cc Smart E-Bike Technical Performance:
+- Range: 70 se 80 km per full charge (Verified urban driving range)
+- Battery: 60V / 24Ah Grade-A Lithium-ion (Intelligent BMS protection ke sath, 3 saal life cycle)
+- Charging Time: 3.5 se 4 ghante aam 220V household socket par
+- Top Speed: 60 km/h (3 digital speed modes: Eco, Normal, Sport)
+- Petrol Savings: Running cost sirf Rs. 0.70 per km hai (jabke petrol bike Rs. 7.50/km leti hai). Mahana Rs. 18,000+ ki bachat!
+- Price: Rs. 145,000 (3-Year motor & 1-Year battery replacement warranty shamil)`;
       }
-      return `🛵 *ZepTech Thunder 70cc E-Bike Technical Performance:*
-• **Range per Full Charge:** **70 to 80 km** real-world range across urban driving conditions.
-• **Battery Specification:** **60V / 24Ah Grade-A Lithium-ion** with intelligent BMS protection.
-• **Charging Time:** **3.5 to 4 hours** on a standard household 220V wall socket.
-• **Top Speed:** **60 km/h** with 3 digital speed governors (Eco, Normal, Sport).
-• **Cost Comparison:** Running cost is only **Rs. 0.70/km** vs **Rs. 7.50/km** for petrol 70cc bikes — saving over **Rs. 18,000 every month**!
-• **Price:** **Rs. 145,000** with a 3-Year motor & 1-Year battery replacement warranty.`;
+      return `ZepTech Thunder 70cc Smart E-Bike Performance Specs:
+- Range: 70 to 80 km real-world range per full charge
+- Battery: 60V / 24Ah Grade-A Lithium-ion with smart BMS protection
+- Charging Time: 3.5 to 4 hours on standard 220V home outlet
+- Top Speed: 60 km/h with 3 digital speed modes
+- Cost Savings: Rs. 0.70/km vs Rs. 7.50/km on petrol 70cc bikes (saves over Rs. 18,000 monthly)
+- Price: Rs. 145,000 with 3-Year motor and 1-Year battery warranty!`;
     }
 
-    // I. Product Pricing & Specific Model Inquiries
+    // 5. Product Pricing & Catalog Inquiry from Live Database
     if (matchingCategoryProducts.length > 0) {
       const topP = matchingCategoryProducts[0];
+      const specsText = Array.isArray(topP.specs) ? topP.specs.join(', ') : topP.specs;
       if (isUrdu) {
-        const specsText = Array.isArray(topP.specs) ? topP.specs.join(', ') : topP.specs;
-        const reply = `🛒 *${businessName} پروڈکٹ کی تفصیل:*
-🏷️ آئٹم: *${topP.title}*
-📂 کیٹیگری: ${topP.category}
-💰 قیمت: *Rs. ${topP.price.toLocaleString()}*
-📦 اسٹاک: *${topP.stock_quantity > 0 ? `${topP.stock_quantity} یونٹس دستیاب ہیں` : 'اسٹاک ختم (اگلے 2 دن میں آرڈر پر دستیاب)'}*
-⚡ خصوصیات: ${specsText}
+        const reply = `ZepTech Product Information:
+Item: ${topP.title}
+Category: ${topP.category}
+Price: Rs. ${topP.price.toLocaleString()} PKR
+Stock Status: ${topP.stock_quantity > 0 ? `${topP.stock_quantity} units available` : 'Out of stock (Restocking in 48 hours)'}
+Key Specifications: ${specsText}
+Delivery: Free Cash on Delivery in Lahore within 24-48 hours.
 
-آرڈر کرنے کیلئے اپنا نام اور پتہ لکھ کر بھیجیں، کیش آن ڈلیوری کے ساتھ بھیج دیا جائے گا!`;
+Order karne ke liye apna Name aur Delivery Address yahan reply karein!`;
         return cardsJson ? `${reply}<!-- PRODUCT_CARDS: ${cardsJson} -->` : reply;
       }
 
-      const specsText = Array.isArray(topP.specs) ? topP.specs.join(', ') : topP.specs;
-      const reply = `🛒 *${businessName} Product Information:*
-🏷️ Model: *${topP.title}*
-📂 Category: ${topP.category}
-💰 Price: *Rs. ${topP.price.toLocaleString()}*
-📦 In-Stock Status: *${topP.stock_quantity > 0 ? `${topP.stock_quantity} units available` : 'Restocking in 48 hours'}*
-⚡ Specifications: ${specsText}
+      const reply = `${businessName} Product Information:
+Model: ${topP.title}
+Category: ${topP.category}
+Price: Rs. ${topP.price.toLocaleString()} PKR
+In-Stock: ${topP.stock_quantity > 0 ? `${topP.stock_quantity} units available` : 'Currently Restocking'}
+Specifications: ${specsText}
+Delivery: Free 24-48 hour Cash on Delivery across Lahore.
 
-Reply with *"Order ${topP.title}, [Your Name], [Delivery Address in Lahore]"* for instant Cash on Delivery confirmation!`;
+To place an order, simply reply with your Name and Lahore Delivery Address!`;
       return cardsJson ? `${reply}<!-- PRODUCT_CARDS: ${cardsJson} -->` : reply;
     }
 
-    // J. RAG Document Ingestion Fallback
+    // 6. RAG Context Fallback if available
     if (activeContext && activeContext.length > 20) {
       if (isUrdu) {
-        return `ہمارے ریکارڈز کے مطابق:\n\n${activeContext}\n\nمزید کسی تفصیل، آرڈر یا رہنمائی کیلئے ہمیں ضرور بتائیں۔ ہم آپ کی خدمت کیلئے حاضر ہیں!`;
+        return `Hamare store records ke mutabiq:
+
+${activeContext}
+
+Kisi bhi mazeed maloomat, technical advice ya order booking ke liye humein zaroor batayein!`;
       }
-      return `According to our store knowledge base:\n\n${activeContext}\n\nLet us know if you need additional details, technical advice, or order placement assistance!`;
+      return `According to our store knowledge base:
+
+${activeContext}
+
+Please let us know if you would like more details, troubleshooting assistance, or to place an order!`;
     }
 
-    // K. Intelligent General Conversational Response
+    // 7. General Shop Assistant Overview
     if (isUrdu) {
-      return `آپ کے سوال کا شکریہ! *${businessName} اسمارٹ الیکٹرانکس* پر ہمارے پاس درج ذیل کیٹیگریز دستیاب ہیں:
-1. 🛵 **الیکٹرک بائیکس (E-Bikes):** زیرو پٹرول، 80km رینج (Rs. 98,000 سے 145,000)
-2. ❄️ **انورٹر اے سی (Inverter ACs):** Gree & Haier 1.5 ٹن اور 1 ٹن T3 ٹروپیکل (Rs. 138,000 سے 154,000)
-3. 🍲 **بیکنگ اینڈ مائیکرو ویو اوون:** Dawlance & Haier Convection (Rs. 32,000 سے 38,500)
-4. 🧊 **ریفریجریٹرز اور 4K اسمارٹ ایل ای ڈیز:** Samsung & TCL Smart Android
-5. 🔧 **ریپیر سروسز اور ہوم وزٹ:** کسی بھی ڈیوائس کی مرمت اور وارنٹی چیکنگ
+      return `Aap ke rabte ka shukriya! ZepTech Smart Electronics & E-Mobility par hamare paas yeh items dastiyab hain:
+1. Smart E-Bikes (70-80 km lithium range, Rs. 98,000 se 145,000)
+2. DC Inverter ACs (Gree & Haier 1.5 Ton & 1 Ton T3 Inverter, Rs. 138,000 se 154,000)
+3. Baking & Microwave Ovens (Dawlance & Haier Convection, Rs. 32,000 se 38,500)
+4. Refrigerators & 4K Smart Android TVs (Rs. 89,000 se 115,000)
+5. Hardware Repair Diagnostics (REP-xxx token tracking)
+6. Free Cash on Delivery (COD) across Lahore!
 
-آپ کسی بھی پروڈکٹ کا نام لکھ کر اس کی قیمت یا تفصیل معلوم کر سکتے ہیں، یا ریپیر ٹوکن (جیسے REP-101) چیک کر سکتے ہیں۔`;
+Aap kisi bhi item ka rate ya details maloom karne ke liye product ka naam likh kar bhej saktay hain.`;
     }
 
-    return `Thank you for reaching out to *${businessName} Smart Electronics & E-Mobility*!
+    return `Thank you for reaching out to ${SHOP_METADATA.name}!
 We specialize in:
-1. 🛵 **Smart E-Bikes:** 70-80 km lithium range, zero fuel expense (Rs. 98,000 – 145,000)
-2. ❄️ **DC Inverter ACs:** Gree Fairy & Haier Puri T3 Inverters (Rs. 138,000 – 154,000)
-3. 🍲 **Convection & Baking Microwave Ovens:** Dawlance & Haier (Rs. 32,000 – 38,500)
-4. 🧊 **Inverter Refrigerators & 4K Smart Android TVs:** Dawlance, Samsung & TCL
-5. 🔧 **Hardware Repair Diagnostics:** Check token status (e.g. *REP-101*) or schedule technician home visits
-6. 🚚 **Free Cash on Delivery (COD) across Lahore!**
+1. Smart E-Bikes (70-80 km lithium range, zero fuel expense, Rs. 98,000 - 145,000)
+2. DC Inverter ACs (Gree & Haier T3 Inverters, Rs. 138,000 - 154,000)
+3. Convection & Microwave Ovens (Dawlance & Haier, Rs. 32,000 - 38,500)
+4. Inverter Refrigerators & 4K Smart Android TVs (Rs. 89,000 - 115,000)
+5. Hardware Repair Diagnostics & Token Tracking (e.g. REP-101)
+6. Free Cash on Delivery (COD) within 24-48 hours across Lahore!
 
-Please let us know which product model or service you would like details on!`;
+Please tell us what product or service you are interested in!`;
   }
 };
 
