@@ -1,16 +1,16 @@
 # PTUT Final Year Project (FYP-I) Deliverable
 ## Week 11: Real-Time Synchronization, Automated Testing & System Verification
 
-**Project Title:** WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
-**Commercial Brand / Domain:** ZepTech Smart Electronics & E-Mobility Store  
-**Project ID:** PTUT-PRJ-002  
-**Student Name:** Muhammad Ahmad Khan  
-**Roll Number:** 24-ST-027  
-**Degree & Section:** BS Software Engineering Technology (SET-A)  
-**Department:** Department of Software Engineering Technology  
-**Institution:** Punjab Tianjin University of Technology (PTUT), Lahore  
-**Supervisor:** Dr. Zaigham Mushtaq  
-**Submission Week:** Week 11  
+Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
+Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
+Project ID: PTUT-PRJ-002  
+Student Name: Muhammad Ahmad Khan  
+Roll Number: 24-ST-027  
+Degree & Section: BS Software Engineering Technology (SET-A)  
+Department: Department of Software Engineering Technology  
+Institution: Punjab Tianjin University of Technology (PTUT), Lahore  
+Supervisor: Dr. Zaigham Mushtaq  
+Submission Week: Week 11  
 
 ---
 
@@ -89,17 +89,17 @@ sequenceDiagram
     API-->>Owner: Order List (ZP-ORD-1004 Included Real-Time)
 ```
 
-* **Latency:** Synchronous reflection completed within **120 ms**.
-* **Integrity:** Zero orphaned orders or phantom stock decrements.
+- Latency: Synchronous reflection completed within **120 ms**.
+- Integrity: Zero orphaned orders or phantom stock decrements.
 
 ---
 
 ## 4. Security & OWASP Top 10 Hardening
 
-1. **Broken Access Control (A01):** Role-checking middleware (`requireRole('merchant')`) blocks customer tokens from modifying product prices or toggling human agent takeovers.
-2. **Cryptographic Failures (A02):** All passwords salted and hashed via Bcrypt; JWT signed with 256-bit secret.
-3. **Injection (A03):** E.164 phone regex and string sanitizers neutralize SQL, JSON, and XSS injection vectors.
-4. **Security Misconfiguration (A05):** Strict CORS policies restricting unauthorized external origins.
+1. Broken Access Control (A01): Role-checking middleware (`requireRole('merchant')`) blocks customer tokens from modifying product prices or toggling human agent takeovers.
+2. Cryptographic Failures (A02): All passwords salted and hashed via Bcrypt; JWT signed with 256-bit secret.
+3. Injection (A03): E.164 phone regex and string sanitizers neutralize SQL, JSON, and XSS injection vectors.
+4. Security Misconfiguration (A05): Strict CORS policies restricting unauthorized external origins.
 
 ---
 

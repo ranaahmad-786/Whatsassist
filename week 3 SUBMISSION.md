@@ -2,8 +2,8 @@
 
 ## WhatsAssist: WhatsApp AI Customer Resolution Agent for Local Businesses
 
-**Document Version:** 1.0  
-**Phase:** Week 3 Architecture & Design Deliverable
+Document Version: 1.0  
+Phase: Week 3 Architecture & Design Deliverable
 
 ---
 
@@ -55,19 +55,19 @@ WhatsAssist follows a decoupled, cloud-native **3-Tier Architecture** optimized 
 
 ### Infrastructure Layer Breakdown
 
-1. **Client Tier:**
-   * **WhatsApp UI:** Consumer interface for incoming/outgoing messages processed through Meta Cloud API.
-   * **Merchant Portal:** Modern web interface built with React.js/Next.js for business managers to configure knowledge bases, monitor live chats, and handle escalations.
+1. Client Tier: 
+   - WhatsApp UI: Consumer interface for incoming/outgoing messages processed through Meta Cloud API.
+   - Merchant Portal: Modern web interface built with React.js/Next.js for business managers to configure knowledge bases, monitor live chats, and handle escalations.
 
-2. **API / Application Server Tier:**
-   * **API Gateway:** Manages incoming webhooks, TLS termination, CORS, and API rate limiting.
-   * **Node.js / Express or Python FastAPI Backend:** Stateless service handling authentication, webhook payloads, prompt construction, LLM calls, and real-time dashboard events via WebSockets.
-   * **RAG Orchestrator:** Processes PDF/Text knowledge base uploads, generates vector embeddings, and executes semantic retrieval pipeline.
+2. API / Application Server Tier: 
+   - API Gateway: Manages incoming webhooks, TLS termination, CORS, and API rate limiting.
+   - Node.js / Express or Python FastAPI Backend: Stateless service handling authentication, webhook payloads, prompt construction, LLM calls, and real-time dashboard events via WebSockets.
+   - RAG Orchestrator: Processes PDF/Text knowledge base uploads, generates vector embeddings, and executes semantic retrieval pipeline.
 
-3. **Database Tier:**
-   * **PostgreSQL:** Stores transactional data (users, business accounts, chat logs, lead details, appointments).
-   * **Vector DB (Pinecone / Qdrant / Pgvector):** Stores document chunks and high-dimensional embeddings for similarity search.
-   * **Redis Cache:** Handles active chat session states, human agent handoff locks, and API rate limiting.
+3. Database Tier: 
+   - PostgreSQL: Stores transactional data (users, business accounts, chat logs, lead details, appointments).
+   - Vector DB (Pinecone / Qdrant / Pgvector): Stores document chunks and high-dimensional embeddings for similarity search.
+   - Redis Cache: Handles active chat session states, human agent handoff locks, and API rate limiting.
 
 ---
 
@@ -95,16 +95,16 @@ Defining explicit boundaries ensures system security, operational clarity, and c
                            +----------------------------------+
 ```
 
-* **Inside System Boundary (Managed by WhatsAssist):**
-  * Core API server logic, Webhook ingestion, and RAG execution pipeline.
-  * Merchant database schemas (PostgreSQL) and Vector embeddings database.
-  * Merchant Admin React Dashboard application.
-  * Escalation state machine and human handoff routing logic.
+- Inside System Boundary (Managed by WhatsAssist): 
+  - Core API server logic, Webhook ingestion, and RAG execution pipeline.
+  - Merchant database schemas (PostgreSQL) and Vector embeddings database.
+  - Merchant Admin React Dashboard application.
+  - Escalation state machine and human handoff routing logic.
 
-* **Outside System Boundary (External Dependencies):**
-  * **Meta WhatsApp Cloud API Infrastructure:** Delivery and delivery receipts of WhatsApp messages.
-  * **Third-Party LLM Infrastructure (OpenAI / Anthropic):** Execution of text generation prompts based on provided context.
-  * **Customer Mobile Devices:** Local storage and display of WhatsApp messages.
+- Outside System Boundary (External Dependencies): 
+  - Meta WhatsApp Cloud API Infrastructure: Delivery and delivery receipts of WhatsApp messages.
+  - Third-Party LLM Infrastructure (OpenAI / Anthropic): Execution of text generation prompts based on provided context.
+  - Customer Mobile Devices: Local storage and display of WhatsApp messages.
 
 ---
 
@@ -179,11 +179,11 @@ The Level 1 DFD decomposes the system into core sub-processes, databases, and me
 
 | Layer / Subsystem | Chosen Technology Stack | Alternative Evaluated | Justification for Selection |
 | :--- | :--- | :--- | :--- |
-| **Backend API Server** | **Node.js (Express) / Python (FastAPI)** | Java Spring Boot | Excellent asynchronous I/O capabilities for high-throughput messaging webhooks; native JSON handling and vast ecosystem for API integrations. |
-| **Relational Database** | **PostgreSQL (Supabase / Managed RDS)** | MongoDB | Structured relationships between merchants, customers, appointments, and leads require strict transactional integrity (ACID compliance) and relational constraints. |
-| **Vector Database** | **Pinecone / Pgvector** | ChromaDB (Local File) | Managed Pinecone or Pgvector provides production-grade vector search scalability, low query latency ($\le 250\text{ ms}$), and simplified multi-tenant index isolation. |
-| **Frontend Framework** | **React.js / Next.js** | Angular / Vue | Server-side rendering support, rich UI component libraries (Tailwind UI / Shadcn), fast client navigation, and efficient WebSocket handling for real-time chat dashboard update. |
-| **Hosting & Cloud Platform**| **Render / Vercel / AWS EC2** | On-Premise Server | Managed cloud deployment offers zero-downtime automated deployments, auto-scaling capabilities, $99.5\%+$ SLA guarantees, and minimal infrastructure maintenance overhead for an SMB product. |
+| Backend API Server | Node.js (Express) / Python (FastAPI) | Java Spring Boot | Excellent asynchronous I/O capabilities for high-throughput messaging webhooks; native JSON handling and vast ecosystem for API integrations. |
+| Relational Database | PostgreSQL (Supabase / Managed RDS) | MongoDB | Structured relationships between merchants, customers, appointments, and leads require strict transactional integrity (ACID compliance) and relational constraints. |
+| Vector Database | Pinecone / Pgvector | ChromaDB (Local File) | Managed Pinecone or Pgvector provides production-grade vector search scalability, low query latency ($\le 250\text{ ms}$), and simplified multi-tenant index isolation. |
+| Frontend Framework | React.js / Next.js | Angular / Vue | Server-side rendering support, rich UI component libraries (Tailwind UI / Shadcn), fast client navigation, and efficient WebSocket handling for real-time chat dashboard update. |
+| Hosting & Cloud Platform | Render / Vercel / AWS EC2 | On-Premise Server | Managed cloud deployment offers zero-downtime automated deployments, auto-scaling capabilities, $99.5\%+$ SLA guarantees, and minimal infrastructure maintenance overhead for an SMB product. |
 
 24-ST-027
    M.Ahmad Khan

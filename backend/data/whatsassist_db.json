@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-10-30T12:19:12.894Z",
+      "updated_at": "2026-10-31T13:24:15.789Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -24,7 +24,7 @@
       "role": "customer",
       "is_active": 1,
       "created_at": "2026-10-25T08:50:27.621Z",
-      "updated_at": "2026-10-30T07:20:41.054Z"
+      "updated_at": "2026-10-31T13:23:36.301Z"
     }
   ],
   "whatsapp_configs": [
@@ -394,9 +394,9 @@
       "whatsapp_phone": "+234114607218715",
       "customer_name": "Ayesha Aslam",
       "first_seen_at": "2026-10-30T12:21:01.759Z",
-      "last_active_at": "2026-10-30T12:22:07.264Z",
+      "last_active_at": "2026-10-31T13:22:22.713Z",
       "created_at": "2026-10-30T12:21:01.767Z",
-      "updated_at": "2026-10-30T12:22:07.269Z"
+      "updated_at": "2026-10-31T13:22:22.718Z"
     },
     {
       "id": "445b3ff6-914f-4fbd-9103-7f6f6ccc1e2e",
@@ -1187,6 +1187,17 @@
       "extracted_details": "{\"order_code\":\"ZP-ORD-3363\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"phone\":\"+241790082908344\"}",
       "created_at": "2026-10-30T14:22:15.022Z",
       "updated_at": "2026-10-30T14:22:15.022Z"
+    },
+    {
+      "id": "b655f346-b717-47a4-bfcd-0a3c4c055da7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "session_id": "portal_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-9468\",\"items\":[\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\"],\"amount\":38500}",
+      "created_at": "2026-10-31T13:24:04.959Z",
+      "updated_at": "2026-10-31T13:24:04.959Z"
     }
   ],
   "products": [
@@ -1196,7 +1207,7 @@
       "title": "ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)",
       "category": "E-Bikes",
       "price": 145000,
-      "stock_quantity": 3,
+      "stock_quantity": 6,
       "specs": [
         "48V 24Ah Lithium-Ion Battery",
         "80km Range Per Single Charge",
@@ -1209,7 +1220,7 @@
       "inquiry_count": 88,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-30T14:22:15.003Z"
+      "updated_at": "2026-10-31T13:18:07.626Z"
     },
     {
       "id": "prod-ebike-eco-02",
@@ -1238,7 +1249,7 @@
       "title": "Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)",
       "category": "Ovens & Kitchen",
       "price": 38500,
-      "stock_quantity": 8,
+      "stock_quantity": 7,
       "specs": [
         "30L Large Capacity Cavity",
         "Convection Baking + Grill + Microwave",
@@ -1251,7 +1262,7 @@
       "inquiry_count": 67,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-28T07:49:54.232Z"
+      "updated_at": "2026-10-31T13:24:04.939Z"
     },
     {
       "id": "prod-oven-haier-04",
@@ -1272,7 +1283,7 @@
       "inquiry_count": 45,
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-26T09:13:33.427Z"
+      "updated_at": "2026-10-31T13:18:26.685Z"
     },
     {
       "id": "prod-ac-gree-05",
@@ -1698,30 +1709,31 @@
         }
       ],
       "total_amount": 142000,
-      "order_status": "CONFIRMED",
+      "order_status": "DELIVERED",
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-10-30T12:45:51.101Z",
-      "updated_at": "2026-10-30T12:45:51.101Z"
+      "updated_at": "2026-10-31T13:19:08.397Z"
     },
     {
-      "id": "3c9d27b0-c127-4a1d-bc9d-20a48f60b2e8",
-      "order_code": "ZP-ORD-3363",
+      "id": "d288584e-5bea-4774-ac20-27bfb606b54a",
+      "order_code": "ZP-ORD-9468",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "customer_name": "Sajida Noreen",
-      "customer_phone": "+241790082908344",
-      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "customer_name": "Ahmad ",
+      "customer_phone": "03314228724",
+      "delivery_address": "House 42, Gulberg III, Lahore",
       "items": [
         {
-          "title": "ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)",
-          "price": 145000,
+          "title": "Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)",
+          "price": 38500,
           "quantity": 1
         }
       ],
-      "total_amount": 145000,
-      "order_status": "CONFIRMED",
+      "total_amount": 38500,
+      "order_status": "DISPATCHED",
       "payment_method": "Cash on Delivery (COD)",
-      "created_at": "2026-10-30T14:22:15.013Z",
-      "updated_at": "2026-10-30T14:22:15.013Z"
+      "created_at": "2026-10-31T13:24:04.948Z",
+      "updated_at": "2026-10-31T13:24:26.213Z"
     }
   ],
   "repairs": [

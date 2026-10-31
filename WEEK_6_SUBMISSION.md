@@ -1,16 +1,16 @@
 # PTUT Final Year Project (FYP-I) Deliverable
 ## Week 6: Core Business Logic & End-to-End Vertical Slice
 
-**Project Title:** WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
-**Commercial Brand / Domain:** ZepTech Smart Electronics & E-Mobility Store  
-**Project ID:** PTUT-PRJ-002  
-**Student Name:** Muhammad Ahmad Khan  
-**Roll Number:** 24-ST-027  
-**Degree & Section:** BS Software Engineering Technology (SET-A)  
-**Department:** Department of Software Engineering Technology  
-**Institution:** Punjab Tianjin University of Technology (PTUT), Lahore  
-**Supervisor:** Dr. Zaigham Mushtaq  
-**Submission Week:** Week 6  
+Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
+Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
+Project ID: PTUT-PRJ-002  
+Student Name: Muhammad Ahmad Khan  
+Roll Number: 24-ST-027  
+Degree & Section: BS Software Engineering Technology (SET-A)  
+Department: Department of Software Engineering Technology  
+Institution: Punjab Tianjin University of Technology (PTUT), Lahore  
+Supervisor: Dr. Zaigham Mushtaq  
+Submission Week: Week 6  
 
 ---
 
@@ -36,8 +36,8 @@ When customer queries are matched against business knowledge base specifications
 
 $$\text{Similarity}(\mathbf{q}, \mathbf{d}) = \frac{\mathbf{q} \cdot \mathbf{d}}{\|\mathbf{q}\| \|\mathbf{d}\|}$$
 
-* **$\text{Similarity} \ge 0.65$:** Autonomous resolution via Google Gemini 3.5 Flash.
-* **$\text{Similarity} < 0.65$:** Fallback escalation to store owner with immediate dashboard alert.
+- $\text{Similarity} \ge 0.65$: Autonomous resolution via Google Google Gemini Flash.
+- $\text{Similarity} < 0.65$: Fallback escalation to store owner with immediate dashboard alert.
 
 ---
 
@@ -62,17 +62,17 @@ export const calculateSentimentScore = (text) => {
 
 ### 1.3 Conversational Order Placement & Stock Depletion Engine
 When an intent to order is detected (e.g., *"mujhe Haier AC order krna hy mera naam Ali Khan hy"*):
-1. **Name & Address Parsing:** Dynamically extracts the customer's specified name and clean delivery address, stripping out bot directives.
-2. **Atomic Stock Decrement:** Decrements available quantity in `products` inventory. If stock is zero, returns an out-of-stock notification and suggests alternatives.
-3. **Order Code Generation:** Generates tamper-proof identifier (`ZP-ORD-xxxx`), records in `orders` database with timestamp, and creates a CRM lead record.
-4. **Owner Notification:** Emits a real-time event to the merchant dashboard so store management sees the order instantly.
+1. Name & Address Parsing: Dynamically extracts the customer's specified name and clean delivery address, stripping out bot directives.
+2. Atomic Stock Decrement: Decrements available quantity in `products` inventory. If stock is zero, returns an out-of-stock notification and suggests alternatives.
+3. Order Code Generation: Generates tamper-proof identifier (`ZP-ORD-xxxx`), records in `orders` database with timestamp, and creates a CRM lead record.
+4. Owner Notification: Emits a real-time event to the merchant dashboard so store management sees the order instantly.
 
 ---
 
 ### 1.4 Hardware Diagnostics & Repair Token Resolution Engine
 When a customer inquires about appliance or e-bike maintenance (e.g., *"REP-101 status"* or *"oven heat nahi kar raha"*):
-1. **Diagnostic Triage:** Provides technical steps (e.g. checking high-voltage diode and magnetron for ovens; BMS cutoff for e-bikes).
-2. **Token Resolution:** Queries the `repairs` database by token (`REP-xxx`) and returns the device model, diagnosis, estimated cost, and current status (`RECEIVED`, `IN_DIAGNOSIS`, `REPAIRING`, `READY_FOR_PICKUP`).
+1. Diagnostic Triage: Provides technical steps (e.g. checking high-voltage diode and magnetron for ovens; BMS cutoff for e-bikes).
+2. Token Resolution: Queries the `repairs` database by token (`REP-xxx`) and returns the device model, diagnosis, estimated cost, and current status (`RECEIVED`, `IN_DIAGNOSIS`, `REPAIRING`, `READY_FOR_PICKUP`).
 
 ---
 
@@ -84,9 +84,9 @@ Directly integrates Google Gemini Generative Language API using foundational mod
 ## 2. Server-Side Input Validation & Security
 
 All inbound requests pass through `validationMiddleware.js`:
-* **E.164 Phone Regex Validation:** `/^\+?[1-9]\d{9,14}$/` guards against malformed phone numbers.
-* **SQL & JSON Injection Protection:** Input sanitization prevents query injection attacks.
-* **Bcrypt Salt Hashing:** Customer and merchant passwords are hashed using Bcrypt (10 rounds).
+- E.164 Phone Regex Validation: `/^\+-[1-9]\d{9,14}$/` guards against malformed phone numbers.
+- SQL & JSON Injection Protection: Input sanitization prevents query injection attacks.
+- Bcrypt Salt Hashing: Customer and merchant passwords are hashed using Bcrypt (10 rounds).
 
 ---
 

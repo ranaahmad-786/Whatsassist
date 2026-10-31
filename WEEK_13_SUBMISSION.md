@@ -5,17 +5,17 @@
 ---
 
 # WhatsAssist: Real WhatsApp Multi-Device Integration & Full AI Customer Resolution Engine
-**Project Identification Code:** PTUT-PRJ-002  
-**Academic Year:** 2026–2027  
-**Submission Week:** Week 13 / Final Production Defense  
+Project Identification Code: PTUT-PRJ-002  
+Academic Year: 2026–2027  
+Submission Week: Week 13 / Final Production Defense  
 
-**Candidate Details:**  
+Candidate Details: 
 - **Name:** Muhammad Ahmad Khan  
 - **Roll Number:** 24-ST-027  
 - **Degree Program:** Bachelor of Science in Software Engineering Technology (BS-SET)  
 - **Section:** SET-A  
 
-**Supervisory Committee:**  
+Supervisory Committee: 
 - **Lead Faculty Supervisor:** Dr. Zaigham Mushtaq  
 - **Department:** Department of Software Engineering Technology  
 - **Evaluation Gate:** Final Production Defense & Viva Voce  
@@ -24,23 +24,23 @@
 
 ## 1. Executive Summary & Production Objectives
 
-Week 13 represents the transition of **WhatsAssist** from an API-simulated prototype into a battle-tested, commercial-grade product deployed with **real WhatsApp multi-device connectivity** and an **Autonomous Full AI Conversational Orchestration Engine**.
+Week 13 represents the transition of WhatsAssist from an API-simulated prototype into a battle-tested, commercial-grade product deployed with **real WhatsApp multi-device connectivity** and an **Autonomous Full AI Conversational Orchestration Engine**.
 
 ### Core Achievements of Week 13:
-1. **Real WhatsApp Multi-Device Connectivity (Baileys Web Protocol):**
+1. Real WhatsApp Multi-Device Connectivity (Baileys Web Protocol): 
    - Implemented direct socket communication via `@whiskeysockets/baileys`.
    - Enabled interactive dynamic QR code generation streamed to the merchant dashboard.
    - Added alternative 8-digit Pairing Code support for phone-number based linking.
    - Elimination of Meta's paid Cloud API verification hurdle for local Pakistani businesses.
-2. **Full AI Chatbot Orchestration Engine (`geminiService.js`):**
+2. Full AI Chatbot Orchestration Engine (`geminiService.js`): 
    - Connected to Google Gemini Flash API (`gemini-2.5-flash`, `gemini-2.0-flash`, `gemini-1.5-flash`).
    - Integrated an Autonomous Offline Natural Language Understanding (NLU) Engine ensuring **zero failure rate** even during internet outages or API quota exhaustion.
    - Native dual-language fluency: automatically detects customer query language and responds in natural **Roman Urdu / Urdu** or **English**.
-3. **Domain-Specific Consumer Electronics Intelligence (ZepTech Smart Electronics):**
+3. Domain-Specific Consumer Electronics Intelligence (ZepTech Smart Electronics): 
    - **Guided Engineering Diagnostics:** Practical troubleshooting for Inverter ACs (cooling failure, capacitor failure, gas leak, remote modes), Convection/Microwave Ovens (magnetron failure, diode, arcing), E-Bikes (lithium battery charging, BMS cut-off, mileage), and Refrigerators.
    - **Repair Token Tracking (`REP-xxx`):** 4-stage workbench stepper displaying diagnosis notes, repair cost, and 30-day service warranty.
    - **Conversational Checkout (`ZP-ORD-xxxx`):** Real-time customer name and delivery address extraction with automated stock depletion and digital Cash on Delivery invoices.
-4. **100% Automated Test Suite Passing (11/11 Suites Passed).**
+4. 100% Automated Test Suite Passing (11/11 Suites Passed). 
 
 ---
 
@@ -133,8 +133,8 @@ this.sock.ev.on('messages.upsert', async ({ messages: newMessages, type }) => {
 ## 4. Full AI Chatbot Orchestration Engine (`geminiService.js`)
 
 The upgraded AI engine features a dual-layer strategy:
-1. **Live Gemini Generative AI:** Constructs grounded prompts combining merchant identity, live inventory items, customer profile, and RAG document context.
-2. **Autonomous Offline NLU Engine:** Automatically activates if external API calls fail or offline. It comprehends:
+1. Live Gemini Generative AI: Constructs grounded prompts combining merchant identity, live inventory items, customer profile, and RAG document context.
+2. Autonomous Offline NLU Engine: Automatically activates if external API calls fail or offline. It comprehends:
    - **Language detection:** Evaluates Urdu/Roman Urdu tokens vs English.
    - **Customer intent classification:** Distinguishes between inquiries, complaints, diagnostic requests, and purchasing intent.
    - **Diagnostic guidance:** Returns engineering-verified troubleshooting steps.
@@ -176,5 +176,5 @@ TOTAL ASSERTIONS: 11 | PASSED: 11 | FAILED: 0 (100% SUCCESS)
 - [x] 100% Test Pass Rate & Full Documentation Portfolio
 
 ---
-**Candidate:** Muhammad Ahmad Khan (24-ST-027) | BS Software Engineering Technology (SET-A)  
-**Supervisor:** Dr. Zaigham Mushtaq | Department of Software Engineering Technology | PTUT Lahore  
+Candidate: Muhammad Ahmad Khan (24-ST-027) | BS Software Engineering Technology (SET-A)  
+Supervisor: Dr. Zaigham Mushtaq | Department of Software Engineering Technology | PTUT Lahore  

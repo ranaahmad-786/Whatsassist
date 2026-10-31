@@ -1,16 +1,16 @@
 # PTUT Final Year Project (FYP-I) Deliverable
 ## Week 5: Project Scaffolding & Core Authentication Layer
 
-**Project Title:** WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
-**Commercial Brand / Domain:** ZepTech Smart Electronics & E-Mobility Store  
-**Project ID:** PTUT-PRJ-002  
-**Student Name:** Muhammad Ahmad Khan  
-**Roll Number:** 24-ST-027  
-**Degree & Section:** BS Software Engineering Technology (SET-A)  
-**Department:** Department of Software Engineering Technology  
-**Institution:** Punjab Tianjin University of Technology (PTUT), Lahore  
-**Supervisor:** Dr. Zaigham Mushtaq  
-**Submission Week:** Week 5  
+Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
+Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
+Project ID: PTUT-PRJ-002  
+Student Name: Muhammad Ahmad Khan  
+Roll Number: 24-ST-027  
+Degree & Section: BS Software Engineering Technology (SET-A)  
+Department: Department of Software Engineering Technology  
+Institution: Punjab Tianjin University of Technology (PTUT), Lahore  
+Supervisor: Dr. Zaigham Mushtaq  
+Submission Week: Week 5  
 
 ---
 
@@ -18,9 +18,9 @@
 
 ### 1.1 Branching Strategy (GitFlow Aligned)
 To ensure code stability and maintain traceability across project milestones, a structured branching model is implemented:
-* **`main` (Production Branch):** Contains only thoroughly tested, deployable code. Direct pushes and force-pushes are strictly prohibited.
-* **`develop` (Integration Branch):** Central staging branch where completed features are integrated before release tagging.
-* **`feature/<feature-name>` (Feature Branches):** Isolated branches branched off `develop` for specific functional modules (e.g., `feature/dual-role-auth`, `feature/gemini-llm`, `feature/order-sync`).
+- `main` (Production Branch): Contains only thoroughly tested, deployable code. Direct pushes and force-pushes are strictly prohibited.
+- `develop` (Integration Branch): Central staging branch where completed features are integrated before release tagging.
+- `feature/<feature-name>` (Feature Branches): Isolated branches branched off `develop` for specific functional modules (e.g., `feature/dual-role-auth`, `feature/gemini-llm`, `feature/order-sync`).
 
 ```
   [main]      ----------------------------* (v1.0 Release)
@@ -87,9 +87,9 @@ backend/
 ## 3. Database Persistence & Storage Strategy
 
 The database persistence layer provides immediate atomic reads and writes with zero external database server dependency, ensuring reliable multi-tenancy and zero deployment friction:
-* Automatically loads and commits to `data/whatsassist_db.json`.
-* Seeded with ZepTech merchant identity (`1c8b9736-ad03-4251-bacf-1e1bff38fd00`), complete product catalog (E-Bikes, Ovens, ACs, Refrigerators, Smart TVs), active customer orders, and repair diagnostic tokens.
-* Health check verification route is exposed at `GET /api/health` returning operational status and timestamp.
+- Automatically loads and commits to `data/whatsassist_db.json`.
+- Seeded with ZepTech merchant identity (`1c8b9736-ad03-4251-bacf-1e1bff38fd00`), complete product catalog (E-Bikes, Ovens, ACs, Refrigerators, Smart TVs), active customer orders, and repair diagnostic tokens.
+- Health check verification route is exposed at `GET /api/health` returning operational status and timestamp.
 
 ---
 
@@ -98,18 +98,18 @@ The database persistence layer provides immediate atomic reads and writes with z
 ### 4.1 Role Separation: Customer vs Store Owner
 The authentication layer implements strict Role-Based Access Control (RBAC) to differentiate between regular online shoppers and store administrators:
 
-1. **Customer Account (`role: 'customer'`):**
-   * Registered via `/api/auth/register` (default role).
-   * Grants access to customer storefront, 1-click orders, personal order history, and appliance repair tracking.
-   * Restricts access to store inventory modification, financial analytics, and live agent chat takeovers.
+1. Customer Account (`role: 'customer'`): 
+   - Registered via `/api/auth/register` (default role).
+   - Grants access to customer storefront, 1-click orders, personal order history, and appliance repair tracking.
+   - Restricts access to store inventory modification, financial analytics, and live agent chat takeovers.
 
-2. **Store Owner / Manager Account (`role: 'merchant'`):**
-   * Configured for store administrative staff.
-   * Grants complete administrative authority: inventory CRUD, price adjustments, real-time order fulfillment, live chat overrides, and customer grievance resolution.
+2. Store Owner / Manager Account (`role: 'merchant'`): 
+   - Configured for store administrative staff.
+   - Grants complete administrative authority: inventory CRUD, price adjustments, real-time order fulfillment, live chat overrides, and customer grievance resolution.
 
 ### 4.2 Password Hashing & JWT Structure
-* Plaintext passwords are salted and hashed using **`bcryptjs`** with **10 salt rounds**.
-* Issues a signed JSON Web Token (JWT) containing user identifier and role:
+- Plaintext passwords are salted and hashed using **`bcryptjs`** with **10 salt rounds**.
+- Issues a signed JSON Web Token (JWT) containing user identifier and role:
 
 ```json
 {
@@ -139,7 +139,7 @@ Content-Type: application/json
   "phone": "+923001234567"
 }
 ```
-**Response (201 Created):**
+Response (201 Created): 
 ```json
 {
   "success": true,
@@ -165,7 +165,7 @@ Content-Type: application/json
   "password": "owner_password"
 }
 ```
-**Response (200 OK):**
+Response (200 OK): 
 ```json
 {
   "success": true,
