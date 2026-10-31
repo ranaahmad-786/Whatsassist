@@ -46,7 +46,7 @@ Each repair intake generates an immutable repair token (e.g. `REP-101`, `REP-102
   "id": "rep_01",
   "repair_token": "REP-101",
   "customer_name": "Ayesha Khan",
-  "customer_phone": "+923001234567",
+  "customer_phone": "+923314228724",
   "device_model": "ZepTech Falcon Pro E-Bike",
   "issue_description": "Throttle cutoff at high speeds",
   "status": "READY_FOR_PICKUP",

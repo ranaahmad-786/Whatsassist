@@ -62,7 +62,7 @@ const repairController = {
       token_number: tokenNumber,
       merchant_id: storeId,
       customer_name,
-      customer_phone: customer_phone || '+923001234567',
+      customer_phone: customer_phone || '+923314228724',
       item_name,
       issue_reported,
       status: 'RECEIVED',

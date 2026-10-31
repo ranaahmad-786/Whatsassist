@@ -339,7 +339,7 @@ class BaileysManager {
   async sendMessage(toPhone, messageText) {
     const cleanText = messageText.replace(/<!--[\s\S]*?-->/g, '').trim();
 
-    // Format phone to WhatsApp JID: e.g. 923001234567@s.whatsapp.net
+    // Format phone to WhatsApp JID: e.g. 923314228724@s.whatsapp.net
     let digits = toPhone.replace(/\D/g, '');
     if (digits.startsWith('0')) digits = '92' + digits.slice(1);
     const jid = `${digits}@s.whatsapp.net`;

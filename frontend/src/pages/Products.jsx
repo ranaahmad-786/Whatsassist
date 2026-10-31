@@ -183,7 +183,7 @@ export default function Products() {
       await ordersAPI.create({
         order_code: orderCode,
         customer_name: orderForm.customer_name || 'Valued Shopper',
-        customer_phone: orderForm.customer_phone || '+923001234567',
+        customer_phone: orderForm.customer_phone || '+923314228724',
         delivery_address: orderForm.delivery_address,
         items: [
           {

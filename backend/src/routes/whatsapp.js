@@ -86,7 +86,7 @@ router.post('/send', async (req, res) => {
 // POST /api/whatsapp/simulate (Instant Interactive Browser Simulator)
 router.post('/simulate', async (req, res) => {
   try {
-    const { name = 'Simulated Customer', phone = '+923001234567', message } = req.body;
+    const { name = 'Simulated Customer', phone = '+923314228724', message } = req.body;
     if (!message || !message.trim()) {
       return res.status(400).json({ success: false, message: 'Message text is required' });
     }

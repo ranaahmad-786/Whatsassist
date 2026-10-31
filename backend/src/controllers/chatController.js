@@ -15,7 +15,7 @@ function seedDemoForMerchant(merchantId) {
   const docs = db.findAll('knowledge_documents', d => d.merchant_id === merchantId);
   if (!docs.length) {
     const docId = uuidv4();
-    const docText = `${merchant.business_name} is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 300 1234567.`;
+    const docText = `${merchant.business_name} is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 331 4228724.`;
     db.insert('knowledge_documents', {
       id: docId,
       merchant_id: merchantId,

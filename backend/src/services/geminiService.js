@@ -81,7 +81,7 @@ const SHOP_METADATA = {
   founder: 'Muhammad Ahmad Khan (24-ST-027), BS Software Engineering Technology, PTUT Lahore',
   location: 'Shop #14, Main Market, Gulberg III, Lahore, Pakistan',
   timings: 'Monday to Saturday: 10:00 AM - 10:00 PM | Sunday: 2:00 PM - 10:00 PM',
-  contactPhone: '+92 300 1234567',
+  contactPhone: '+92 331 4228724',
   deliveryPolicy: 'Free Cash on Delivery (COD) within 24-48 hours across Lahore. Safe courier shipping across Pakistan.',
   paymentMethods: 'Cash on Delivery (COD), JazzCash, EasyPaisa, Direct Bank Transfer (Meezan/HBL)',
   warranties: {
@@ -183,7 +183,7 @@ const geminiService = {
   /**
    * Main entry point for generating intelligent, context-aware answers
    */
-  async generateAnswer(businessName, context, query, customerPhone = '+923001234567', customerName = 'Valued Customer', merchantId = null) {
+  async generateAnswer(businessName, context, query, customerPhone = '+923314228724', customerName = 'Valued Customer', merchantId = null) {
     const qLower = query.toLowerCase().trim();
     const allProducts = db.findAll('products') || [];
     const allRepairs = db.findAll('repairs') || [];
@@ -249,7 +249,7 @@ Please let us know if you would like pricing or details for any of our available
 • Live Status: 🚚 ${order.order_status === 'CONFIRMED' ? 'Confirmed & Packaging for Dispatch' : order.order_status}
 
 Hamari delivery team 24 se 48 ghante ke andar parcel deliver kar degi. Rider rawangi se pehle call karega!
-Helpline: +92 300 1234567`;
+Helpline: +92 331 4228724`;
         }
 
         return `📦 ZEPTECH OFFICIAL ORDER TRACKING REPORT:
@@ -262,7 +262,7 @@ Helpline: +92 300 1234567`;
 • Current Status: 🚚 ${order.order_status === 'CONFIRMED' ? 'Confirmed & Packaging for Dispatch' : order.order_status}
 
 Your order is scheduled for delivery within 24 to 48 hours across Lahore.
-Helpline: +92 300 1234567`;
+Helpline: +92 331 4228724`;
       }
     }
 
@@ -551,7 +551,7 @@ ${repair.status === 'READY_FOR_PICKUP' ? '✅ Your device is fully repaired, ben
 Hamari dispatch team courier rawana karne se pehle aap ke phone number par call karegi. Parcel check karke rider ko cash ada karein.
 
 🔍 Order Track karne ke liye kisi bhi waqt "Track ${orderCode}" likh kar bhejein.
-📞 HelpLine / Support: +92 300 1234567
+📞 HelpLine / Support: +92 331 4228724
 ZepTech Smart Electronics ka intikhab karne ka shukriya!
 ====================================================<!-- ORDER_DATA: ${orderCard} -->`;
         }
@@ -585,7 +585,7 @@ ZepTech Smart Electronics ka intikhab karne ka shukriya!
 Our dispatch team will confirm by phone at ${customerPhone} before courier departure. Please inspect your item and pay the courier rider.
 
 🔍 To track your package anytime, simply reply: "Track ${orderCode}".
-📞 HelpLine / Support: +92 300 1234567
+📞 HelpLine / Support: +92 331 4228724
 Thank you for shopping with ZepTech Smart Electronics!
 ====================================================<!-- ORDER_DATA: ${orderCard} -->`;
       }
@@ -750,13 +750,13 @@ You are warmly welcome to visit our experience center at Shop #14, Main Market, 
         if (isUrdu) {
           return `ZepTech Store Location:
 Address: Shop #14, Main Market, Gulberg III, Lahore, Pakistan.
-Contact: +92 300 1234567
+Contact: +92 331 4228724
 
 Tamam products par pure Lahore mein 24 se 48 ghante ke andar Free Cash on Delivery (COD) bhi dastiyab hai!`;
         }
         return `${SHOP_METADATA.name} Location & Address:
 Address: Shop #14, Main Market, Gulberg III, Lahore, Pakistan.
-Phone: +92 300 1234567
+Phone: +92 331 4228724
 
 Free Cash on Delivery (COD) within 24-48 hours is also available across all areas of Lahore!`;
       }
@@ -869,7 +869,7 @@ If your AC is running but failing to cool properly, check these 4 points:
 🛒 HOW TO ORDER THIS ITEM:
 👉 Option 1: Reply "Order ${topP.title}, [Aap Ka Naam], [Delivery Address in Lahore]"
 👉 Option 2: Reply "How to order" for full ordering instructions
-📞 Call/WhatsApp: +92 300 1234567
+📞 Call/WhatsApp: +92 331 4228724
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
         return cardsJson ? `${reply}<!-- PRODUCT_CARDS: ${cardsJson} -->` : reply;
       }
@@ -887,7 +887,7 @@ If your AC is running but failing to cool properly, check these 4 points:
 🛒 HOW TO ORDER THIS ITEM:
 👉 Option 1: Reply "Order ${topP.title}, [Your Name], [Lahore Delivery Address]"
 👉 Option 2: Reply "How to order" for payment and delivery details
-📞 Call/WhatsApp: +92 300 1234567
+📞 Call/WhatsApp: +92 331 4228724
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
       return cardsJson ? `${reply}<!-- PRODUCT_CARDS: ${cardsJson} -->` : reply;
     }

@@ -33,7 +33,7 @@ export default function Settings() {
 
   const [form, setForm] = useState({
     businessName: merchant?.business_name || 'ZepTech Smart Electronics',
-    phoneNumber: merchant?.phone || '+923001234567',
+    phoneNumber: merchant?.phone || '+923314228724',
     category: 'Smart Electronics & E-Mobility',
     phoneNumberId: 'PHONE_108492019482',
     wabaId: 'WABA_982401849210',

@@ -81,7 +81,7 @@ Authorization: Bearer <customer_jwt>
 
 {
   "customer_name": "Ali Khan",
-  "customer_phone": "+923001234567",
+  "customer_phone": "+923314228724",
   "delivery_address": "House 42, Block C, Gulberg III, Lahore",
   "items": [
     {

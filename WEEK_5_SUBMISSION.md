@@ -136,7 +136,7 @@ Content-Type: application/json
   "name": "Hamza Tariq",
   "email": "hamza@example.com",
   "password": "Password123#",
-  "phone": "+923001234567"
+  "phone": "+923314228724"
 }
 ```
 Response (201 Created): 
@@ -149,7 +149,7 @@ Response (201 Created):
     "name": "Hamza Tariq",
     "email": "hamza@example.com",
     "role": "customer",
-    "phone": "+923001234567"
+    "phone": "+923314228724"
   }
 }
 ```

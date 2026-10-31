@@ -66,7 +66,7 @@ const orderController = {
     const { customer_name, customer_phone, delivery_address, items, total_amount, payment_method } = req.body;
 
     const finalName = customer_name || (isCustomer ? req.merchant.name : 'Customer');
-    const finalPhone = customer_phone || (isCustomer ? req.merchant.phone_number : '+92 300 1234567');
+    const finalPhone = customer_phone || (isCustomer ? req.merchant.phone_number : '+92 331 4228724');
 
     if (!finalName || !items || !items.length) {
       return res.status(400).json({ success: false, message: 'Customer name and items are required' });

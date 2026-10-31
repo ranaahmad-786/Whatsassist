@@ -370,7 +370,7 @@ export default function WhatsAppConnectModal({ isOpen, onClose }) {
                   <strong className="text-slate-900 dark:text-white block font-bold">
                     No camera or prefer code pairing?
                   </strong>
-                  Enter your phone number with country code (e.g. 923001234567). WhatsApp will give you an 8-digit pairing code to enter on your phone!
+                  Enter your phone number with country code (e.g. 923314228724). WhatsApp will give you an 8-digit pairing code to enter on your phone!
                 </div>
               </div>
 
@@ -405,7 +405,7 @@ export default function WhatsAppConnectModal({ isOpen, onClose }) {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. 923001234567 or +923001234567"
+                      placeholder="e.g. 923314228724 or +923314228724"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"
@@ -438,7 +438,7 @@ export default function WhatsAppConnectModal({ isOpen, onClose }) {
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. +923001234567"
+                    placeholder="e.g. +923314228724"
                     value={testTo}
                     onChange={(e) => setTestTo(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 outline-none"

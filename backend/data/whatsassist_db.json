@@ -214,6 +214,17 @@
       "is_active": 1,
       "created_at": "2026-10-31T14:55:29.255Z",
       "updated_at": "2026-10-31T14:55:29.255Z"
+    },
+    {
+      "id": "28dc17d6-0dcf-42f0-a1ff-3fb90f6c691e",
+      "merchant_id": "2281e312-1ac7-4eae-9a9f-a852c0bc74a8",
+      "phone_number_id": "PHONE_2281e312",
+      "waba_id": "WABA_2281e312",
+      "webhook_verify_token": "verify_2281e312",
+      "fallback_threshold": 0.65,
+      "is_active": 1,
+      "created_at": "2026-10-31T14:59:30.254Z",
+      "updated_at": "2026-10-31T14:59:30.254Z"
     }
   ],
   "customers": [
@@ -257,7 +268,7 @@
     {
       "id": "f76520d4-c583-4fe5-ab23-a416a0ae9213",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "whatsapp_phone": "923001234567",
+      "whatsapp_phone": "923314228724",
       "customer_name": "Customer Test",
       "first_seen_at": "2026-10-24T11:54:39.655Z",
       "last_active_at": "2026-10-24T11:54:51.008Z",
@@ -976,7 +987,7 @@
       "file_name": "store_timings_and_warranty.txt",
       "total_chunks": 1,
       "status": "INDEXED",
-      "raw_text": "Hamza Malik (Customer) is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 300 1234567.",
+      "raw_text": "Hamza Malik (Customer) is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 331 4228724.",
       "created_at": "2026-10-25T09:07:23.543Z",
       "updated_at": "2026-10-25T09:07:23.543Z"
     },
@@ -1089,6 +1100,16 @@
       "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
       "created_at": "2026-10-31T14:55:29.279Z",
       "updated_at": "2026-10-31T14:55:29.279Z"
+    },
+    {
+      "id": "fba21abc-416f-4db2-a844-ca878f14b472",
+      "merchant_id": "2281e312-1ac7-4eae-9a9f-a852c0bc74a8",
+      "file_name": "hours.txt",
+      "total_chunks": 1,
+      "status": "INDEXED",
+      "raw_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "created_at": "2026-10-31T14:59:30.278Z",
+      "updated_at": "2026-10-31T14:59:30.278Z"
     }
   ],
   "document_chunks": [
@@ -1168,7 +1189,7 @@
       "id": "d4698ead-bb32-436f-9326-65c700b21022",
       "document_id": "617198f1-83c6-42be-b8a2-51bd4bfaea56",
       "merchant_id": "cust-demo-1001-uuid-zeptech",
-      "chunk_text": "Hamza Malik (Customer) is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 300 1234567.",
+      "chunk_text": "Hamza Malik (Customer) is located in Gulberg III, Main Market, Lahore. We provide genuine electronics sales, repair, and customer warranties. Opening Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM. All repair services include a 30-day money-back satisfaction guarantee. Contact support at +92 331 4228724.",
       "chunk_index": 0,
       "created_at": "2026-10-25T09:07:23.550Z",
       "updated_at": "2026-10-25T09:07:23.550Z"
@@ -1271,6 +1292,15 @@
       "chunk_index": 0,
       "created_at": "2026-10-31T14:55:29.288Z",
       "updated_at": "2026-10-31T14:55:29.288Z"
+    },
+    {
+      "id": "fb85e9ad-550d-48c3-949b-8446ea51abf6",
+      "document_id": "fba21abc-416f-4db2-a844-ca878f14b472",
+      "merchant_id": "2281e312-1ac7-4eae-9a9f-a852c0bc74a8",
+      "chunk_text": "ZepTech Electronics is located in Gulberg III Lahore. Shop is open Monday to Saturday from 10am to 10pm. Sunday timing is 2pm to 10pm.",
+      "chunk_index": 0,
+      "created_at": "2026-10-31T14:59:30.287Z",
+      "updated_at": "2026-10-31T14:59:30.287Z"
     }
   ],
   "leads": [
@@ -1512,7 +1542,7 @@
       "session_id": "sess_order",
       "lead_type": "ORDER_PLACED",
       "status": "QUALIFIED",
-      "extracted_details": "{\"order_code\":\"ZP-ORD-5167\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923001234567\"}",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-5167\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:32:40.749Z",
       "updated_at": "2026-10-31T14:32:40.749Z"
     },
@@ -1523,7 +1553,7 @@
       "session_id": "sess_order",
       "lead_type": "ORDER_PLACED",
       "status": "QUALIFIED",
-      "extracted_details": "{\"order_code\":\"ZP-ORD-8604\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923001234567\"}",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-8604\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:52:13.005Z",
       "updated_at": "2026-10-31T14:52:13.005Z"
     },
@@ -1534,7 +1564,7 @@
       "session_id": "sess_order",
       "lead_type": "ORDER_PLACED",
       "status": "QUALIFIED",
-      "extracted_details": "{\"order_code\":\"ZP-ORD-5330\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923001234567\"}",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-5330\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:52:13.044Z",
       "updated_at": "2026-10-31T14:52:13.044Z"
     },
@@ -1545,9 +1575,20 @@
       "session_id": "sess_order",
       "lead_type": "ORDER_PLACED",
       "status": "QUALIFIED",
-      "extracted_details": "{\"order_code\":\"ZP-ORD-5597\",\"invoice_no\":\"ZP-INV-5597\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923001234567\"}",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-5597\",\"invoice_no\":\"ZP-INV-5597\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:55:10.554Z",
       "updated_at": "2026-10-31T14:55:10.554Z"
+    },
+    {
+      "id": "d807cec5-53b1-45a7-ab14-513cad22c2ca",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust_order",
+      "session_id": "sess_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-8368\",\"invoice_no\":\"ZP-INV-8368\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
+      "created_at": "2026-10-31T14:59:14.316Z",
+      "updated_at": "2026-10-31T14:59:14.316Z"
     }
   ],
   "products": [
@@ -1641,7 +1682,7 @@
       "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
       "category": "Air Conditioners",
       "price": 142000,
-      "stock_quantity": 2,
+      "stock_quantity": 1,
       "specs": [
         "1.5 Ton T3 Inverter Compressor",
         "Energy Saving Inverter (Up to 60% Saving)",
@@ -1654,7 +1695,7 @@
       "inquiry_count": 95,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-31T14:55:10.535Z"
+      "updated_at": "2026-10-31T14:59:14.297Z"
     },
     {
       "id": "prod-ac-haier-06",
@@ -1845,7 +1886,7 @@
       "order_code": "ZP-ORD-1004",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "Ali Khan",
-      "customer_phone": "+92 300 1234567",
+      "customer_phone": "+92 331 4228724",
       "delivery_address": "House 42, Main Commercial, Gulberg III, Lahore",
       "items": [
         {
@@ -2029,7 +2070,7 @@
       "order_code": "ZP-ORD-1840",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "Rana Ahmad",
-      "customer_phone": "+923001234567",
+      "customer_phone": "+923314228724",
       "delivery_address": "House 12 Sector Y Phase 3 DHA Lahore",
       "items": [
         {
@@ -2090,7 +2131,7 @@
       "order_code": "ZP-ORD-5167",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "WhatsApp Customer",
-      "customer_phone": "+923001234567",
+      "customer_phone": "+923314228724",
       "delivery_address": "Gulberg III, Main Market, Lahore",
       "items": [
         {
@@ -2110,7 +2151,7 @@
       "order_code": "ZP-ORD-8604",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "Muhammad Ahmad",
-      "customer_phone": "+923001234567",
+      "customer_phone": "+923314228724",
       "delivery_address": "House 14 Main Market Gulberg Lahore",
       "items": [
         {
@@ -2130,7 +2171,7 @@
       "order_code": "ZP-ORD-5330",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "WhatsApp Customer",
-      "customer_phone": "+923001234567",
+      "customer_phone": "+923314228724",
       "delivery_address": "Gulberg III, Main Market, Lahore",
       "items": [
         {
@@ -2151,7 +2192,7 @@
       "invoice_no": "ZP-INV-5597",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_name": "Muhammad Ahmad",
-      "customer_phone": "+923001234567",
+      "customer_phone": "+923314228724",
       "delivery_address": "House 14 Main Market Gulberg Lahore",
       "items": [
         {
@@ -2165,6 +2206,27 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-10-31T14:55:10.546Z",
       "updated_at": "2026-10-31T14:55:10.546Z"
+    },
+    {
+      "id": "ebce8a28-72fa-4096-a565-34b62e848a4e",
+      "order_code": "ZP-ORD-8368",
+      "invoice_no": "ZP-INV-8368",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_name": "WhatsApp Customer",
+      "customer_phone": "+923314228724",
+      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "items": [
+        {
+          "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
+          "price": 142000,
+          "quantity": 1
+        }
+      ],
+      "total_amount": 142000,
+      "order_status": "CONFIRMED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-10-31T14:59:14.309Z",
+      "updated_at": "2026-10-31T14:59:14.309Z"
     }
   ],
   "repairs": [
