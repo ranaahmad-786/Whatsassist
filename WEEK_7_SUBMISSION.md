@@ -20,7 +20,7 @@ The WhatsAssist project has successfully achieved the Week 7 Mid-Term Milestone 
 
 1. Production-Ready Multi-Tenant Backend (`backend/`): Node.js Express architecture, JSON document store, Bcrypt salt hashing, multi-tenant JWT middleware, and domain calculation engines.
 2. Interactive Modern Web Application (`frontend/`): Dual-role web portal built with React 18, Vite, and Tailwind CSS implementing real-time WhatsApp simulation, RAG knowledge upload, dynamic lead CRM, and dark/light themes.
-3. Live Google Gemini LLM Integration (`geminiService.js`): Direct integration with Google's active foundational model (`gemini-3.5-flash` with fallbacks) for autonomous Roman Urdu & English response generation.
+3. Live Google Gemini LLM Integration (`geminiService.js`): Direct integration with Google's active foundational model (`gemini-2.5-flash` with fallbacks) for autonomous Roman Urdu & English response generation.
 4. ZepTech Electronics & E-Mobility Domain Specialization: Fully equipped with household electronics (Convection/Microwave Ovens, Inverter ACs, Refrigerators, Smart TVs) and E-Bikes (ZepTech Falcon Pro & Commuter X).
 5. Autonomous Human Escalation Protocol: Automatic handoff to store owner upon grievance detection, complemented by manual takeover controls.
 
@@ -35,7 +35,7 @@ The WhatsAssist project has successfully achieved the Week 7 Mid-Term Milestone 
 | Week 3 | High-Level Architecture & Tech Stack | Multi-tenant layered architecture (Node.js, React 18, Google Gemini). | 100% Complete |
 | Week 4 | Database Modeling & API Wireframes | Relational entity schemas (Products, Orders, Repairs, Leads), REST specs. | 100% Complete |
 | Week 5 | Scaffolding & Core Authentication | GitFlow, Bcrypt hashing, dual-role registration (`customer` vs `merchant`). | 100% Complete |
-| Week 6 | Business Logic & Domain Engine | Category-first product matching, sentiment scoring ($\tau = 0.65$), repair tokens. | 100% Complete |
+| Week 6 | Business Logic & Domain Engine | Category-first product matching, sentiment scoring (tau = 0.65), repair tokens. | 100% Complete |
 | Week 7 | Working Prototype & Mid-Term Gate | Live Google Gemini Flash AI, WhatsApp simulator, Customer & Owner portals. | 100% Complete |
 
 ---

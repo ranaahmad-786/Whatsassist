@@ -69,7 +69,7 @@ WhatsAssist is architected as a cloud-native, decoupled 3-Tier System engineered
 2.2 Application / Logic Tier
 - Node.js Express Server: Modular MVC architecture providing REST endpoints for authentication, product management, order processing, and repair lookups.
 - Google Gemini AI Engine (`geminiService.js`): Ingests customer prompts, matches intent against ZepTech product specifications, generates bilingual responses (Roman Urdu & English), and handles conversational checkouts.
-- Takeover Controller: Manages session state machine (`AI_ACTIVE` $\leftrightarrow$ `NEEDS_HUMAN`), pausing Gemini responses when store owner intervenes.
+- Takeover Controller: Manages session state machine (`AI_ACTIVE` <= ftrightarrow `NEEDS_HUMAN`), pausing Gemini responses when store owner intervenes.
 
 2.3 Database Tier
 - Persistent Multi-Tenant Store: Atomic transactional integrity storing merchant credentials, user accounts, products catalog, orders with unique tracking codes, and repair tickets.

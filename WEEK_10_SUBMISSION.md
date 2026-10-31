@@ -30,7 +30,7 @@ In Week 10, the client-side user experience was architected and built using Reac
    - Real-Time WhatsApp Live Chat inbox with conversation status filters (`AI_ACTIVE`, `NEEDS_HUMAN`, `RESOLVED`).
    - One-Click Human Takeover Switch enabling managers to pause Gemini AI auto-responses and manually reply to sensitive grievances.
    - Full Inventory Management table with live stock editing and low-stock warning chips (`≤ 3 units`).
-   - Order Fulfillment Workflow manager (`PENDING` $\to$ `CONFIRMED` $\to$ `SHIPPED` $\to$ `DELIVERED`).
+   - Order Fulfillment Workflow manager (`PENDING` to `CONFIRMED` to `SHIPPED` to `DELIVERED`).
 
 ---
 

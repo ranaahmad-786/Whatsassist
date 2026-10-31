@@ -53,10 +53,10 @@ To prevent cross-category ordering mistakes during conversational checkout:
 
 When an order is successfully validated, the system performs an atomic inventory decrement:
 
-$$\text{Stock}_{\text{new}} = \text{Stock}_{\text{current}} - \text{Quantity}_{\text{ordered}}$$
+$Stock_new = Stock_current - Quantity_ordered$
 
-- Stock Guard: If $\text{Stock}_{\text{current}} < \text{Quantity}_{\text{ordered}}$, the order engine rejects the transaction with code `ERR_OUT_OF_STOCK` and automatically suggests similar in-stock alternatives via Google Gemini Flash.
-- Low Stock Warning: When $\text{Stock}_{\text{new}} \le 3$, an automated alert badge (`LOW_STOCK_WARNING`) is attached to the product in the Store Owner workstation.
+- Stock Guard: If Stock_current < Quantity_ordered, the order engine rejects the transaction with code `ERR_OUT_OF_STOCK` and automatically suggests similar in-stock alternatives via Google Gemini Flash.
+- Low Stock Warning: When Stock_new <= 3, an automated alert badge (`LOW_STOCK_WARNING`) is attached to the product in the Store Owner workstation.
 
 ```javascript
 // Inventory validation and atomic decrement snippet
@@ -109,7 +109,7 @@ Response (201 Created):
 ```
 
 4.2 Real-Time Store Owner Order Retrieval (`GET /api/orders`)
-Enables the store manager to view all inbound customer orders with real-time status switches (`PENDING` $\to$ `CONFIRMED` $\to$ `SHIPPED` $\to$ `DELIVERED`).
+Enables the store manager to view all inbound customer orders with real-time status switches (`PENDING` to `CONFIRMED` to `SHIPPED` to `DELIVERED`).
 
 ---
 

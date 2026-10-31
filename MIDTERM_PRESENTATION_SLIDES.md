@@ -57,18 +57,18 @@ Slide 5: Database Modeling & Multi-Tenancy
 
 Slide 6: Core Domain Calculation Engines
  Category-First Disambiguation Engine: Distinguishes between similarly branded items across categories (e.g. Haier 1.5T AC vs Haier Microwave Oven) before fuzzy matching.
- Confidence Fallback Engine: Cosine similarity calculation evaluated against sensitivity threshold ($\tau = 0.65$).
- Sentiment & Lexical Escalation Engine: Multi-lingual lexical analysis in English, Urdu, and Roman Urdu scoring messages between $-1.0$ and $+1.0$.
+ Confidence Fallback Engine: Cosine similarity calculation evaluated against sensitivity threshold (tau = 0.65).
+ Sentiment & Lexical Escalation Engine: Multi-lingual lexical analysis in English, Urdu, and Roman Urdu scoring messages between -1.0 and +1.0.
  Keyword Escalation Trigger: Immediate detection of dispute words like "manager", "owner", "kharab", "shikayat".
  Live Google Gemini 3.5 Flash Engine: Sub-5-second conversational response generation in natural Roman Urdu and English.
 
 ---
 
 Slide 7: Live Prototype Demonstration (Evaluation Gate)
- Demo Scenario 1 (Product Inquiry): Customer asks: "Falcon Pro e-bike ki battery timing aur speed kya hy?" $\to$ Gemini responds with 72V 30Ah Lithium specs, 80 km/h speed, and 95 km range in Roman Urdu.
- Demo Scenario 2 (1-Click Order Sync): Customer places order for Haier 1.5 Ton AC $\to$ Stock automatically decrements, order `ZP-ORD-1004` appears instantly on Store Owner workstation.
- Demo Scenario 3 (Repair Token Stepper): Customer checks `REP-101` $\to$ System displays 4-stage stepper showing `READY_FOR_PICKUP` and technician notes.
- Demo Scenario 4 (Grievance & Takeover): Customer reports a damaged unit $\to$ Session automatically switches to `NEEDS_HUMAN`, alerting store manager with instant manual takeover toggle.
+ Demo Scenario 1 (Product Inquiry): Customer asks: "Falcon Pro e-bike ki battery timing aur speed kya hy?" to Gemini responds with 72V 30Ah Lithium specs, 80 km/h speed, and 95 km range in Roman Urdu.
+ Demo Scenario 2 (1-Click Order Sync): Customer places order for Haier 1.5 Ton AC to Stock automatically decrements, order `ZP-ORD-1004` appears instantly on Store Owner workstation.
+ Demo Scenario 3 (Repair Token Stepper): Customer checks `REP-101` to System displays 4-stage stepper showing `READY_FOR_PICKUP` and technician notes.
+ Demo Scenario 4 (Grievance & Takeover): Customer reports a damaged unit to Session automatically switches to `NEEDS_HUMAN`, alerting store manager with instant manual takeover toggle.
 
 ---
 

@@ -72,9 +72,9 @@ WhatsAssist acts as an intelligent intermediary between customers on WhatsApp/We
 4. Quantifiable Non-Functional Requirements (NFRs)
 
 4.1 Latency & Performance
-- NFR-1 (End-to-End Response Latency): 95% of automated AI replies MUST be delivered within $\le 5.0$ seconds using Google Google Gemini Flash.
-- NFR-2 (Order Synchronization Latency): Orders submitted via storefront MUST reflect on the Store Owner workstation within $\le 200\text{ ms}$.
-- NFR-3 (Repair Token Lookup): Status retrieval for repair tokens MUST execute within $\le 100\text{ ms}$.
+- NFR-1 (End-to-End Response Latency): 95% of automated AI replies MUST be delivered within <= 5.0 seconds using Google Google Gemini Flash.
+- NFR-2 (Order Synchronization Latency): Orders submitted via storefront MUST reflect on the Store Owner workstation within <= 200 ms.
+- NFR-3 (Repair Token Lookup): Status retrieval for repair tokens MUST execute within <= 100 ms.
 
 4.2 Security & Data Privacy
 - NFR-4 (Password Protection): All customer and merchant passwords MUST be salted and hashed via Bcrypt with at least 10 rounds.

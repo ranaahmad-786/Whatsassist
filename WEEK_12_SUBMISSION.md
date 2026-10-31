@@ -27,7 +27,7 @@ Small and medium-sized local businesses (SMBs)—including retail shops, repair 
 
 This project designs, engineers, and validates WhatsAssist, an affordable, cloud-native conversational resolution agent and merchant workstation tailored for local businesses. Built upon a decoupled 3-tier architecture utilizing Node.js, Express, React 18, Tailwind CSS, and a multi-tenant relational store, WhatsAssist integrates Meta's WhatsApp Cloud API with Retrieval-Augmented Generation (RAG) powered by Google's Gemini-1.5-Flash foundational model.
 
-The system ingests arbitrary merchant knowledge assets (operating schedules, price catalogs, and service terms), generates overlapping semantic chunks, and scores incoming customer questions in real time. Queries meeting confidence thresholds ($\tau \ge 0.65$) are answered autonomously within an average latency of $1.8\text{ seconds}$, while complex inquiries automatically escalate to an emergency merchant workstation with seamless human takeover capabilities. Automated integration testing achieves 89.8% code coverage, verifying complete resilience against OWASP Top 10 vulnerabilities. WhatsAssist demonstrates that intelligent, grounded customer support can be deployed at zero operational infrastructure cost for local enterprises.
+The system ingests arbitrary merchant knowledge assets (operating schedules, price catalogs, and service terms), generates overlapping semantic chunks, and scores incoming customer questions in real time. Queries meeting confidence thresholds (tau >= 0.65) are answered autonomously within an average latency of 1.8 seconds, while complex inquiries automatically escalate to an emergency merchant workstation with seamless human takeover capabilities. Automated integration testing achieves 89.8% code coverage, verifying complete resilience against OWASP Top 10 vulnerabilities. WhatsAssist demonstrates that intelligent, grounded customer support can be deployed at zero operational infrastructure cost for local enterprises.
 
 ---
 
@@ -58,7 +58,7 @@ Table of Contents
    - 5.3 React 18 / Vite Merchant Workstation
    - 5.4 CRM Lead Recognition & State Transitions
 6. Chapter 6: Verification, Testing & Security Audits 
-   - 6.1 Automated Testing Metrics ($\ge 70\%$ Target)
+   - 6.1 Automated Testing Metrics (>= 70% Target)
    - 6.2 OWASP Top 10 Defensive Hardening
    - 6.3 Performance Benchmarks & Response Latency
 7. Chapter 7: Deployment, Viva Presentation & Defense 
@@ -79,7 +79,7 @@ Across developing digital economies, mobile commerce has fundamentally bypassed 
 Despite high customer reliance on WhatsApp, local merchants experience acute operational barriers:
 1. Response Latency & Lost Conversion: Over 68% of inquiries received outside normal business hours (8:00 PM – 10:00 AM) go unanswered for over 8 hours, resulting in customer abandonment to competitors.
 2. Repetitive Query Fatigue: Up to 70% of inbound inquiries ask identical questions regarding store location, operating hours, basic pricing, or service scope.
-3. Financial Infeasibility: Small businesses generating modest monthly revenues cannot justify the expense of hiring 24/7 dedicated support staff ($300–$500/month).
+3. Financial Infeasibility: Small businesses generating modest monthly revenues cannot justify the expense of hiring 24/7 dedicated support staff (300–500/month).
 4. Rigid Menu Bots: Traditional automated IVR chatbots ("Press 1 for Sales") cause high customer frustration due to an inability to parse natural language questions.
 
 1.3 Project Objectives
@@ -114,15 +114,15 @@ Chapter 3: Software Requirements & Domain Modeling
 - FR-2 (Meta Webhook Ingress): System shall authenticate Meta challenge verification requests and process incoming message events.
 - FR-3 (Contextual RAG Retrieval): System shall index uploaded documents into overlapping chunks and score context relevance against incoming queries.
 - FR-4 (Autonomous Generation): System shall synthesize concise answers based on business context using Gemini Flash.
-- FR-5 (Confidence Thresholding & Fallback): System shall detect queries scoring below threshold $\tau = 0.65$ and route them to human escalation.
+- FR-5 (Confidence Thresholding & Fallback): System shall detect queries scoring below threshold tau = 0.65 and route them to human escalation.
 - FR-6 (Human Agent Takeover): Workstation shall allow merchants to pause AI automation on any active session and reply manually.
 - FR-7 (Automated Lead Extraction): System shall detect appointment and inquiry intent and populate the CRM pipeline.
 - FR-8 (Real-Time Telemetry): Dashboard shall compute message volume, resolution percentages, and system diagnostics.
 
 3.2 Non-Functional Requirements (NFR) Compliance
-- NFR-1 (End-to-End Latency): Target $\le 3.0\text{s}$ $\to$ Achieved: $1.8\text{s}$ average.
-- NFR-2 (RAG Retrieval Latency): Target $\le 250\text{ms}$ $\to$ Achieved: $45\text{ms}$ in-memory.
-- NFR-3 (Automated Test Coverage): Target $\ge 70\%$ $\to$ Achieved: $89.8\%$.
+- NFR-1 (End-to-End Latency): Target <= 3.0s to Achieved: 1.8s average.
+- NFR-2 (RAG Retrieval Latency): Target <= 250ms to Achieved: 45ms in-memory.
+- NFR-3 (Automated Test Coverage): Target >= 70% to Achieved: 89.8%.
 - NFR-4 (Availability): 99.5% operational uptime via Vercel and Render edge deployment.
 - NFR-5 (Data Isolation): Multi-tenant scoping strictly enforced across all database tables.
 
@@ -183,9 +183,9 @@ Chapter 5: Implementation Details
 5.1 RAG Semantic Similarity Engine
 The semantic similarity engine computes relevance scores between user inquiries and indexed document chunks:
 
-$$\text{Similarity}(Q, C) = \frac{|T_Q \cap T_C|}{|T_Q|}$$
+$Similarity(Q, C) = frac|T_Q cap T_C||T_Q|$
 
-Where $T_Q$ represents normalized non-stopword query tokens and $T_C$ represents chunk tokens. Chunks meeting $\text{Similarity} \ge 0.65$ are ordered by relevance and injected into the generative context window.
+Where T_Q represents normalized non-stopword query tokens and T_C represents chunk tokens. Chunks meeting Similarity >= 0.65 are ordered by relevance and injected into the generative context window.
 
 5.2 Real WhatsApp Multi-Device Web Integration (Baileys Engine)
 To overcome the limitations of Meta's commercial Cloud API verification barriers for SMBs in Pakistan, WhatsAssist implements a native multi-device socket layer using `@whiskeysockets/baileys`:
@@ -249,7 +249,7 @@ During the formal viva defense with Dr. Zaigham Mushtaq, the project was validat
    - Upload of store timings, pricing catalog, and return policy.
 2. Scenario B (Autonomous WhatsApp Resolution): 
    - Customer asks: "What are your store hours on Sunday-"
-   - System retrieves matching chunk, calls Gemini Flash, and returns answer to WhatsApp in $1.8\text{ seconds}$.
+   - System retrieves matching chunk, calls Gemini Flash, and returns answer to WhatsApp in 1.8 seconds.
 3. Scenario C (Low-Confidence Human Takeover): 
    - Customer asks an out-of-scope question.
    - Workstation sounds alert; merchant engages human takeover and responds directly through the dashboard.

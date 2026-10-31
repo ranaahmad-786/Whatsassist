@@ -103,8 +103,8 @@ Enables service technicians to transition repair stages and append diagnostic no
 
 5. Verification & Defense Results
 
-- Resolution Time: Customers obtain real-time repair progress in $< 500\text{ ms}$ without human workshop intervention.
-- Accuracy: 100% token retrieval rate with proper error handling for invalid tokens (`REP-999` $\to$ `Token not found`).
+- Resolution Time: Customers obtain real-time repair progress in < 500 ms without human workshop intervention.
+- Accuracy: 100% token retrieval rate with proper error handling for invalid tokens (`REP-999` to `Token not found`).
 - Test Suite: Validated in `backend/tests/run-tests.js` (Assertion 11: Repair status token lookup passing).
 
 ---

@@ -34,10 +34,10 @@ const targetProduct = candidatePool.find(p => matchesKeywords(p, userMessage)) |
 
 When customer queries are matched against business knowledge base specifications, text chunks are scored via Cosine Similarity:
 
-$$\text{Similarity}(\mathbf{q}, \mathbf{d}) = \frac{\mathbf{q} \cdot \mathbf{d}}{\|\mathbf{q}\| \|\mathbf{d}\|}$$
+Cosine Similarity = (Vector A . Vector B) / (|Vector A| x |Vector B|)
 
-- $\text{Similarity} \ge 0.65$: Autonomous resolution via Google Google Gemini Flash.
-- $\text{Similarity} < 0.65$: Fallback escalation to store owner with immediate dashboard alert.
+- Similarity >= 0.65: Autonomous resolution via Google Google Gemini Flash.
+- Similarity < 0.65: Fallback escalation to store owner with immediate dashboard alert.
 
 ---
 
@@ -77,7 +77,7 @@ When a customer inquires about appliance or e-bike maintenance (e.g., "REP-101 s
 ---
 
 1.5 Live Google Gemini AI LLM Engine (`src/services/geminiService.js`)
-Directly integrates Google Gemini Generative Language API using foundational model `gemini-3.5-flash` (with automated fallbacks to `gemini-3.5-flash-lite` and `gemini-3.8-flash`). The service injects ZepTech inventory specifications, technical appliance data, store location (Gulberg III, Lahore), and pricing into system prompts, generating helpful Roman Urdu and English responses in ~4.5 seconds.
+Directly integrates Google Gemini Generative Language API using foundational model `gemini-2.5-flash` (with automated fallbacks to `gemini-2.5-flash-lite` and `gemini-3.8-flash`). The service injects ZepTech inventory specifications, technical appliance data, store location (Gulberg III, Lahore), and pricing into system prompts, generating helpful Roman Urdu and English responses in ~4.5 seconds.
 
 ---
 
