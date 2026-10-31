@@ -1,15 +1,15 @@
-# High-Level Architecture & Cloud Topology Documentation
+High-Level Architecture & Cloud Topology Documentation
 
-## WhatsAssist: WhatsApp AI Customer Resolution Agent for Local Businesses
+WhatsAssist: WhatsApp AI Customer Resolution Agent for Local Businesses
 
 Document Version: 1.0  
 Phase: Week 3 Architecture & Design Deliverable
 
 ---
 
-## 1. 3-Tier Architecture & Cloud Topology
+1. 3-Tier Architecture & Cloud Topology
 
-WhatsAssist follows a decoupled, cloud-native **3-Tier Architecture** optimized for low-latency messaging, web dashboard interaction, and vector-based AI retrieval.
+WhatsAssist follows a decoupled, cloud-native 3-Tier Architecture optimized for low-latency messaging, web dashboard interaction, and vector-based AI retrieval.
 
 ```
 +-----------------------------------------------------------------------------------+
@@ -53,7 +53,7 @@ WhatsAssist follows a decoupled, cloud-native **3-Tier Architecture** optimized 
 +-----------------------------------------------------------------------------------+
 ```
 
-### Infrastructure Layer Breakdown
+Infrastructure Layer Breakdown
 
 1. Client Tier: 
    - WhatsApp UI: Consumer interface for incoming/outgoing messages processed through Meta Cloud API.
@@ -71,7 +71,7 @@ WhatsAssist follows a decoupled, cloud-native **3-Tier Architecture** optimized 
 
 ---
 
-## 2. System Boundaries
+2. System Boundaries
 
 Defining explicit boundaries ensures system security, operational clarity, and clear integration points.
 
@@ -108,9 +108,9 @@ Defining explicit boundaries ensures system security, operational clarity, and c
 
 ---
 
-## 3. Data Flow Diagrams (DFD)
+3. Data Flow Diagrams (DFD)
 
-### 3.1 DFD Level 0 (Context Diagram)
+3.1 DFD Level 0 (Context Diagram)
 
 The Level 0 DFD illustrates external entities interacting with the WhatsAssist system boundary.
 
@@ -132,7 +132,7 @@ The Level 0 DFD illustrates external entities interacting with the WhatsAssist s
 +--------------------+                     +--------------------------+
 ```
 
-### 3.2 DFD Level 1 (Detailed Data Flow Diagram)
+3.2 DFD Level 1 (Detailed Data Flow Diagram)
 
 The Level 1 DFD decomposes the system into core sub-processes, databases, and message flows.
 
@@ -175,7 +175,7 @@ The Level 1 DFD decomposes the system into core sub-processes, databases, and me
 
 ---
 
-## 4. Cloud Infrastructure Stack Justification
+4. Cloud Infrastructure Stack Justification
 
 | Layer / Subsystem | Chosen Technology Stack | Alternative Evaluated | Justification for Selection |
 | :--- | :--- | :--- | :--- |

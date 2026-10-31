@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 1: Problem Discovery & User Personas Documentation
+PTUT Final Year Project (FYP-I) Deliverable
+Week 1: Problem Discovery & User Personas Documentation
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,7 +14,7 @@ Submission Week: Week 1
 
 ---
 
-### 1. Problem Discovery & Operational Friction Identification
+1. Problem Discovery & Operational Friction Identification
 
 Local small and medium-sized enterprises (SMBs) in the retail consumer electronics and e-mobility sectors heavily rely on messaging platforms like WhatsApp to communicate with prospective buyers. However, managing manual customer support at scale leads to severe operational friction:
 
@@ -25,9 +25,9 @@ Local small and medium-sized enterprises (SMBs) in the retail consumer electroni
 
 ---
 
-### 2. User Personas
+2. User Personas
 
-### Persona 1: Local Electronics Store Owner / Manager
+Persona 1: Local Electronics Store Owner / Manager
 - Name: Muhammad Ahmad Khan
 - Role: Store Owner, "ZepTech Smart Electronics & E-Mobility Store" (Retail, E-Bikes & Household Appliances Repair Hub, Gulberg III, Lahore)
 - Demographics: Age 35 | Tech-savvy, manages store operations via smartphone and laptop
@@ -40,7 +40,7 @@ Local small and medium-sized enterprises (SMBs) in the retail consumer electroni
   - Manually answers repetitive questions regarding AC power consumption, oven capacities, and e-bike ranges.
   - Lacks a centralized workstation to monitor customer orders, inventory stock, and repair progress.
 
-### Persona 2: Local Consumer / End Shopper
+Persona 2: Local Consumer / End Shopper
 - Name: Ayesha Khan / Ali Khan
 - Role: End Consumer & Urban Commuter
 - Demographics: Age 26–32 | Daily WhatsApp User | Values prompt digital service
@@ -53,13 +53,13 @@ Local small and medium-sized enterprises (SMBs) in the retail consumer electroni
 
 ---
 
-### 3. Problem Statement
+3. Problem Statement
 
 Local retail electronics and e-mobility merchants face severe revenue loss and customer dissatisfaction due to their inability to provide immediate, 24/7 conversational support on WhatsApp. WhatsAssist solves this by engineering an intelligent, multi-tenant AI resolution agent powered by Google Google Gemini Flash and RAG architecture, enabling autonomous product recommendations, instant 1-click checkouts, and 4-stage hardware repair tracking, with seamless human takeover capabilities.
 
 ---
 
-### 4. Core MVP Features (Top 5)
+4. Core MVP Features (Top 5)
 
 1. Context-Aware RAG Chatbot (Google Google Gemini Flash): 
    - Delivers natural, grounded answers in Roman Urdu and English based on merchant product catalogs and appliance troubleshooting guides.
@@ -73,5 +73,5 @@ Local retail electronics and e-mobility merchants face severe revenue loss and c
    - Segregated portals for customer shopping/tracking and store owner inventory management, live chat monitoring, and fulfillment.
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

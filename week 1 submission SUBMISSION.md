@@ -1,8 +1,8 @@
-# WhatsAssist: WhatsApp AI Customer Resolution Agent for Local Businesses
+WhatsAssist: WhatsApp AI Customer Resolution Agent for Local Businesses
 
-## FYP Documentation - Week 1: Problem Discovery & User Personas
+FYP Documentation - Week 1: Problem Discovery & User Personas
 
-### 1. Problem Discovery & Operational Friction Identification
+1. Problem Discovery & Operational Friction Identification
 
 Local small and medium-sized businesses (SMBs) in sectors such as retail, clinics, salons, and home services heavily rely on messaging platforms like WhatsApp to communicate with their customers. However, managing manual customer support at scale leads to significant operational friction:
 
@@ -13,9 +13,9 @@ Local small and medium-sized businesses (SMBs) in sectors such as retail, clinic
 
 ---
 
-### 2. User Personas
+2. User Personas
 
-### Persona 1: Local Business Owner / Support Manager
+Persona 1: Local Business Owner / Support Manager
 
 - Name: Tariq Mahmood
 - Role: Owner, "ZepTech Smart Electronics & E-Mobility Store" (Smart Household Appliances & E-Mobility Retail Hub)
@@ -29,7 +29,7 @@ Local small and medium-sized businesses (SMBs) in sectors such as retail, clinic
   - Manually answers the same basic questions (e.g., "What are your shop hours-", "Do you have this part in stock-") dozens of times daily.
   - No structured system to view analytics or track unresolved customer complaints.
 
-### Persona 2: Local Consumer / Customer
+Persona 2: Local Consumer / Customer
 
 - Name: Ayesha Khan
 - Role: End Consumer
@@ -44,13 +44,13 @@ Local small and medium-sized businesses (SMBs) in sectors such as retail, clinic
 
 ---
 
-### 3. Problem Statement
+3. Problem Statement
 
 Local small businesses face severe revenue loss and operational inefficiency due to their inability to provide immediate, 24/7 customer support on WhatsApp—the primary communication channel for their customers. Human staff are overwhelmed by repetitive queries, while rigid, rule-based chatbots fail to provide natural, contextual answers, leading to customer frustration and abandoned inquiries. WhatsAssist solves this by delivering an affordable, AI-driven WhatsApp customer resolution agent that uses custom business knowledge to automatically handle routine inquiries, collect leads, and schedule appointments, seamlessly escalating complex issues to human agents when needed.
 
 ---
 
-### 4. Core MVP Features (Top 5)
+4. Core MVP Features (Top 5)
 
 1. Context-Aware RAG Chatbot (Knowledge Base Ingestion): 
    - Integrates Retrieval-Augmented Generation (RAG) to allow businesses to upload their custom knowledge base (PDFs, FAQs, product list, operating hours). The AI agent provides natural, contextually accurate answers to customer questions on WhatsApp.

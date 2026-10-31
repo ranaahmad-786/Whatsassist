@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 11: Real-Time Synchronization, Automated Testing & System Verification
+PTUT Final Year Project (FYP-I) Deliverable
+Week 11: Real-Time Synchronization, Automated Testing & System Verification
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,13 +14,13 @@ Submission Week: Week 11
 
 ---
 
-## 1. Executive Summary & Verification Strategy
+1. Executive Summary & Verification Strategy
 
 Week 11 establishes rigorous quality assurance, integration validation, and automated regression testing for the entire WhatsAssist platform. With multi-tier dependencies spanning Google Gemini Generative AI, multi-role authentication, real-time inventory management, and simulated WhatsApp messaging, an automated test harness was implemented to ensure fault tolerance, zero data loss, and sub-5-second conversational response times.
 
 ---
 
-## 2. Automated Test Suite Architecture (`backend/tests/run-tests.js`)
+2. Automated Test Suite Architecture (`backend/tests/run-tests.js`)
 
 An automated test suite comprising 11 critical assertion blocks was executed against the live application runtime:
 
@@ -38,7 +38,7 @@ An automated test suite comprising 11 critical assertion blocks was executed aga
 [TEST 11] Google Gemini 3.5 Flash Model Ingress & Latency Benchmark
 ```
 
-### Execution Log Output:
+Execution Log Output:
 ```
 ============================================================
 WHATSASSIST FINAL VERIFICATION & REGRESSION TEST HARNESS
@@ -67,7 +67,7 @@ STATUS: PRODUCTION-READY FOR FINAL EVALUATION DEFENSE
 
 ---
 
-## 3. Real-Time Synchronization Verification
+3. Real-Time Synchronization Verification
 
 To verify that actions initiated by a customer on the storefront or WhatsApp chat propagate without race conditions to the Store Owner workstation:
 
@@ -89,12 +89,12 @@ sequenceDiagram
     API-->>Owner: Order List (ZP-ORD-1004 Included Real-Time)
 ```
 
-- Latency: Synchronous reflection completed within **120 ms**.
+- Latency: Synchronous reflection completed within 120 ms.
 - Integrity: Zero orphaned orders or phantom stock decrements.
 
 ---
 
-## 4. Security & OWASP Top 10 Hardening
+4. Security & OWASP Top 10 Hardening
 
 1. Broken Access Control (A01): Role-checking middleware (`requireRole('merchant')`) blocks customer tokens from modifying product prices or toggling human agent takeovers.
 2. Cryptographic Failures (A02): All passwords salted and hashed via Bcrypt; JWT signed with 256-bit secret.
@@ -103,10 +103,10 @@ sequenceDiagram
 
 ---
 
-## 5. Conclusion
+5. Conclusion
 
 All 11 automated verification tests passed with a 100% success rate, confirming that WhatsAssist meets every functional and non-functional requirement prescribed for final graduation defense.
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

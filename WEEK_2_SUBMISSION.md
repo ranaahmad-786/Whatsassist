@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 2: Software Requirements Specification (SRS)
+PTUT Final Year Project (FYP-I) Deliverable
+Week 2: Software Requirements Specification (SRS)
 
 Standard: IEEE Std 830-1998 Aligned  
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
@@ -15,15 +15,15 @@ Submission Week: Week 2
 
 ---
 
-## 1. Introduction
+1. Introduction
 
-### 1.1 Purpose
+1.1 Purpose
 This document specifies the software requirements for WhatsAssist, an AI-powered WhatsApp customer resolution platform tailored for local consumer electronics and e-mobility enterprises. It establishes the baseline for system architecture, development, testing, and graduation defense.
 
-### 1.2 Scope
+1.2 Scope
 WhatsAssist automates customer inquiries via WhatsApp Cloud API using Retrieval-Augmented Generation (RAG) and Google Google Gemini Flash. The system delivers automated product inquiries, 1-click order placement, 4-stage repair tracking, human handoff, and a dual-role web workstation.
 
-### 1.3 Definitions, Acronyms, and Abbreviations
+1.3 Definitions, Acronyms, and Abbreviations
 - RAG: Retrieval-Augmented Generation.
 - LLM: Large Language Model (Google Google Gemini Flash).
 - RBAC: Role-Based Access Control (Customer vs Merchant).
@@ -32,9 +32,9 @@ WhatsAssist automates customer inquiries via WhatsApp Cloud API using Retrieval-
 
 ---
 
-## 2. Overall Description
+2. Overall Description
 
-### 2.1 Product Perspective
+2.1 Product Perspective
 WhatsAssist acts as an intelligent intermediary between customers on WhatsApp/Web Storefront, Meta's Cloud API, Google Gemini AI, and the Store Owner Admin Workstation.
 
 ```
@@ -48,13 +48,13 @@ WhatsAssist acts as an intelligent intermediary between customers on WhatsApp/We
                                                                   +--------------------+
 ```
 
-### 2.2 User Classes & Roles
+2.2 User Classes & Roles
 1. Customer (`role: 'customer'`): Browses electronics and e-bikes, submits 1-click orders, queries repair status (`REP-xxx`), and receives instant AI support in Roman Urdu / English.
 2. Store Owner / Manager (`role: 'merchant'`): Manages inventory stock, oversees incoming orders, updates repair diagnostic notes, and manually overrides active WhatsApp chats.
 
 ---
 
-## 3. Functional Requirements Matrix
+3. Functional Requirements Matrix
 
 | Req ID | Module | Description | Role |
 | :---: | :--- | :--- | :---: |
@@ -69,18 +69,18 @@ WhatsAssist acts as an intelligent intermediary between customers on WhatsApp/We
 
 ---
 
-## 4. Quantifiable Non-Functional Requirements (NFRs)
+4. Quantifiable Non-Functional Requirements (NFRs)
 
-### 4.1 Latency & Performance
-- NFR-1 (End-to-End Response Latency): 95% of automated AI replies MUST be delivered within **$\le 5.0$ seconds** using Google Google Gemini Flash.
-- NFR-2 (Order Synchronization Latency): Orders submitted via storefront MUST reflect on the Store Owner workstation within **$\le 200\text{ ms}$**.
-- NFR-3 (Repair Token Lookup): Status retrieval for repair tokens MUST execute within **$\le 100\text{ ms}$**.
+4.1 Latency & Performance
+- NFR-1 (End-to-End Response Latency): 95% of automated AI replies MUST be delivered within $\le 5.0$ seconds using Google Google Gemini Flash.
+- NFR-2 (Order Synchronization Latency): Orders submitted via storefront MUST reflect on the Store Owner workstation within $\le 200\text{ ms}$.
+- NFR-3 (Repair Token Lookup): Status retrieval for repair tokens MUST execute within $\le 100\text{ ms}$.
 
-### 4.2 Security & Data Privacy
+4.2 Security & Data Privacy
 - NFR-4 (Password Protection): All customer and merchant passwords MUST be salted and hashed via Bcrypt with at least 10 rounds.
 - NFR-5 (RBAC Authorization): API routes modifying prices, stock, or order states MUST enforce `requireRole('merchant')` middleware.
 - NFR-6 (Input Sanitization): All phone numbers MUST be validated against E.164 standard; text inputs sanitized against script injection.
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

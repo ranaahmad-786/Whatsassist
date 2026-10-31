@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 5: Project Scaffolding & Core Authentication Layer
+PTUT Final Year Project (FYP-I) Deliverable
+Week 5: Project Scaffolding & Core Authentication Layer
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,29 +14,29 @@ Submission Week: Week 5
 
 ---
 
-## 1. Git Repository Initialization & Branch Protection Strategy
+1. Git Repository Initialization & Branch Protection Strategy
 
-### 1.1 Branching Strategy (GitFlow Aligned)
+1.1 Branching Strategy (GitFlow Aligned)
 To ensure code stability and maintain traceability across project milestones, a structured branching model is implemented:
 - `main` (Production Branch): Contains only thoroughly tested, deployable code. Direct pushes and force-pushes are strictly prohibited.
 - `develop` (Integration Branch): Central staging branch where completed features are integrated before release tagging.
 - `feature/<feature-name>` (Feature Branches): Isolated branches branched off `develop` for specific functional modules (e.g., `feature/dual-role-auth`, `feature/gemini-llm`, `feature/order-sync`).
 
 ```
-  [main]      ----------------------------* (v1.0 Release)
+  [main]      ---------------------------- (v1.0 Release)
                      ^
                      | (Pull Request Merge + Review)
-  [develop]   ---*---*----------*---------*
+  [develop]   -------------------------
                   \            /
-  [feature]        *---*------* (feature/dual-role-auth)
+  [feature]        --------- (feature/dual-role-auth)
 ```
 
-### 1.2 Repository Exclusion Rules (`.gitignore`)
+1.2 Repository Exclusion Rules (`.gitignore`)
 ```gitignore
 node_modules/
 .env
 .env.local
-npm-debug.log*
+npm-debug.log
 dist/
 coverage/
 .DS_Store
@@ -44,9 +44,9 @@ coverage/
 
 ---
 
-## 2. Backend Directory Scaffolding & Architecture
+2. Backend Directory Scaffolding & Architecture
 
-The backend project has been structured under a clean **Layered MVC Architecture** in Node.js (ES Modules).
+The backend project has been structured under a clean Layered MVC Architecture in Node.js (ES Modules).
 
 ```
 backend/
@@ -84,7 +84,7 @@ backend/
 
 ---
 
-## 3. Database Persistence & Storage Strategy
+3. Database Persistence & Storage Strategy
 
 The database persistence layer provides immediate atomic reads and writes with zero external database server dependency, ensuring reliable multi-tenancy and zero deployment friction:
 - Automatically loads and commits to `data/whatsassist_db.json`.
@@ -93,9 +93,9 @@ The database persistence layer provides immediate atomic reads and writes with z
 
 ---
 
-## 4. Dual-Role Authentication & Access Control (RBAC)
+4. Dual-Role Authentication & Access Control (RBAC)
 
-### 4.1 Role Separation: Customer vs Store Owner
+4.1 Role Separation: Customer vs Store Owner
 The authentication layer implements strict Role-Based Access Control (RBAC) to differentiate between regular online shoppers and store administrators:
 
 1. Customer Account (`role: 'customer'`): 
@@ -107,8 +107,8 @@ The authentication layer implements strict Role-Based Access Control (RBAC) to d
    - Configured for store administrative staff.
    - Grants complete administrative authority: inventory CRUD, price adjustments, real-time order fulfillment, live chat overrides, and customer grievance resolution.
 
-### 4.2 Password Hashing & JWT Structure
-- Plaintext passwords are salted and hashed using **`bcryptjs`** with **10 salt rounds**.
+4.2 Password Hashing & JWT Structure
+- Plaintext passwords are salted and hashed using `bcryptjs` with 10 salt rounds.
 - Issues a signed JSON Web Token (JWT) containing user identifier and role:
 
 ```json
@@ -124,9 +124,9 @@ The authentication layer implements strict Role-Based Access Control (RBAC) to d
 
 ---
 
-## 5. Verification & Test Execution Results
+5. Verification & Test Execution Results
 
-### Test Case 1: Customer Account Creation (`POST /api/auth/register`)
+Test Case 1: Customer Account Creation (`POST /api/auth/register`)
 ```http
 POST /api/auth/register HTTP/1.1
 Host: localhost:5000
@@ -154,7 +154,7 @@ Response (201 Created):
 }
 ```
 
-### Test Case 2: Store Owner Login (`POST /api/auth/login`)
+Test Case 2: Store Owner Login (`POST /api/auth/login`)
 ```http
 POST /api/auth/login HTTP/1.1
 Host: localhost:5000
@@ -181,5 +181,5 @@ Response (200 OK):
 ```
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

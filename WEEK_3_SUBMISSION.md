@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 3: High-Level Architecture & Cloud Topology Documentation
+PTUT Final Year Project (FYP-I) Deliverable
+Week 3: High-Level Architecture & Cloud Topology Documentation
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,9 +14,9 @@ Submission Week: Week 3
 
 ---
 
-## 1. 3-Tier Decoupled Architecture & Topology
+1. 3-Tier Decoupled Architecture & Topology
 
-WhatsAssist is architected as a cloud-native, decoupled **3-Tier System** engineered for low-latency messaging, real-time inventory synchronization, and generative AI conversational resolution:
+WhatsAssist is architected as a cloud-native, decoupled 3-Tier System engineered for low-latency messaging, real-time inventory synchronization, and generative AI conversational resolution:
 
 ```
 +-----------------------------------------------------------------------------------+
@@ -60,23 +60,23 @@ WhatsAssist is architected as a cloud-native, decoupled **3-Tier System** engine
 
 ---
 
-## 2. Component Breakdown & Data Flow
+2. Component Breakdown & Data Flow
 
-### 2.1 Client Tier
+2.1 Client Tier
 - Customer Storefront Portal: Renders categorized inventory (E-Bikes, Inverter ACs, Ovens, Refrigerators), direct 1-click modal checkout, personal order tracker, and floating WhatsApp AI chat widget.
 - Store Owner Workstation: Displays real-time executive analytics, incoming customer orders with fulfillment status toggles, stock controls with low-stock warnings, and live chat emergency takeover toggles.
 
-### 2.2 Application / Logic Tier
+2.2 Application / Logic Tier
 - Node.js Express Server: Modular MVC architecture providing REST endpoints for authentication, product management, order processing, and repair lookups.
 - Google Gemini AI Engine (`geminiService.js`): Ingests customer prompts, matches intent against ZepTech product specifications, generates bilingual responses (Roman Urdu & English), and handles conversational checkouts.
 - Takeover Controller: Manages session state machine (`AI_ACTIVE` $\leftrightarrow$ `NEEDS_HUMAN`), pausing Gemini responses when store owner intervenes.
 
-### 2.3 Database Tier
+2.3 Database Tier
 - Persistent Multi-Tenant Store: Atomic transactional integrity storing merchant credentials, user accounts, products catalog, orders with unique tracking codes, and repair tickets.
 
 ---
 
-## 3. Technology Stack Justification
+3. Technology Stack Justification
 
 | Layer | Selected Technology | Engineering Justification |
 | :--- | :--- | :--- |
@@ -86,5 +86,5 @@ WhatsAssist is architected as a cloud-native, decoupled **3-Tier System** engine
 | Security | Bcrypt (10 rounds) + JWT | Industry-standard password hashing and stateless cryptographic token validation. |
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

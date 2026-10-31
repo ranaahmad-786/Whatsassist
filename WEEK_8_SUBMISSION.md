@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 8: E-Commerce & Conversational Order Processing Automation
+PTUT Final Year Project (FYP-I) Deliverable
+Week 8: E-Commerce & Conversational Order Processing Automation
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,9 +14,9 @@ Submission Week: Week 8
 
 ---
 
-## 1. Executive Summary & Objective
+1. Executive Summary & Objective
 
-In Week 8, the WhatsAssist platform was extended from general conversational inquiry resolution into an active **E-Commerce & Automated Order Processing Engine** tailored for consumer electronics and e-mobility solutions. Local electronics businesses routinely lose customers who inquire about high-ticket appliances (e.g. Inverter ACs, E-Bikes, Baking Ovens) over WhatsApp but abandon the transaction when redirected to slow phone calls or separate checkout portals.
+In Week 8, the WhatsAssist platform was extended from general conversational inquiry resolution into an active E-Commerce & Automated Order Processing Engine tailored for consumer electronics and e-mobility solutions. Local electronics businesses routinely lose customers who inquire about high-ticket appliances (e.g. Inverter ACs, E-Bikes, Baking Ovens) over WhatsApp but abandon the transaction when redirected to slow phone calls or separate checkout portals.
 
 Week 8 delivers two synchronized ordering mechanisms:
 1. Conversational WhatsApp Checkout: Natural language intent detection that parses customer name, contact phone, delivery address, and ordered items directly within chat sessions.
@@ -24,23 +24,23 @@ Week 8 delivers two synchronized ordering mechanisms:
 
 ---
 
-## 2. Order Processing Architecture & State Transitions
+2. Order Processing Architecture & State Transitions
 
-### 2.1 Order State Lifecycle
+2.1 Order State Lifecycle
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PENDING: Order Placed (WhatsApp / Storefront)
+    [] --> PENDING: Order Placed (WhatsApp / Storefront)
     PENDING --> CONFIRMED: Store Owner Verifies Customer Address & Details
     CONFIRMED --> SHIPPED: Dispatch via Logistics Courier
     SHIPPED --> DELIVERED: Customer Receives Item & Payment Collected
     PENDING --> CANCELLED: Customer Cancellation or Stock Depletion
-    DELIVERED --> [*]
-    CANCELLED --> [*]
+    DELIVERED --> []
+    CANCELLED --> []
 ```
 
-### 2.2 Category-First Disambiguation Heuristic
-In multi-category electronics stores, brand names frequently overlap across divergent product categories (for example, *Haier* manufactures both Air Conditioners and Microwave Ovens; *Dawlance* manufactures Inverter Ovens, Refrigerators, and Washing Machines). 
+2.2 Category-First Disambiguation Heuristic
+In multi-category electronics stores, brand names frequently overlap across divergent product categories (for example, Haier manufactures both Air Conditioners and Microwave Ovens; Dawlance manufactures Inverter Ovens, Refrigerators, and Washing Machines). 
 
 To prevent cross-category ordering mistakes during conversational checkout:
 1. Category Detection: Evaluates message tokens against known category lexicons (`air conditioners`, `ac`, `e-bike`, `bike`, `oven`, `microwave`, `baking`, `refrigerator`, `tv`).
@@ -49,7 +49,7 @@ To prevent cross-category ordering mistakes during conversational checkout:
 
 ---
 
-## 3. Atomic Stock Depletion & Inventory Concurrency Control
+3. Atomic Stock Depletion & Inventory Concurrency Control
 
 When an order is successfully validated, the system performs an atomic inventory decrement:
 
@@ -70,9 +70,9 @@ saveDatabase();
 
 ---
 
-## 4. API Endpoints & Verification
+4. API Endpoints & Verification
 
-### 4.1 Create Instant Order (`POST /api/orders`)
+4.1 Create Instant Order (`POST /api/orders`)
 ```http
 POST /api/orders HTTP/1.1
 Host: localhost:5000
@@ -108,17 +108,17 @@ Response (201 Created):
 }
 ```
 
-### 4.2 Real-Time Store Owner Order Retrieval (`GET /api/orders`)
+4.2 Real-Time Store Owner Order Retrieval (`GET /api/orders`)
 Enables the store manager to view all inbound customer orders with real-time status switches (`PENDING` $\to$ `CONFIRMED` $\to$ `SHIPPED` $\to$ `DELIVERED`).
 
 ---
 
-## 5. Verification & Test Metrics
+5. Verification & Test Metrics
 
 - Order Generation Precision: 100% accurate product binding during conversational checkout tests.
 - Inventory Consistency: Verified zero race conditions during sequential order placements.
 - Synchronous Reflection: Orders placed via customer storefront reflect on owner dashboard within 120 ms.
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002

@@ -1,5 +1,5 @@
-# PTUT Final Year Project (FYP-I) Deliverable
-## Week 4: Database Modeling, API Contracts & UI Wireframes Documentation
+PTUT Final Year Project (FYP-I) Deliverable
+Week 4: Database Modeling, API Contracts & UI Wireframes Documentation
 
 Project Title: WhatsAssist – WhatsApp AI Customer Resolution Agent for Local Businesses  
 Commercial Brand / Domain: ZepTech Smart Electronics & E-Mobility Store  
@@ -14,9 +14,9 @@ Submission Week: Week 4
 
 ---
 
-## 1. Database Entity-Relationship Modeling & Indexing Strategy
+1. Database Entity-Relationship Modeling & Indexing Strategy
 
-### 1.1 Entity-Relationship Diagram (ERD)
+1.1 Entity-Relationship Diagram (ERD)
 
 The database follows a normalized multi-tenant relational schema designed for high-concurrency message ingestion, conversational history, product inventory tracking (E-Bikes, Ovens, ACs, Refrigerators), customer order placement, and 4-stage repair tracking.
 
@@ -96,36 +96,36 @@ erDiagram
 
 ---
 
-## 2. Formal REST API Specification (OpenAPI 3.0 Aligned)
+2. Formal REST API Specification (OpenAPI 3.0 Aligned)
 
-### 2.1 Authentication & RBAC (`/api/auth`)
+2.1 Authentication & RBAC (`/api/auth`)
 - `POST /api/auth/register`: Dual-role user registration (`role: 'customer'` or `'merchant'`). Passwords hashed with 10 salt rounds.
 - `POST /api/auth/login`: Authenticates user, verifies password hash, and issues signed JWT token containing role and store identity.
 - `GET /api/auth/profile`: Retrieves authenticated user details and active role permissions.
 
-### 2.2 Electronics & E-Mobility Inventory (`/api/products`)
+2.2 Electronics & E-Mobility Inventory (`/api/products`)
 - `GET /api/products`: Lists products with category filtering (e.g., `category=E-Bikes`, `category=Ovens & Kitchen`, `category=Air Conditioners`).
 - `POST /api/products`: Store Owner adds new inventory items with specifications array and stock quantities.
 - `PUT /api/products/:id`: Updates price, technical specs, or stock count.
 - `DELETE /api/products/:id`: Removes discontinued item from catalog.
 
-### 2.3 Customer Orders & Store Owner Fulfillment (`/api/orders`)
+2.3 Customer Orders & Store Owner Fulfillment (`/api/orders`)
 - `POST /api/orders`: Instant 1-Click order checkout from storefront or conversational WhatsApp order. Generates unique order code (`ZP-ORD-xxxx`), decrements inventory stock, and creates CRM lead.
 - `GET /api/orders`: Real-time order list retrieved by Store Owner dashboard for fulfillment tracking.
 - `PATCH /api/orders/:id/status`: Updates order state (`PENDING`, `CONFIRMED`, `SHIPPED`, `DELIVERED`).
 
-### 2.4 Appliance & E-Bike Diagnostics & Repairs (`/api/repairs`)
+2.4 Appliance & E-Bike Diagnostics & Repairs (`/api/repairs`)
 - `GET /api/repairs/:token`: Resolves 4-stage repair status (`RECEIVED`, `IN_DIAGNOSIS`, `REPAIRING`, `READY_FOR_PICKUP`), technician diagnosis, and estimated repair cost.
 - `POST /api/repairs`: Store technicians register new repair device and issue token.
 - `PATCH /api/repairs/:id/status`: Updates stage and technician notes.
 
-### 2.5 Messaging & WhatsApp Webhook (`/api/chat`)
+2.5 Messaging & WhatsApp Webhook (`/api/chat`)
 - `POST /api/chat/message`: Processes customer chat input through Google Google Gemini Flash engine, detects orders, checks repair tokens, and manages human takeover states.
 - `POST /api/chats/sessions/:sessionId/takeover`: Enables store manager to pause AI responses and take over the conversation directly.
 
 ---
 
-## 3. Primary User Interface Wireframes
+3. Primary User Interface Wireframes
 
 - Customer Storefront Portal: 
   - Clean, responsive product catalog with category filter tabs (E-Bikes, Inverter ACs, Microwave & Baking Ovens, Refrigerators, Smart TVs).
@@ -139,5 +139,5 @@ erDiagram
   - Repair Tracking Workbench: Technician diagnostics editor with 4-stage progress indicators.
 
 ---
-**24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore**  
-**Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002**
+24-ST-027 | Muhammad Ahmad Khan | SET-A | PTUT Lahore  
+Supervisor: Dr. Zaigham Mushtaq | PTUT-PRJ-002
