@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-11-04T14:44:55.148Z",
+      "updated_at": "2026-11-04T14:52:06.805Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -1697,7 +1697,7 @@
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-11-04T14:32:13.021Z",
-      "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-ebike-eco-02",
@@ -1719,7 +1719,7 @@
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T10:17:02.533Z",
-      "image_url": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-oven-dawlance-03",
@@ -1741,7 +1741,7 @@
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-31T13:24:04.939Z",
-      "image_url": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-oven-haier-04",
@@ -1762,8 +1762,8 @@
       "inquiry_count": 45,
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-31T13:18:26.685Z",
-      "image_url": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=600&q=80"
+      "updated_at": "2026-11-04T14:54:34.813Z",
+      "image_url": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-ac-gree-05",
@@ -1785,7 +1785,7 @@
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-11-04T14:37:14.910Z",
-      "image_url": "https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-ac-haier-06",
@@ -1807,7 +1807,7 @@
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T09:55:26.077Z",
-      "image_url": "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-fridge-dawlance-07",
@@ -1829,7 +1829,7 @@
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T08:50:27.635Z",
-      "image_url": "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-tv-samsung-08",
@@ -1850,7 +1850,7 @@
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T08:50:27.635Z",
-      "image_url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-tv-tcl-09",
@@ -1871,7 +1871,7 @@
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T08:50:27.635Z",
-      "image_url": "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-wm-haier-10",
@@ -1892,7 +1892,7 @@
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T08:50:27.635Z",
-      "image_url": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "prod-acc-surge-11",
@@ -1913,7 +1913,7 @@
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
       "updated_at": "2026-10-25T08:50:27.635Z",
-      "image_url": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=600&q=80"
+      "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
     }
   ],
   "orders": [

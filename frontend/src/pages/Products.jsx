@@ -52,32 +52,32 @@ import {
 export const DEFAULT_PRODUCT_IMAGES = {
   'prod-ebike-thunder-01': 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80',
   'prod-ebike-eco-02': 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
-  'prod-oven-dawlance-03': 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80',
-  'prod-oven-haier-04': 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80',
-  'prod-ac-gree-05': 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=800&q=80',
-  'prod-ac-haier-06': 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80',
-  'prod-fridge-dawlance-07': 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80',
+  'prod-oven-dawlance-03': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80',
+  'prod-oven-haier-04': 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80',
+  'prod-ac-gree-05': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
+  'prod-ac-haier-06': 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80',
+  'prod-fridge-dawlance-07': 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80',
   'prod-tv-samsung-08': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80',
   'prod-tv-tcl-09': 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80',
   'prod-wm-haier-10': 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80',
-  'prod-acc-surge-11': 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80',
+  'prod-acc-surge-11': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
 };
 
 export const getProductImage = (product) => {
-  if (product?.image_url && typeof product.image_url === 'string' && product.image_url.startsWith('http')) {
-    return product.image_url;
-  }
   if (product?.id && DEFAULT_PRODUCT_IMAGES[product.id]) {
     return DEFAULT_PRODUCT_IMAGES[product.id];
   }
+  if (product?.image_url && typeof product.image_url === 'string' && product.image_url.startsWith('http')) {
+    return product.image_url;
+  }
   const cat = product?.category;
-  if (cat === 'E-Bikes') return 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80';
-  if (cat === 'Refrigerators') return 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80';
-  if (cat === 'Air Conditioners') return 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=800&q=80';
-  if (cat === 'Ovens & Kitchen' || cat === 'Kitchen Appliances') return 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80';
-  if (cat === 'LED TVs') return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80';
-  if (cat === 'Household Electronics') return 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80';
-  return 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'E-Bikes') return DEFAULT_PRODUCT_IMAGES['prod-ebike-thunder-01'];
+  if (cat === 'Refrigerators') return DEFAULT_PRODUCT_IMAGES['prod-fridge-dawlance-07'];
+  if (cat === 'Air Conditioners') return DEFAULT_PRODUCT_IMAGES['prod-ac-gree-05'];
+  if (cat === 'Ovens & Kitchen' || cat === 'Kitchen Appliances') return DEFAULT_PRODUCT_IMAGES['prod-oven-haier-04'];
+  if (cat === 'LED TVs') return DEFAULT_PRODUCT_IMAGES['prod-tv-samsung-08'];
+  if (cat === 'Household Electronics') return DEFAULT_PRODUCT_IMAGES['prod-wm-haier-10'];
+  return DEFAULT_PRODUCT_IMAGES['prod-acc-surge-11'];
 };
 
 // 4 Featured Categories matching the wireframe row
@@ -96,7 +96,7 @@ const FEATURED_CATEGORIES = [
     title: 'Inverter ACs',
     subtitle: '70% Energy Saver T3',
     icon: '❄️',
-    image: 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
     count: '2 Models',
     accent: 'border-cyan-500/20 bg-cyan-50/50 dark:bg-cyan-950/20',
   },
@@ -114,7 +114,7 @@ const FEATURED_CATEGORIES = [
     title: 'Refrigerators',
     subtitle: 'Low-Voltage Inverter',
     icon: '🧊',
-    image: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=600&q=80',
     count: '1 Model',
     accent: 'border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-950/20',
   },
@@ -284,6 +284,34 @@ export default function Products() {
     }
   };
 
+  const [restockingId, setRestockingId] = useState(null);
+
+  const handleQuickRestock = async (product, amount = 5) => {
+    setRestockingId(product.id);
+    try {
+      const currentStock = Number(product.stock_quantity) || 0;
+      const newStock = currentStock + amount;
+      await productsAPI.update(product.id, {
+        ...product,
+        stock_quantity: newStock,
+      });
+      setProducts((prev) =>
+        prev.map((item) => (item.id === product.id ? { ...item, stock_quantity: newStock } : item))
+      );
+      setMeta((prev) => {
+        const updatedProds = products.map((item) =>
+          item.id === product.id ? { ...item, stock_quantity: newStock } : item
+        );
+        const lowCount = updatedProds.filter((p) => (p.stock_quantity || 0) <= 3).length;
+        return { ...prev, low_stock_count: lowCount };
+      });
+    } catch (err) {
+      console.error('Quick restock failed:', err);
+    } finally {
+      setRestockingId(null);
+    }
+  };
+
   // Filter products for category shortcuts
   const filteredProducts = products.filter((p) => {
     if (selectedCategory === 'All') return true;
@@ -328,24 +356,45 @@ export default function Products() {
         <div className="space-y-6">
           {/* Stock Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between">
-              <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Catalog Items</p>
-                <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1">{products.length} Products</h3>
+            <div
+              onClick={() => setStockFilter('all')}
+              className={`p-5 rounded-2xl bg-white dark:bg-slate-900 border transition-all cursor-pointer hover:shadow-md hover:-translate-y-0.5 ${
+                stockFilter === 'all'
+                  ? 'border-blue-500 ring-2 ring-blue-500/20'
+                  : 'border-slate-200 dark:border-slate-800'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Catalog Items</p>
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1">{products.length} Products</h3>
+                  <span className="text-[11px] text-blue-500 font-bold mt-1 inline-block">Filter: View All</span>
+                </div>
+                <span className="p-3 rounded-xl bg-blue-500/10 text-blue-500 text-xl">📦</span>
               </div>
-              <span className="p-3 rounded-xl bg-blue-500/10 text-blue-500 text-xl">📦</span>
             </div>
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between">
-              <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Low Stock Warnings</p>
-                <h3 className="text-2xl font-black text-amber-600 dark:text-amber-400 mt-1">{meta.low_stock_count} Items</h3>
+            <div
+              onClick={() => setStockFilter('low')}
+              className={`p-5 rounded-2xl bg-white dark:bg-slate-900 border transition-all cursor-pointer hover:shadow-md hover:-translate-y-0.5 ${
+                stockFilter === 'low'
+                  ? 'border-amber-500 ring-2 ring-amber-500/20'
+                  : 'border-slate-200 dark:border-slate-800'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Low Stock Warnings</p>
+                  <h3 className="text-2xl font-black text-amber-600 dark:text-amber-400 mt-1">{meta.low_stock_count} Items</h3>
+                  <span className="text-[11px] text-amber-500 font-bold mt-1 inline-block">Filter: Low Stock Only</span>
+                </div>
+                <span className="p-3 rounded-xl bg-amber-500/10 text-amber-500 text-xl">⚠️</span>
               </div>
-              <span className="p-3 rounded-xl bg-amber-500/10 text-amber-500 text-xl">⚠️</span>
             </div>
             <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between">
               <div>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">AI RAG Sync Status</p>
                 <h3 className="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1">100% Synced</h3>
+                <span className="text-[11px] text-emerald-500 font-bold mt-1 inline-block">Gemini Flash Ready</span>
               </div>
               <span className="p-3 rounded-xl bg-emerald-500/10 text-emerald-500 text-xl">🤖</span>
             </div>
@@ -419,6 +468,15 @@ export default function Products() {
                   </div>
 
                   <div className="flex items-center gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+                    <button
+                      onClick={() => handleQuickRestock(p, 5)}
+                      disabled={restockingId === p.id}
+                      className="py-1.5 px-3 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50"
+                      title="Quick Restock +5 Units"
+                    >
+                      <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                      <span>{restockingId === p.id ? '...' : '+5 Stock'}</span>
+                    </button>
                     <button
                       onClick={() => handleOpenEdit(p)}
                       className="flex-1 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors flex items-center justify-center gap-1"
@@ -749,6 +807,30 @@ export default function Products() {
                         <span>Order Now</span>
                       </button>
                     </div>
+
+                    {/* Store Owner Quick Restock Controls (Visible ONLY when logged in as Owner) */}
+                    {isOwner && (
+                      <div className="px-4 py-2.5 bg-gradient-to-r from-amber-50 to-amber-100/60 dark:from-amber-950/40 dark:to-amber-900/30 border-t border-amber-200 dark:border-amber-700/60 flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <Zap className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 fill-amber-600 dark:fill-amber-400 shrink-0" />
+                          <span className="text-[11px] font-black text-amber-900 dark:text-amber-200 truncate">
+                            {p.stock_quantity <= 3 ? `⚠️ Low (${p.stock_quantity} left)` : `Stock: ${p.stock_quantity}`}
+                          </span>
+                        </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleQuickRestock(p, 5);
+                          }}
+                          disabled={restockingId === p.id}
+                          className="px-2.5 py-1 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-[11px] font-black shadow-xs transition-all flex items-center gap-1 cursor-pointer hover:scale-105 active:scale-95 disabled:opacity-50"
+                          title="Instant Owner Restock: Add +5 units"
+                        >
+                          <Plus className="w-3 h-3" />
+                          <span>{restockingId === p.id ? 'Restocking...' : '+5 Restock'}</span>
+                        </button>
+                      </div>
+                    )}
                   </div>
                 );
               })}

@@ -96,6 +96,45 @@ export default function Dashboard() {
   const confirmedCount = orders.filter((o) => o.order_status === 'CONFIRMED' || o.order_status === 'DELIVERED').length || 18;
   const lowStockItems = products.filter((p) => p.stock_quantity > 0 && p.stock_quantity <= 3);
 
+  const [restockingId, setRestockingId] = useState(null);
+
+  const handleRestockProduct = async (productId, amount = 5) => {
+    setRestockingId(productId);
+    try {
+      const prod = products.find((p) => p.id === productId);
+      if (!prod) return;
+      const newStock = (Number(prod.stock_quantity) || 0) + amount;
+      await productsAPI.update(productId, { ...prod, stock_quantity: newStock });
+      setProducts((prev) =>
+        prev.map((p) => (p.id === productId ? { ...p, stock_quantity: newStock } : p))
+      );
+    } catch (err) {
+      console.error('Failed to restock in dashboard:', err);
+    } finally {
+      setRestockingId(null);
+    }
+  };
+
+  const handleRestockAllLow = async () => {
+    setRestockingId('all');
+    try {
+      for (const item of lowStockItems) {
+        const newStock = (Number(item.stock_quantity) || 0) + 5;
+        await productsAPI.update(item.id, { ...item, stock_quantity: newStock });
+      }
+      setProducts((prev) =>
+        prev.map((p) => {
+          const isLow = lowStockItems.find((l) => l.id === p.id);
+          return isLow ? { ...p, stock_quantity: (Number(p.stock_quantity) || 0) + 5 } : p;
+        })
+      );
+    } catch (err) {
+      console.error('Failed to restock all low items:', err);
+    } finally {
+      setRestockingId(null);
+    }
+  };
+
   const topProducts = [
     {
       id: 'prod-ebike-thunder-01',
@@ -265,9 +304,9 @@ export default function Dashboard() {
 
         {/* Low-Stock Warning Alert Banner */}
         {lowStockItems.length > 0 && (
-          <div className="p-4.5 rounded-2xl bg-amber-500/10 dark:bg-amber-950/40 border border-amber-500/30 dark:border-amber-500/50 flex items-center justify-between gap-4 text-xs text-amber-900 dark:text-amber-200 shadow-xs">
-            <div className="flex items-center gap-3.5">
-              <div className="p-2.5 rounded-xl bg-amber-500/20 dark:bg-amber-500/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-400/40">
+          <div className="p-4.5 rounded-2xl bg-amber-500/10 dark:bg-amber-950/40 border border-amber-500/30 dark:border-amber-500/50 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-amber-900 dark:text-amber-200 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 dark:bg-amber-500/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-400/40 shrink-0">
                 <AlertTriangle className="w-5 h-5" />
               </div>
               <div>
@@ -275,17 +314,48 @@ export default function Dashboard() {
                   Critical Inventory Reorder Alert ({lowStockItems.length} SKUs Low)
                 </h4>
                 <p className="text-amber-800 dark:text-amber-100 mt-0.5 font-medium">
-                  The following items have ≤ 3 units remaining:{' '}
-                  <strong className="underline">{lowStockItems.map((i) => `${i.title} (${i.stock_quantity} left)`).join(', ')}</strong>.
+                  The following items have ≤ 3 units remaining:
                 </p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {lowStockItems.map((item) => (
+                    <div
+                      key={item.id}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-500/15 dark:bg-amber-900/40 border border-amber-500/30 text-amber-950 dark:text-amber-200 text-xs font-bold"
+                    >
+                      <span>{item.title}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-600 text-white font-mono">
+                        {item.stock_quantity} left
+                      </span>
+                      <button
+                        onClick={() => handleRestockProduct(item.id, 5)}
+                        disabled={restockingId === item.id || restockingId === 'all'}
+                        className="ml-1 px-2 py-0.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-black cursor-pointer transition-all disabled:opacity-50 flex items-center gap-0.5"
+                        title="Instant Restock: Add +5 Units"
+                      >
+                        <Plus className="w-2.5 h-2.5" />
+                        <span>{restockingId === item.id ? '...' : '+5 Stock'}</span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <Link
-              to="/products"
-              className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-black text-xs shrink-0 transition-colors shadow-sm"
-            >
-              Manage Stock
-            </Link>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={handleRestockAllLow}
+                disabled={restockingId === 'all'}
+                className="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-black text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                <Zap className="w-3.5 h-3.5 fill-current" />
+                <span>{restockingId === 'all' ? 'Restocking All...' : 'Restock All (+5)'}</span>
+              </button>
+              <Link
+                to="/products"
+                className="px-3.5 py-2 rounded-xl border border-amber-500/40 hover:bg-amber-500/20 text-amber-900 dark:text-amber-200 font-bold text-xs transition-colors"
+              >
+                Manage Catalog
+              </Link>
+            </div>
           </div>
         )}
 
