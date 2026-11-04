@@ -17,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const [form, setForm] = useState({ email: 'ranaahmadkhan.112211@gmail.com', password: '' });
+  const [form, setForm] = useState({ email: 'ranaahmadkhan.112211@gmail.com', password: 'admin123' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Login() {
 
   // Quick Demo Auto-Fill helpers
   const fillOwner = () => {
-    setForm({ email: 'ranaahmadkhan.112211@gmail.com', password: '' });
+    setForm({ email: 'ranaahmadkhan.112211@gmail.com', password: 'admin123' });
     setError('');
   };
 

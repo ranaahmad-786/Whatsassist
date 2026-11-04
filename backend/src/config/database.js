@@ -34,12 +34,17 @@ function loadStore() {
 
   if (fs.existsSync(DB_PATH)) {
     try {
-      const data = fs.readFileSync(DB_PATH, 'utf8');
+      let data = fs.readFileSync(DB_PATH, 'utf8');
+      if (data.charCodeAt(0) === 0xFEFF) {
+        data = data.slice(1);
+      }
       store = { ...defaultState, ...JSON.parse(data) };
     } catch (e) {
-      console.warn('⚠️ [DB] Corrupt file encountered, recreating fresh database.');
-      store = { ...defaultState };
-      persistStore();
+      console.warn('⚠️ [DB] Warning reading database file:', e.message);
+      if (!store) {
+        store = { ...defaultState };
+        persistStore();
+      }
     }
   } else {
     store = { ...defaultState };

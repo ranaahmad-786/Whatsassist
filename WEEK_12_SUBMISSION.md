@@ -283,6 +283,16 @@ To transition WhatsAssist from a generic conversational bot into a specialized c
 6. Multi-Role Authentication & Customer vs Owner Accounts: 
    - Dual registration workflows: Customer Account (Clean shopping storefront, order tracking, repair token lookup) vs Store Owner / Manager Account (Full administration, inventory CRUD, revenue analytics, bot configuration).
 
+
+7. Official Wireframe UI Modernization & Dual-Mode RAG Frontend: 
+   - Full architectural alignment with PTUT evaluation wireframes:
+     a) Customer Storefront & Navigation (StorefrontNavbar.jsx & StorefrontHero.jsx) with dynamic carousel and category filtering across E-Bikes, Inverter ACs, Kitchen Appliances, and Refrigerators.
+     b) Trending Products Grid: 4-column responsive product showcase with verified photography, rating stars, model numbers, and dual actions (View Details and Order Now).
+     c) 4-Stage Repair Tracking Component (RepairTracker.jsx): Real-time token resolver for REP-101, REP-102, and REP-103 featuring animated directional connectors (RECEIVED -> IN DIAGNOSIS -> REPAIRING -> READY FOR PICKUP).
+     d) Instant 1-Click Checkout (CheckoutModal.jsx): Captures delivery coordinates, generates unique ZP-ORD-xxxx identifiers, syncs database inventory stock decrements, and prints a verified Cash on Delivery receipt slip.
+     e) Floating WhatsApp AI Assistant (FloatingWhatsAppChat.jsx): Fixed bottom-right FAB widget connecting directly to the Google Gemini Flash RAG pipeline with fluent Roman Urdu, Urdu, and English comprehension.
+     f) Executive Manager Live Chat Takeover (LiveChats.jsx): Features an interactive 1-click toggle switch between AI Autonomous Mode and Human Merchant Takeover.
+
 ---
 
 ---

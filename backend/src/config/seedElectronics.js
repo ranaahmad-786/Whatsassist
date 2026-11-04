@@ -7,12 +7,37 @@
 
 const { db } = require('./database');
 const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcryptjs');
 
 function seedElectronicsData() {
-  const merchant = db.findOne('merchants', m => m.email === 'ranaahmadkhan.112211@gmail.com') || db.findAll('merchants')[0];
+  let merchant = db.findOne('merchants', m => m.email === 'ranaahmadkhan.112211@gmail.com');
   if (!merchant) {
-    console.warn('⚠️ [Seed] No merchant found to attach catalog.');
-    return;
+    merchant = db.insert('merchants', {
+      id: '1c8b9736-ad03-4251-bacf-1e1bff38fd00',
+      business_name: 'ZepTech',
+      name: 'Muhammad Ahmad Khan',
+      email: 'ranaahmadkhan.112211@gmail.com',
+      password_hash: bcrypt.hashSync('admin123', 12),
+      phone_number: '+923314228724',
+      business_category: 'Electronics, E-Bikes & Household Appliances',
+      role: 'owner',
+      is_active: 1
+    });
+  }
+
+  let customer = db.findOne('merchants', m => m.email === 'customer@zeptech.pk');
+  if (!customer) {
+    db.insert('merchants', {
+      id: 'cust-demo-1001-uuid-zeptech',
+      business_name: 'Hamza Malik (Customer)',
+      name: 'Hamza Malik',
+      email: 'customer@zeptech.pk',
+      password_hash: bcrypt.hashSync('customer123', 12),
+      phone_number: '+92 300 9876543',
+      business_category: 'Customer',
+      role: 'customer',
+      is_active: 1
+    });
   }
 
   const merchantId = merchant.id;

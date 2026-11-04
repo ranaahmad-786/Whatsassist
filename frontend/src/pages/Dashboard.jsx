@@ -239,6 +239,12 @@ export default function Dashboard() {
               <span className="text-slate-400">Store Hours:</span> <strong>9:00 AM - 10:00 PM PST</strong>
             </div>
             <Link
+              to="/products"
+              className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors shadow-sm flex items-center gap-1.5"
+            >
+              <span>🛍️</span> Storefront
+            </Link>
+            <Link
               to="/chats"
               className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-sm flex items-center gap-1.5"
             >
