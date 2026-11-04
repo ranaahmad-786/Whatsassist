@@ -23,12 +23,12 @@ import FloatingWhatsAppChat from '../components/FloatingWhatsAppChat';
 import CartDrawer from '../components/CartDrawer';
 import { productsAPI, ordersAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import acGreeImg from '../assets/products/ac-gree.svg';
-import acHaierImg from '../assets/products/ac-haier.svg';
-import surgeImg from '../assets/products/surge-protector.svg';
-import haierMicroImg from '../assets/products/haier-microwave.svg';
-import dawlanceMicroImg from '../assets/products/dawlance-microwave.svg';
-import dawlanceFridgeImg from '../assets/products/dawlance-fridge.svg';
+import acGreeImg from '../assets/products/ac-gree.jpg';
+import acHaierImg from '../assets/products/ac-haier.jpg';
+import surgeImg from '../assets/products/surge-protector.jpg';
+import haierMicroImg from '../assets/products/haier-microwave.jpg';
+import dawlanceMicroImg from '../assets/products/dawlance-microwave.jpg';
+import dawlanceFridgeImg from '../assets/products/dawlance-fridge.jpg';
 import {
   Package,
   Plus,
