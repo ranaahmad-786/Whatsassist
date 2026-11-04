@@ -1,6 +1,7 @@
 /**
- * WhatsAssist - Enterprise Glassmorphic Login Screen
- * Multi-Role Authentication with Ambient Orbs, 1-Click Demo Credentials & Lucide Icons.
+ * WhatsAssist - Enterprise Login Screen
+ * Supports Customer, Store Owner, and Store Manager logins.
+ * Includes 1-click Demo Fill pills for immediate evaluation.
  *
  * @author Muhammad Ahmad Khan - 24-ST-027
  */
@@ -10,30 +11,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import {
-  Lock,
-  Mail,
-  Zap,
-  Sun,
-  Moon,
-  ArrowRight,
-  Sparkles,
-  ShieldCheck,
-  CheckCircle2,
-  AlertCircle,
-  Smartphone,
-  User,
-} from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
   const { isDark, toggleTheme } = useTheme();
 
-  const [form, setForm] = useState({
-    email: 'ranaahmadkhan.112211@gmail.com',
-    password: 'admin123',
-  });
+  const [form, setForm] = useState({ email: 'ranaahmadkhan.112211@gmail.com', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +27,7 @@ export default function Login() {
 
   // Quick Demo Auto-Fill helpers
   const fillOwner = () => {
-    setForm({ email: 'ranaahmadkhan.112211@gmail.com', password: 'admin123' });
+    setForm({ email: 'ranaahmadkhan.112211@gmail.com', password: '' });
     setError('');
   };
 
@@ -73,122 +58,117 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-slate-100 dark:bg-[#0b141a] text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      {/* Ambient Glowing Background Orbs for Glassmorphism */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none animate-ambient" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-teal-500/20 blur-3xl pointer-events-none animate-ambient" />
-
+    <div className="min-h-screen flex items-center justify-center p-4 transition-colors duration-200 relative bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* Top Right Theme Toggle */}
-      <div className="absolute top-6 right-6 z-20">
+      <div className="absolute top-6 right-6">
         <button
           onClick={toggleTheme}
           type="button"
-          className="p-2.5 sm:px-4 sm:py-2 rounded-2xl border font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-slate-200 dark:border-slate-800 text-slate-800 dark:text-amber-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+          className="px-4 py-2 rounded-xl border font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer bg-white border-slate-300 text-slate-800 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-amber-400 dark:hover:bg-slate-800"
         >
-          {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
-          <span className="hidden sm:inline">{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+          <span>{isDark ? '☀️' : '🌙'}</span>
+          <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
         </button>
       </div>
 
-      {/* Glassmorphic Login Card */}
-      <div className="w-full max-w-md relative z-10 glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-2xl space-y-6">
-        {/* Brand Header */}
-        <div className="text-center space-y-2">
-          <div className="w-14 h-14 rounded-3xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white mx-auto shadow-xl shadow-emerald-500/30">
-            <Zap className="w-7 h-7 fill-white" />
+      <div className="rounded-3xl border shadow-2xl w-full max-w-md p-8 transition-all bg-white border-slate-300 dark:bg-slate-900 dark:border-slate-800">
+        {/* Header with Official Logo */}
+        <div className="text-center mb-6">
+          <div className="flex justify-center mb-3">
+            <div className="relative group">
+              <img
+                src={logoImg}
+                alt="WhatsAssist Official Logo"
+                className="w-72 max-w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-800 transition-all duration-300 group-hover:scale-[1.02]"
+              />
+            </div>
           </div>
-          <h1 className="font-black text-2xl tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
             WhatsAssist
           </h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium max-w-xs mx-auto">
-            Autonomous WhatsApp AI Customer Resolution Agent for ZepTech Smart Electronics
+          <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-semibold">
+            ZepTech Smart Electronics & E-Mobility Portal
           </p>
         </div>
 
-        {/* 1-Click Demo Fill Badges */}
-        <div className="p-3.5 rounded-2xl bg-slate-50/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 space-y-2 text-center">
-          <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
-            1-Click Demo Evaluation Profiles:
-          </span>
-          <div className="flex items-center justify-center gap-2">
+        {/* Quick Demo Switcher Buttons */}
+        <div className="mb-5 p-2 rounded-2xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
+          <p className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5 text-center">
+            Quick 1-Click Role Fill
+          </p>
+          <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
               onClick={fillOwner}
-              className="px-3 py-1 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-black transition-all flex items-center gap-1.5"
+              className="py-1.5 px-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500 text-slate-800 dark:text-slate-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
             >
-              <Zap className="w-3.5 h-3.5" />
-              <span>Store Owner</span>
+              <span>🏪</span> Owner Account
             </button>
             <button
               type="button"
               onClick={fillCustomer}
-              className="px-3 py-1 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-black transition-all flex items-center gap-1.5"
+              className="py-1.5 px-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500 text-slate-800 dark:text-slate-200 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
             >
-              <User className="w-3.5 h-3.5" />
-              <span>Customer Shopper</span>
+              <span>👤</span> Customer Account
             </button>
           </div>
         </div>
 
+        {/* Error Banner */}
         {error && (
-          <div className="p-3.5 rounded-2xl text-xs font-bold bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 flex items-center gap-2 animate-fade-in">
-            <AlertCircle className="w-4 h-4 shrink-0" />
-            <span>{error}</span>
+          <div className="p-3.5 rounded-xl text-xs font-semibold mb-5 bg-rose-50 border border-rose-300 text-rose-700 dark:bg-rose-500/10 dark:border-rose-500/20 dark:text-rose-400">
+            {error}
           </div>
         )}
 
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
               Email Address
             </label>
-            <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-              <input
-                type="email"
-                name="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                placeholder="name@business.com"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
-              />
-            </div>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              placeholder="e.g. owner@zeptech.pk or customer@gmail.com"
+              className="w-full rounded-xl px-4 py-2.5 text-sm border focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white border-slate-300 text-slate-900 placeholder-slate-400 dark:bg-slate-950 dark:border-slate-800 dark:text-white"
+            />
           </div>
 
           <div>
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-              Account Password
+              Password
             </label>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-              <input
-                type="password"
-                name="password"
-                required
-                value={form.password}
-                onChange={handleChange}
-                placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500 transition-all font-mono"
-              />
-            </div>
+            <input
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              required
+              placeholder="Enter your account password"
+              className="w-full rounded-xl px-4 py-2.5 text-sm border focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white border-slate-300 text-slate-900 placeholder-slate-400 dark:bg-slate-950 dark:border-slate-800 dark:text-white"
+            />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+            className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-400 text-white font-bold rounded-xl transition-all text-sm shadow-lg shadow-emerald-600/25 cursor-pointer mt-2"
           >
-            <span>{loading ? 'Authenticating...' : 'Sign In to WhatsAssist'}</span>
-            <ArrowRight className="w-4 h-4" />
+            {loading ? 'Authenticating...' : 'Sign In to Portal'}
           </button>
         </form>
 
-        <div className="pt-2 text-center text-xs text-slate-500 dark:text-slate-400">
-          Don't have an account yet?{' '}
-          <Link to="/signup" className="font-black text-emerald-600 dark:text-emerald-400 hover:underline">
-            Register Business / Customer
-          </Link>
+        <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800/80 text-center">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
+            Don't have an account?{' '}
+            <Link to="/signup" className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">
+              Create Customer or Store Account
+            </Link>
+          </p>
         </div>
       </div>
     </div>
