@@ -49,11 +49,18 @@ export default function Sidebar() {
       {/* Brand Header */}
       <div className="p-5 border-b border-slate-300 dark:border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img
-            src={logoImg}
-            alt="WhatsAssist Logo"
-            className="w-11 h-11 rounded-xl object-cover border border-slate-300 dark:border-slate-700 shadow-md"
-          />
+          <div className="relative">
+            <div className="w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 shadow-md ring-2 ring-emerald-500/20">
+              <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center">
+                <img
+                  src={logoImg}
+                  alt="WhatsAssist Logo"
+                  className="w-full h-full object-cover scale-125"
+                />
+              </div>
+            </div>
+            <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 shadow-sm" />
+          </div>
           <div>
             <h1 className="font-extrabold text-base tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
               WhatsAssist

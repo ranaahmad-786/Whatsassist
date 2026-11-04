@@ -12,6 +12,7 @@ import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import logoImg from '../assets/logo.jpg';
+import loginBg from '../assets/login-bg.jpg';
 
 const BUSINESS_CATEGORIES = [
   'Electronics, E-Bikes & Household Appliances',
@@ -86,49 +87,73 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 transition-colors duration-200 bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 relative">
-      {/* Top Right Theme Toggle */}
-      <div className="absolute top-6 right-6">
+    <div className="min-h-screen flex items-center justify-center p-4 transition-colors duration-200 relative overflow-hidden bg-slate-950 text-slate-100">
+      {/* Cinematic AI WhatsApp Background Wallpaper with Overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 scale-105"
+        style={{ backgroundImage: `url(${loginBg})` }}
+      />
+      {/* Gradient Ambient Overlays for Deep Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/95 via-slate-900/85 to-emerald-950/75 backdrop-blur-[3px]" />
+      
+      {/* Decorative Glow */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Top Bar with Live Badge & Theme Toggle */}
+      <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-20">
+        <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/70 border border-emerald-500/30 backdrop-blur-md text-xs font-semibold text-emerald-400 shadow-lg">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
+          <span>WhatsAssist Registration Portal</span>
+        </div>
+
         <button
           onClick={toggleTheme}
           type="button"
           title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          className="px-3.5 py-2 rounded-xl border font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer bg-white border-slate-300 text-slate-800 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-amber-400 dark:hover:bg-slate-800"
+          className="px-4 py-2 rounded-xl border font-bold text-xs shadow-xl transition-all flex items-center gap-2 cursor-pointer bg-slate-900/80 border-slate-700/80 text-white hover:bg-slate-800 backdrop-blur-md"
         >
           <span>{isDark ? '☀️' : '🌙'}</span>
-          <span>{isDark ? 'Light' : 'Dark'}</span>
+          <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
         </button>
       </div>
 
-      <div className="rounded-3xl border shadow-2xl w-full max-w-lg p-8 transition-all bg-white border-slate-300 dark:bg-slate-900 dark:border-slate-800 my-8">
-        {/* Header with Official Logo */}
+      <div className="relative z-10 rounded-3xl border shadow-2xl w-full max-w-lg p-8 sm:p-9 transition-all bg-slate-900/80 dark:bg-slate-900/85 backdrop-blur-2xl border-white/10 dark:border-slate-800 text-white my-16 shadow-emerald-950/40">
+        {/* Header with Circular Official Logo */}
         <div className="text-center mb-6">
-          <div className="flex justify-center mb-3">
-            <div className="relative group">
-              <img
-                src={logoImg}
-                alt="WhatsAssist Official Logo"
-                className="w-64 max-w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-800 transition-all duration-300 group-hover:scale-[1.02]"
-              />
+          <div className="flex justify-center mb-4">
+            <div className="relative group cursor-pointer">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-400 shadow-2xl shadow-emerald-500/40 ring-4 ring-emerald-500/20 group-hover:ring-emerald-400/50 transition-all duration-300">
+                <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center border-2 border-white/30 shadow-inner">
+                  <img
+                    src={logoImg}
+                    alt="WhatsAssist Official Logo"
+                    className="w-full h-full object-cover scale-125 transform transition-transform duration-500 group-hover:scale-135"
+                  />
+                </div>
+              </div>
+              <span className="absolute bottom-0 right-0 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] font-black text-slate-950 border-2 border-slate-900 shadow-lg uppercase tracking-wider">
+                JOIN
+              </span>
             </div>
           </div>
-          <h1 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-            Create WhatsAssist Account
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+            Create Account
           </h1>
-          <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">
-            ZepTech Smart Electronics & E-Mobility Portal
+          <p className="text-xs text-emerald-400 mt-1 font-bold tracking-wide uppercase">
+            WhatsAssist Enterprise Customer & Store Portal
           </p>
         </div>
 
         {/* Account Type Selector Tabs */}
-        <div className="mb-6 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-1.5">
+        <div className="mb-6 p-1.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 grid grid-cols-2 gap-1.5 backdrop-blur-md">
           <button
             type="button"
             onClick={() => setAccountType('customer')}
             className={`py-2.5 px-3 rounded-xl font-extrabold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
               accountType === 'customer'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <span>👤</span>
@@ -139,8 +164,8 @@ export default function Signup() {
             onClick={() => setAccountType('business')}
             className={`py-2.5 px-3 rounded-xl font-extrabold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
               accountType === 'business'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <span>🏪</span>
