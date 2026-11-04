@@ -10,7 +10,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
 import logoImg from '../assets/logo.jpg';
 import loginBg from '../assets/login-bg.jpg';
 
@@ -26,7 +25,6 @@ const BUSINESS_CATEGORIES = [
 export default function Signup() {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const { isDark, toggleTheme } = useTheme();
 
   // Account Type: 'customer' or 'business'
   const [accountType, setAccountType] = useState('customer');
@@ -100,22 +98,12 @@ export default function Signup() {
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Top Bar with Live Badge & Theme Toggle */}
+      {/* Top Bar with Live Badge */}
       <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-20">
         <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/70 border border-emerald-500/30 backdrop-blur-md text-xs font-semibold text-emerald-400 shadow-lg">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
           <span>WhatsAssist Registration Portal</span>
         </div>
-
-        <button
-          onClick={toggleTheme}
-          type="button"
-          title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          className="px-4 py-2 rounded-xl border font-bold text-xs shadow-xl transition-all flex items-center gap-2 cursor-pointer bg-slate-900/80 border-slate-700/80 text-white hover:bg-slate-800 backdrop-blur-md"
-        >
-          <span>{isDark ? '☀️' : '🌙'}</span>
-          <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-        </button>
       </div>
 
       <div className="relative z-10 rounded-3xl border shadow-2xl w-full max-w-lg p-8 sm:p-9 transition-all bg-slate-900/80 dark:bg-slate-900/85 backdrop-blur-2xl border-white/10 dark:border-slate-800 text-white my-16 shadow-emerald-950/40">

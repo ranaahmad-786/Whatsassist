@@ -28,6 +28,38 @@ import {
   Zap,
 } from 'lucide-react';
 
+// Verified high-definition product image catalog for Pakistani electronics store
+export const DEFAULT_PRODUCT_IMAGES = {
+  'prod-ebike-thunder-01': 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80',
+  'prod-ebike-eco-02': 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
+  'prod-oven-dawlance-03': 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80',
+  'prod-oven-haier-04': 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80',
+  'prod-ac-gree-05': 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=800&q=80',
+  'prod-ac-haier-06': 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80',
+  'prod-fridge-dawlance-07': 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80',
+  'prod-tv-samsung-08': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80',
+  'prod-tv-tcl-09': 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80',
+  'prod-wm-haier-10': 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80',
+  'prod-acc-surge-11': 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80',
+};
+
+export const getProductImage = (product) => {
+  if (product?.image_url && typeof product.image_url === 'string' && product.image_url.startsWith('http')) {
+    return product.image_url;
+  }
+  if (product?.id && DEFAULT_PRODUCT_IMAGES[product.id]) {
+    return DEFAULT_PRODUCT_IMAGES[product.id];
+  }
+  const cat = product?.category;
+  if (cat === 'E-Bikes') return 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'Refrigerators') return 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'Air Conditioners') return 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'Ovens & Kitchen') return 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'LED TVs') return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80';
+  if (cat === 'Household Electronics') return 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80';
+  return 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80';
+};
+
 export default function Products() {
   const { merchant } = useAuth();
   const navigate = useNavigate();
@@ -313,29 +345,44 @@ export default function Products() {
               return (
                 <div
                   key={p.id}
-                  className="glass-card rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:-translate-y-1 transition-all flex flex-col justify-between group"
+                  className="glass-card rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:-translate-y-1 transition-all flex flex-col justify-between group bg-white dark:bg-slate-900"
                 >
-                  {/* Card Header & Badge */}
-                  <div className="p-5 pb-3">
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <span className="text-2xl p-3 rounded-2xl bg-neutral-100 dark:bg-neutral-800 group-hover:scale-105 transition-transform inline-block flex items-center justify-center w-12 h-12">
-                        {p.image_icon || <Package className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />}
+                  {/* Real Product Image Container */}
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+                    <img
+                      src={getProductImage(p)}
+                      alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80" />
+
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-slate-900/80 backdrop-blur-md text-white border border-white/20 shadow-md">
+                        {p.category}
                       </span>
-                      <div className="text-right">
-                        <span
-                          className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full inline-block ${
-                            isOut
-                              ? 'bg-rose-500/10 text-rose-600 border border-rose-500/20'
-                              : isLow
-                              ? 'bg-amber-500/10 text-amber-600 border border-amber-500/20'
-                              : 'bg-emerald-500/10 text-neutral-700 border border-emerald-500/20'
-                          }`}
-                        >
-                          {isOut ? 'Out of Stock' : isLow ? `Low Stock (${p.stock_quantity})` : `${p.stock_quantity} in stock`}
-                        </span>
-                        <div className="text-[10px] text-slate-400 font-mono mt-0.5">{p.category}</div>
-                      </div>
                     </div>
+
+                    <div className="absolute top-3 right-3">
+                      <span
+                        className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full inline-block backdrop-blur-md shadow-md ${
+                          isOut
+                            ? 'bg-rose-950/80 text-rose-300 border border-rose-500/40'
+                            : isLow
+                            ? 'bg-amber-950/80 text-amber-300 border border-amber-500/40'
+                            : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/40'
+                        }`}
+                      >
+                        {isOut ? 'Out of Stock' : isLow ? `Low Stock (${p.stock_quantity})` : `${p.stock_quantity} in stock`}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-5 pb-3">
 
                     <h4 className="font-black text-sm text-slate-900 dark:text-white line-clamp-2 leading-snug">
                       {p.title}
@@ -528,10 +575,24 @@ export default function Products() {
             </div>
 
             <form onSubmit={handlePlaceOrder} className="p-6 space-y-4">
-              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 text-xs space-y-1">
-                <div className="font-black text-slate-900 dark:text-white">{selectedProduct.title}</div>
-                <div className="font-black text-neutral-700 dark:text-neutral-400 font-mono text-sm">
-                  Rs. {Number(selectedProduct.price).toLocaleString()}
+              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 text-xs flex items-center gap-3">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shrink-0 shadow-xs">
+                  <img
+                    src={getProductImage(selectedProduct)}
+                    alt={selectedProduct.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=200&q=80';
+                    }}
+                  />
+                </div>
+                <div className="flex-1 truncate">
+                  <div className="font-black text-slate-900 dark:text-white truncate">{selectedProduct.title}</div>
+                  <div className="font-black text-emerald-600 dark:text-emerald-400 font-mono text-sm mt-0.5">
+                    Rs. {Number(selectedProduct.price).toLocaleString()}
+                  </div>
+                  <div className="text-[10px] text-slate-500 font-semibold">{selectedProduct.category}</div>
                 </div>
               </div>
 
