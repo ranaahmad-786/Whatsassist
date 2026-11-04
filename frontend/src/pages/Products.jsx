@@ -23,6 +23,12 @@ import FloatingWhatsAppChat from '../components/FloatingWhatsAppChat';
 import CartDrawer from '../components/CartDrawer';
 import { productsAPI, ordersAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import acGreeImg from '../assets/products/ac-gree.svg';
+import acHaierImg from '../assets/products/ac-haier.svg';
+import surgeImg from '../assets/products/surge-protector.svg';
+import haierMicroImg from '../assets/products/haier-microwave.svg';
+import dawlanceMicroImg from '../assets/products/dawlance-microwave.svg';
+import dawlanceFridgeImg from '../assets/products/dawlance-fridge.svg';
 import {
   Package,
   Plus,
@@ -48,36 +54,37 @@ import {
   RotateCcw,
 } from 'lucide-react';
 
-// High-definition product photography for Pakistani electronics catalog
+// High-definition verified product assets for Pakistani electronics catalog
 export const DEFAULT_PRODUCT_IMAGES = {
   'prod-ebike-thunder-01': 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80',
   'prod-ebike-eco-02': 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
-  'prod-oven-dawlance-03': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80',
-  'prod-oven-haier-04': 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80',
-  'prod-ac-gree-05': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-  'prod-ac-haier-06': 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80',
-  'prod-fridge-dawlance-07': 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80',
+  'prod-oven-dawlance-03': dawlanceMicroImg,
+  'prod-oven-haier-04': haierMicroImg,
+  'prod-ac-gree-05': acGreeImg,
+  'prod-ac-haier-06': acHaierImg,
+  'prod-fridge-dawlance-07': dawlanceFridgeImg,
   'prod-tv-samsung-08': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80',
   'prod-tv-tcl-09': 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80',
   'prod-wm-haier-10': 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80',
-  'prod-acc-surge-11': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+  'prod-acc-surge-11': surgeImg,
 };
 
 export const getProductImage = (product) => {
   if (product?.id && DEFAULT_PRODUCT_IMAGES[product.id]) {
     return DEFAULT_PRODUCT_IMAGES[product.id];
   }
+  const cat = product?.category;
+  if (cat === 'E-Bikes') return DEFAULT_PRODUCT_IMAGES['prod-ebike-thunder-01'];
+  if (cat === 'Refrigerators') return dawlanceFridgeImg;
+  if (cat === 'Air Conditioners') return acGreeImg;
+  if (cat === 'Ovens & Kitchen' || cat === 'Kitchen Appliances') return haierMicroImg;
+  if (cat === 'LED TVs') return DEFAULT_PRODUCT_IMAGES['prod-tv-samsung-08'];
+  if (cat === 'Household Electronics') return DEFAULT_PRODUCT_IMAGES['prod-wm-haier-10'];
+  if (cat === 'Accessories') return surgeImg;
   if (product?.image_url && typeof product.image_url === 'string' && product.image_url.startsWith('http')) {
     return product.image_url;
   }
-  const cat = product?.category;
-  if (cat === 'E-Bikes') return DEFAULT_PRODUCT_IMAGES['prod-ebike-thunder-01'];
-  if (cat === 'Refrigerators') return DEFAULT_PRODUCT_IMAGES['prod-fridge-dawlance-07'];
-  if (cat === 'Air Conditioners') return DEFAULT_PRODUCT_IMAGES['prod-ac-gree-05'];
-  if (cat === 'Ovens & Kitchen' || cat === 'Kitchen Appliances') return DEFAULT_PRODUCT_IMAGES['prod-oven-haier-04'];
-  if (cat === 'LED TVs') return DEFAULT_PRODUCT_IMAGES['prod-tv-samsung-08'];
-  if (cat === 'Household Electronics') return DEFAULT_PRODUCT_IMAGES['prod-wm-haier-10'];
-  return DEFAULT_PRODUCT_IMAGES['prod-acc-surge-11'];
+  return surgeImg;
 };
 
 // 4 Featured Categories matching the wireframe row
@@ -96,7 +103,7 @@ const FEATURED_CATEGORIES = [
     title: 'Inverter ACs',
     subtitle: '70% Energy Saver T3',
     icon: '❄️',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
+    image: acGreeImg,
     count: '2 Models',
     accent: 'border-cyan-500/20 bg-cyan-50/50 dark:bg-cyan-950/20',
   },
@@ -105,7 +112,7 @@ const FEATURED_CATEGORIES = [
     title: 'Kitchen Appliances',
     subtitle: 'Microwave & Convection',
     icon: '🍳',
-    image: 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=600&q=80',
+    image: haierMicroImg,
     count: '2 Models',
     accent: 'border-amber-500/20 bg-amber-50/50 dark:bg-amber-950/20',
   },
@@ -114,7 +121,7 @@ const FEATURED_CATEGORIES = [
     title: 'Refrigerators',
     subtitle: 'Low-Voltage Inverter',
     icon: '🧊',
-    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=600&q=80',
+    image: dawlanceFridgeImg,
     count: '1 Model',
     accent: 'border-emerald-500/20 bg-emerald-50/50 dark:bg-emerald-950/20',
   },

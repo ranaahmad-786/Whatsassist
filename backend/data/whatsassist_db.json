@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-11-04T14:52:06.805Z",
+      "updated_at": "2026-11-04T15:24:58.007Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -1749,7 +1749,7 @@
       "title": "Haier Smart Inverter Microwave & Air Fryer (25L Digital)",
       "category": "Ovens & Kitchen",
       "price": 32000,
-      "stock_quantity": 3,
+      "stock_quantity": 8,
       "specs": [
         "25L Cavity Size",
         "Built-in Air Fryer Function",
@@ -1762,7 +1762,7 @@
       "inquiry_count": 45,
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-11-04T14:54:34.813Z",
+      "updated_at": "2026-11-04T15:25:15.613Z",
       "image_url": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80"
     },
     {

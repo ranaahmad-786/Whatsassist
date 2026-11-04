@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="greeBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="greeGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="greeShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-opacity="0.18" flood-color="#0f172a"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#f1f5f9"/>
+  <!-- Wall Mounting Line -->
+  <line x1="50" y1="340" x2="750" y2="340" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8,8"/>
+  
+  <!-- Main AC Indoor Split Unit Chassis -->
+  <g filter="url(#greeShadow)">
+    <rect x="80" y="130" width="640" height="185" rx="24" fill="url(#greeBody)" stroke="#cbd5e1" stroke-width="2.5"/>
+    
+    <!-- Top Filter Intake Grille -->
+    <rect x="120" y="142" width="560" height="16" rx="8" fill="#cbd5e1" opacity="0.6"/>
+    <line x1="140" y1="150" x2="660" y2="150" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+    <!-- Golden Luxury Accent Strip -->
+    <rect x="80" y="270" width="640" height="4" fill="url(#greeGold)"/>
+
+    <!-- Bottom Louver Air Flap -->
+    <rect x="100" y="280" width="600" height="26" rx="8" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
+    <line x1="120" y1="293" x2="680" y2="293" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- GREE Official Brand Logo -->
+    <text x="140" y="222" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#dc2626" letter-spacing="2">GREE</text>
+    <text x="235" y="218" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#64748b" letter-spacing="1">1.5 TON FAIRY INVERTER T3</text>
+
+    <!-- Hidden LED Digital Temperature Display -->
+    <rect x="560" y="185" width="130" height="58" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    <text x="580" y="227" font-family="monospace" font-size="34" font-weight="900" fill="#38bdf8">16°</text>
+    <text x="645" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#38bdf8">C</text>
+    <text x="640" y="230" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#34d399">❄ COOL</text>
+
+    <!-- Eco Inverter Badge -->
+    <rect x="140" y="238" width="150" height="22" rx="6" fill="#10b981" opacity="0.18"/>
+    <text x="150" y="253" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#047857">⚡ 70% ENERGY SAVER T3</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="dawMicroBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="dawShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-opacity="0.22" flood-color="#000000"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#f1f5f9"/>
+  <g filter="url(#dawShadow)">
+    <rect x="100" y="80" width="600" height="340" rx="26" fill="url(#dawMicroBody)" stroke="#64748b" stroke-width="3"/>
+    
+    <!-- Door Glass -->
+    <rect x="130" y="110" width="380" height="280" rx="18" fill="#020617" stroke="#334155" stroke-width="2.5"/>
+    <rect x="155" y="135" width="330" height="230" rx="12" fill="#0f172a" stroke="#475569" stroke-dasharray="5,5"/>
+    <ellipse cx="320" cy="335" rx="120" ry="18" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Door Handle -->
+    <rect x="525" y="130" width="16" height="240" rx="8" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+
+    <!-- Right Control Panel -->
+    <rect x="555" y="110" width="125" height="280" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- Digital Screen -->
+    <rect x="565" y="125" width="105" height="45" rx="10" fill="#020617" stroke="#475569" stroke-width="1.5"/>
+    <text x="580" y="157" font-family="monospace" font-size="28" font-weight="900" fill="#38bdf8">05:00</text>
+
+    <!-- Auto Pakistani Recipes Selector -->
+    <rect x="570" y="185" width="95" height="24" rx="7" fill="#1e293b" stroke="#475569"/>
+    <text x="583" y="201" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#38bdf8">CONVECTION</text>
+
+    <rect x="570" y="218" width="95" height="24" rx="7" fill="#1e293b" stroke="#475569"/>
+    <text x="590" y="234" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#cbd5e1">GRILL</text>
+
+    <rect x="570" y="251" width="95" height="24" rx="7" fill="#1e293b" stroke="#475569"/>
+    <text x="582" y="267" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#cbd5e1">PAK RECIPES</text>
+
+    <circle cx="617" cy="310" r="24" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+
+    <rect x="570" y="345" width="95" height="32" rx="9" fill="#0284c7" stroke="#0369a1"/>
+    <text x="597" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="#ffffff">START</text>
+
+    <!-- Header -->
+    <text x="135" y="102" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="#e2e8f0" letter-spacing="1.5">Dawlance DW-MD10 CONVECTION &amp; BAKING 30L</text>
+  </g>
+</svg>

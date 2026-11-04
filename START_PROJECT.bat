@@ -39,7 +39,7 @@ start "WhatsAssist Frontend UI" cmd /k "cd /d "%TARGET_DIR%frontend" && npm run 
 timeout /t 5 /nobreak >nul
 
 echo [4/4] Opening WhatsAssist in your Browser...
-start http://localhost:5173
+start http://localhost:5173/login
 
 echo.
 echo =====================================================================

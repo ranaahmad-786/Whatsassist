@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="haierBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="haierShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-opacity="0.18" flood-color="#0f172a"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#f1f5f9"/>
+  <!-- Wall Mounting Line -->
+  <line x1="50" y1="340" x2="750" y2="340" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8,8"/>
+
+  <!-- Main Haier AC Indoor Unit Chassis -->
+  <g filter="url(#haierShadow)">
+    <rect x="80" y="130" width="640" height="190" rx="26" fill="url(#haierBody)" stroke="#cbd5e1" stroke-width="2.5"/>
+    
+    <!-- Top Intake Mesh -->
+    <rect x="120" y="142" width="560" height="18" rx="9" fill="#e2e8f0"/>
+    <line x1="140" y1="151" x2="660" y2="151" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+    <!-- Cyan Inverter Accent Line -->
+    <path d="M 80 275 Q 400 286 720 275" stroke="#0284c7" stroke-width="3" fill="none"/>
+
+    <!-- Air Discharge Flap -->
+    <rect x="100" y="286" width="600" height="24" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Haier Brand Logo -->
+    <text x="140" y="222" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#0369a1" letter-spacing="1">Haier</text>
+    <text x="225" y="218" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#64748b">1.5 TON PURI INVERTER (HSU-18HFT)</text>
+
+    <!-- Digital Display Panel -->
+    <rect x="560" y="185" width="130" height="58" rx="14" fill="#0284c7" stroke="#0369a1" stroke-width="1.5"/>
+    <text x="580" y="227" font-family="monospace" font-size="34" font-weight="900" fill="#ffffff">24°</text>
+    <text x="645" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">C</text>
+    <text x="635" y="230" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#bae6fd">✨ CLEAN</text>
+
+    <!-- Badges -->
+    <rect x="140" y="238" width="130" height="22" rx="6" fill="#0284c7" opacity="0.15"/>
+    <text x="150" y="253" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0369a1">🔋 UPS / SOLAR READY</text>
+  </g>
+</svg>
