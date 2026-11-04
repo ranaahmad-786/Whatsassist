@@ -449,9 +449,9 @@
       "whatsapp_phone": "+234114607218715",
       "customer_name": "Ayesha Aslam",
       "first_seen_at": "2026-10-30T12:21:01.759Z",
-      "last_active_at": "2026-11-04T14:36:29.952Z",
+      "last_active_at": "2026-11-04T14:37:14.842Z",
       "created_at": "2026-10-30T12:21:01.767Z",
-      "updated_at": "2026-11-04T14:36:29.956Z"
+      "updated_at": "2026-11-04T14:37:14.848Z"
     },
     {
       "id": "445b3ff6-914f-4fbd-9103-7f6f6ccc1e2e",
@@ -917,6 +917,39 @@
       "ai_confidence_score": null,
       "created_at": "2026-11-04T14:36:29.971Z",
       "updated_at": "2026-11-04T14:36:29.971Z"
+    },
+    {
+      "id": "0f848cb8-48c1-4a11-b5d6-7b848d4d6b44",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🛒 ZEPTECH PRODUCT DETAILS:\n🏷️ Item: Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\n📂 Category: Air Conditioners\n💰 Price: Rs. 142,000 PKR\n📦 Stock Status: ✅ 1 units available in Lahore store\n⚡ Key Specifications: 1.5 Ton T3 Inverter Compressor, Energy Saving Inverter (Up to 60% Saving), Dual Heating & Cooling, WiFi Smart App Control, Golden Fin Anti-Corrosion Condenser\n🚚 Delivery: Free Cash on Delivery (COD) within 24-48 hours across Lahore.\n🛡️ Warranty: Official Brand Warranty Included.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛒 HOW TO ORDER THIS ITEM:\n👉 Option 1: Reply \"Order Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH), [Aap Ka Naam], [Delivery Address in Lahore]\"\n👉 Option 2: Reply \"How to order\" for full ordering instructions\n📞 Call/WhatsApp: +92 331 4228724\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<!-- PRODUCT_CARDS: {\"type\":\"products\",\"items\":[{\"id\":\"prod-ac-gree-05\",\"title\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"category\":\"Air Conditioners\",\"price\":142000,\"stock\":1,\"specs\":[\"1.5 Ton T3 Inverter Compressor\",\"Energy Saving Inverter (Up to 60% Saving)\",\"Dual Heating & Cooling\",\"WiFi Smart App Control\",\"Golden Fin Anti-Corrosion Condenser\"],\"image_icon\":\"â„ï¸\"},{\"id\":\"prod-ac-haier-06\",\"title\":\"Haier 1.5 Ton Puri Inverter AC (Self Cleaning T3 / HSU-18HFT)\",\"category\":\"Air Conditioners\",\"price\":154000,\"stock\":4,\"specs\":[\"1.5 Ton DC Inverter\",\"Cold Expansion One-Touch Self-Cleaning\",\"UPS Enabled (Runs on Generator / Solar)\",\"R32 Eco-Friendly Refrigerant\",\"10-Year Compressor Warranty\"],\"image_icon\":\"â„ï¸\"}]} -->",
+      "whatsapp_message_id": "baileys_ai_1793802991942",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-04T14:36:31.947Z",
+      "updated_at": "2026-11-04T14:36:31.947Z"
+    },
+    {
+      "id": "3c46d949-9f48-4183-ae6f-375fac5da3e6",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Order green 1.5 ton inverter \nAyesha Aslam \nHouse #3 gulberg Lahore",
+      "whatsapp_message_id": "ACEA020140100E3AFB03DA1912398468",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-04T14:37:14.868Z",
+      "updated_at": "2026-11-04T14:37:14.868Z"
+    },
+    {
+      "id": "8a1efaf2-3251-450a-9a06-2dfba8d254b4",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "====================================================\n        ZEPTECH SMART ELECTRONICS & E-MOBILITY\n      OFFICIAL ORDER CONFIRMATION SLIP / INVOICE\n====================================================\n🧾 Invoice No:       #ZP-INV-9343\n📦 Order Code:       ZP-ORD-9343\n📅 Booking Date:     04 Nov 2026, 07:37 PM\n📊 Order Status:     CONFIRMED (Processing for Dispatch)\n────────────────────────────────────────────────────\n👤 CUSTOMER DETAILS:\n• Customer Name:     Ayesha Aslam\n• WhatsApp Phone:    +234114607218715\n• Delivery Address:  Gulberg III, Main Market, Lahore\n────────────────────────────────────────────────────\n🛒 ITEM PURCHASED:\n• Product:           Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\n• Category:          Air Conditioners\n• Quantity:          1 Unit\n• Unit Price:        Rs. 142,000 PKR\n• Delivery Charges:  FREE (Rs. 0 - Lahore 24-48 Hours)\n────────────────────────────────────────────────────\n💰 TOTAL AMOUNT DUE: Rs. 142,000 PKR\n💳 Payment Terms:    Cash on Delivery (COD) - Pay upon delivery\n🛡️ Official Warranty:10-Year compressor warranty & 1-Year PCB circuit warranty\n────────────────────────────────────────────────────\n🚚 DISPATCH & DELIVERY NOTICE:\nOur dispatch team will confirm by phone at +234114607218715 before courier departure. Please inspect your item and pay the courier rider.\n\n🔍 To track your package anytime, simply reply: \"Track ZP-ORD-9343\".\n📞 HelpLine / Support: +92 331 4228724\nThank you for shopping with ZepTech Smart Electronics!\n====================================================<!-- ORDER_DATA: {\"type\":\"order\",\"invoice_no\":\"ZP-INV-9343\",\"order_code\":\"ZP-ORD-9343\",\"product_title\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"payment\":\"Cash on Delivery (COD)\",\"status\":\"CONFIRMED\",\"customer_name\":\"Ayesha Aslam\",\"customer_phone\":\"+234114607218715\",\"address\":\"Gulberg III, Main Market, Lahore\",\"warranty\":\"10-Year compressor warranty & 1-Year PCB circuit warranty\",\"date_time\":\"04 Nov 2026, 07:37 PM\"} -->",
+      "whatsapp_message_id": "baileys_ai_1793803034931",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-04T14:37:14.939Z",
+      "updated_at": "2026-11-04T14:37:14.939Z"
     }
   ],
   "knowledge_documents": [
@@ -1630,6 +1663,17 @@
       "extracted_details": "{\"order_code\":\"ZP-ORD-5740\",\"items\":[\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\"],\"amount\":145000}",
       "created_at": "2026-11-04T14:32:13.037Z",
       "updated_at": "2026-11-04T14:32:13.037Z"
+    },
+    {
+      "id": "593523bc-bee1-45a6-8fd1-819e830b6c62",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust_order",
+      "session_id": "sess_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-9343\",\"invoice_no\":\"ZP-INV-9343\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+234114607218715\"}",
+      "created_at": "2026-11-04T14:37:14.928Z",
+      "updated_at": "2026-11-04T14:37:14.928Z"
     }
   ],
   "products": [
@@ -1727,7 +1771,7 @@
       "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
       "category": "Air Conditioners",
       "price": 142000,
-      "stock_quantity": 1,
+      "stock_quantity": 0,
       "specs": [
         "1.5 Ton T3 Inverter Compressor",
         "Energy Saving Inverter (Up to 60% Saving)",
@@ -1740,7 +1784,7 @@
       "inquiry_count": 95,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-31T14:59:14.297Z",
+      "updated_at": "2026-11-04T14:37:14.910Z",
       "image_url": "https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=600&q=80"
     },
     {
@@ -2323,6 +2367,27 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-11-04T14:32:13.029Z",
       "updated_at": "2026-11-04T14:34:25.174Z"
+    },
+    {
+      "id": "61d6bbe4-7c9b-4dc3-85f5-dd9627455758",
+      "order_code": "ZP-ORD-9343",
+      "invoice_no": "ZP-INV-9343",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_name": "Ayesha Aslam",
+      "customer_phone": "+234114607218715",
+      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "items": [
+        {
+          "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
+          "price": 142000,
+          "quantity": 1
+        }
+      ],
+      "total_amount": 142000,
+      "order_status": "CONFIRMED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-04T14:37:14.918Z",
+      "updated_at": "2026-11-04T14:37:14.918Z"
     }
   ],
   "repairs": [
