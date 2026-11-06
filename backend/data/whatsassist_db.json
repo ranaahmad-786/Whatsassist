@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-11-06T11:05:00.917Z",
+      "updated_at": "2026-11-06T16:20:50.531Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -24,7 +24,7 @@
       "role": "customer",
       "is_active": 1,
       "created_at": "2026-10-25T08:50:27.621Z",
-      "updated_at": "2026-11-06T11:03:04.423Z"
+      "updated_at": "2026-11-06T16:22:39.646Z"
     }
   ],
   "whatsapp_configs": [
@@ -467,24 +467,14 @@
       "id": "cf33697e-b864-42ee-a466-39add245f009",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "whatsapp_phone": "+923314228724",
-      "customer_name": "Hamza",
+      "customer_name": "Shopper (Storefront)",
       "first_seen_at": "2026-11-04T14:28:16.193Z",
-      "last_active_at": "2026-11-04T14:28:35.728Z",
+      "last_active_at": "2026-11-06T16:20:15.040Z",
       "created_at": "2026-11-04T14:28:16.198Z",
-      "updated_at": "2026-11-04T14:28:35.732Z"
+      "updated_at": "2026-11-06T16:20:15.046Z"
     }
   ],
   "conversation_sessions": [
-    {
-      "id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "customer_id": "6298b993-f7d8-446e-9fb8-3351d18997e7",
-      "session_status": "AI_ACTIVE",
-      "sentiment_score": 0.5,
-      "handoff_reason": null,
-      "created_at": "2026-10-30T07:13:12.497Z",
-      "updated_at": "2026-10-30T07:13:12.497Z"
-    },
     {
       "id": "c0576677-0504-4ea4-b711-a313567afa96",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
@@ -523,16 +513,6 @@
       "updated_at": "2026-10-30T07:22:32.840Z"
     },
     {
-      "id": "335c89ae-0ab9-4e53-b287-32e3228d72c2",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "customer_id": "2743d617-8dfd-41cb-8930-b7161170e045",
-      "session_status": "AI_ACTIVE",
-      "sentiment_score": 0.5,
-      "handoff_reason": null,
-      "created_at": "2026-11-03T11:48:34.592Z",
-      "updated_at": "2026-11-03T11:48:34.592Z"
-    },
-    {
       "id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
       "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
       "customer_id": "cf33697e-b864-42ee-a466-39add245f009",
@@ -554,28 +534,6 @@
     }
   ],
   "messages": [
-    {
-      "id": "206fce90-3a53-41b4-b45c-4e3022fc4c0a",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "Hi",
-      "whatsapp_message_id": "AC6CB73C812A380D89F55A77D3813BB1",
-      "ai_confidence_score": null,
-      "created_at": "2026-10-30T07:13:12.503Z",
-      "updated_at": "2026-10-30T07:13:12.503Z"
-    },
-    {
-      "id": "3be4e4a2-c12e-4fe3-9e81-082c1a2759ed",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "Hello! Welcome to **ZepTech Smart Electronics & E-Mobility Store**! âš¡ðŸ›’\n\nI am **WhatsAssist AI**, your customer assistant. How can I help you today?\n\nWe offer a wide range of smart electronics and e-mobility solutions, including:\n* ðŸ›µ **E-Bikes** (ZepTech Thunder & Commuter Eco)\n* â„ï¸ **Inverter ACs** (Gree & Haier 1.5 Ton)\n* ðŸ“º **Smart LED TVs** (Samsung 55\" 4K & TCL 43\")\n* ðŸ³ **Microwave Ovens & Kitchen Appliances** (Dawlance & Haier)\n* ðŸ§Š **Inverter Refrigerators & Washing Machines**\n* ðŸ”§ **Repair & Maintenance Services**\n\nHow may I assist you today? Feel free to ask about our stock, prices, or technical support!",
-      "whatsapp_message_id": "baileys_ai_1793344396157",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-10-30T07:13:16.162Z",
-      "updated_at": "2026-10-30T07:13:16.162Z"
-    },
     {
       "id": "003f457c-372e-4377-999f-6446723a4d2c",
       "session_id": "c0576677-0504-4ea4-b711-a313567afa96",
@@ -632,72 +590,6 @@
       "updated_at": "2026-10-30T07:15:22.734Z"
     },
     {
-      "id": "1af68766-9fc0-445a-b3fe-63ec1c5a244c",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "Fcku",
-      "whatsapp_message_id": "AC8F0AAE63F61D7DF77FA2A22BCC3E34",
-      "ai_confidence_score": null,
-      "created_at": "2026-10-30T07:18:10.973Z",
-      "updated_at": "2026-10-30T07:18:10.973Z"
-    },
-    {
-      "id": "7b86dd9e-6c24-4bf2-9b9d-b3475e69c712",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "Hello! I am WhatsAssist AI, the official customer assistant for **ZepTech Smart Electronics & E-Mobility Store**. \n\nIf you have any questions regarding our products (E-Bikes, ACs, Inverter Refrigerators, Smart TVs, Ovens), repair services, or current stock, please let me know. I am here to help you!",
-      "whatsapp_message_id": "baileys_ai_1793344697129",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-10-30T07:18:17.134Z",
-      "updated_at": "2026-10-30T07:18:17.134Z"
-    },
-    {
-      "id": "e07e0c4a-f42e-4297-a480-ab3d0d36afff",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "I want to order inverter",
-      "whatsapp_message_id": "ACDD406BC1DF89B7ACD1AF7C132F61C0",
-      "ai_confidence_score": null,
-      "created_at": "2026-10-30T07:18:21.977Z",
-      "updated_at": "2026-10-30T07:18:21.977Z"
-    },
-    {
-      "id": "51b7301a-2248-40e3-87d7-2f7463bd96f6",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "Hello and welcome to **ZepTech Smart Electronics & E-Mobility**! \n\nWe have several high",
-      "whatsapp_message_id": "baileys_ai_1793344706510",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-10-30T07:18:26.513Z",
-      "updated_at": "2026-10-30T07:18:26.513Z"
-    },
-    {
-      "id": "653e464d-1ebd-4fe3-940a-da3af858b37f",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "Yo",
-      "whatsapp_message_id": "ACD0354D3CD92AB92D9C88671EB19214",
-      "ai_confidence_score": null,
-      "created_at": "2026-10-30T07:22:22.426Z",
-      "updated_at": "2026-10-30T07:22:22.426Z"
-    },
-    {
-      "id": "b89409d1-69db-4292-81aa-9af88da9d4f0",
-      "session_id": "26392411-6cfe-45aa-bd82-43a58287bd04",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "Hello! ðŸ‘‹ Welcome to **ZepTech Smart Electronics & E-Mobility Store**! \n\nHow can I assist you today? We are here to help you with:\n\n* ðŸ›µ **E-Bikes** (ZepTech Thunder 70cc & Eco Commuter)\n* â„ï¸ **Inverter ACs & Refrigerators** (Gree, Haier, Dawlance)\n* ðŸ“º **Smart LED TVs** (Samsung 4K, TCL Android)\n* ðŸ½ï¸ **Kitchen & Home Appliances** (Smart Microwave Ovens, Washing Machines)\n* ðŸ› ï¸ **Repair & Technical Support**\n\nFeel free to ask about product prices, specifications, current stock, or repair services! How can I help you today?",
-      "whatsapp_message_id": "baileys_ai_1793344950095",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-10-30T07:22:30.100Z",
-      "updated_at": "2026-10-30T07:22:30.100Z"
-    },
-    {
       "id": "3c1251ad-51ce-4a10-ac22-e21cf3012113",
       "session_id": "c4be2cb8-d1bb-4db5-a490-4ecd4e8238b8",
       "merchant_id": "cust-demo-1001-uuid-zeptech",
@@ -752,50 +644,6 @@
       "ai_confidence_score": 0.92,
       "created_at": "2026-10-30T07:13:22.858Z",
       "updated_at": "2026-10-30T07:22:32.868Z"
-    },
-    {
-      "id": "6b39787e-0fda-4a3b-bac0-b889ba4d05ac",
-      "session_id": "335c89ae-0ab9-4e53-b287-32e3228d72c2",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "Boht zda",
-      "whatsapp_message_id": "AC1CA2DC62241ADEB0A02493976AD13D",
-      "ai_confidence_score": null,
-      "created_at": "2026-11-03T11:48:34.600Z",
-      "updated_at": "2026-11-03T11:48:34.600Z"
-    },
-    {
-      "id": "b8e5ac08-f5cc-4da3-bab3-214cb02e3c4b",
-      "session_id": "335c89ae-0ab9-4e53-b287-32e3228d72c2",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "CUSTOMER",
-      "message_text": "Hn",
-      "whatsapp_message_id": "AC6457B68EB38195682569F3B048E550",
-      "ai_confidence_score": null,
-      "created_at": "2026-11-03T11:48:35.879Z",
-      "updated_at": "2026-11-03T11:48:35.879Z"
-    },
-    {
-      "id": "89ddfae3-9332-401a-843c-ea0532d385bb",
-      "session_id": "335c89ae-0ab9-4e53-b287-32e3228d72c2",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "Thank you for reaching out to ZepTech Smart Electronics & E-Mobility Store!\nWe specialize in:\n1ï¸âƒ£ Smart E-Bikes (70-80 km lithium range, zero fuel expense, Rs. 98,000 - 145,000)\n2ï¸âƒ£ DC Inverter ACs (Gree & Haier T3 Inverters, Rs. 138,000 - 154,000)\n3ï¸âƒ£ Convection & Microwave Ovens (Dawlance & Haier, Rs. 32,000 - 38,500)\n4ï¸âƒ£ Inverter Refrigerators & 4K Smart Android TVs (Rs. 89,000 - 115,000)\n5ï¸âƒ£ Hardware Repair Diagnostics & Token Tracking (e.g. REP-101)\n\nðŸšš Free Cash on Delivery (COD) within 24-48 hours across Lahore!\nðŸ‘‰ To place an order, reply with your desired product name or type \"How to order\"!",
-      "whatsapp_message_id": "baileys_ai_1793706517410",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-11-03T11:48:37.415Z",
-      "updated_at": "2026-11-03T11:48:37.415Z"
-    },
-    {
-      "id": "734995a1-4430-45ee-a8f6-a394450f52fd",
-      "session_id": "335c89ae-0ab9-4e53-b287-32e3228d72c2",
-      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
-      "sender_type": "AI_AGENT",
-      "message_text": "According to our store knowledge base:\n\nZepTech Store Timings and Address:\nLocation: Shop #14, Main Market, Gulberg III, Lahore, Pakistan.\nOperating Hours: Monday to Saturday 10:00 AM to 10:00 PM. Sunday: 2:00 PM to 10:00 PM.\nOfficial Contact: Phone / WhatsApp +92 331 4228724.\nHome delivery and home technician visits available across Lahore.\n\nPlease let us know if you would like more details, troubleshooting assistance, or to place an order!",
-      "whatsapp_message_id": "baileys_ai_1793706517552",
-      "ai_confidence_score": 0.96,
-      "created_at": "2026-11-03T11:48:37.557Z",
-      "updated_at": "2026-11-03T11:48:37.557Z"
     },
     {
       "id": "f32122c3-b125-443b-a7c4-eb9077d44796",
@@ -950,6 +798,50 @@
       "ai_confidence_score": 0.96,
       "created_at": "2026-11-04T14:37:14.939Z",
       "updated_at": "2026-11-04T14:37:14.939Z"
+    },
+    {
+      "id": "b82b7c37-11dc-4d42-9381-3f7628496f00",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "ZepTech E-Bikes ki prices aur range kya hai?",
+      "whatsapp_message_id": "sim_in_1793982004776",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-06T16:20:04.781Z",
+      "updated_at": "2026-11-06T16:20:04.781Z"
+    },
+    {
+      "id": "bc485311-e2d7-4884-82a0-aa451cd995c2",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🛵 ZepTech Thunder 70cc Smart E-Bike Technical Performance:\n- Range: 70 se 80 km per full charge (Verified urban driving range)\n- Battery: 60V / 24Ah Grade-A Lithium-ion (Intelligent BMS protection ke sath, 3 saal life cycle)\n- Charging Time: 3.5 se 4 ghante aam 220V household socket par\n- Top Speed: 60 km/h (3 digital speed modes: Eco, Normal, Sport)\n- Petrol Savings: Running cost sirf Rs. 0.70 per km hai (jabke petrol bike Rs. 7.50/km leti hai). Mahana Rs. 18,000+ ki bachat!\n- Price: Rs. 145,000 (3-Year motor & 1-Year battery replacement warranty shamil)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛒 ORDER OPTIONS:\n👉 1-Click Order: Reply \"Order ZepTech Thunder E-Bike, [Aap Ka Naam], [Lahore Address]\"\n🚚 Free Cash on Delivery (COD) across Lahore.",
+      "whatsapp_message_id": "sim_out_1793982006964",
+      "ai_confidence_score": 0.97,
+      "created_at": "2026-11-06T16:20:06.969Z",
+      "updated_at": "2026-11-06T16:20:06.969Z"
+    },
+    {
+      "id": "c503c73c-f5cf-49ff-9b94-23c03561b29c",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Track my repair token REP-101",
+      "whatsapp_message_id": "sim_in_1793982015053",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-06T16:20:15.057Z",
+      "updated_at": "2026-11-06T16:20:15.057Z"
+    },
+    {
+      "id": "cfdaeb0f-8a12-429b-8792-036fb0c9de60",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🔧 ZepTech OFFICIAL REPAIR TRACKING:\nToken Number: REP-101\nItem: Gree 1.5 Ton Split AC Inverter PCB Board\nReported Fault: Compressor tripping error E7 / no power on outdoor card\nCurrent Status: 4/4 Ready for Pickup / Delivery\nEstimated Bill: Rs. 3,500 (30-Day Service Warranty Included)\nTechnician Notes: \"Replaced primary filtering capacitor and relay switch. Burn-in tested for 2 hours under full 12A load. Ready for collection!\"\n\n✅ Your device is fully repaired, bench-tested, and ready for pickup! Please bring your receipt to the shop or reply here for courier dispatch.<!-- REPAIR_DATA: {\"type\":\"repair\",\"token\":\"REP-101\",\"item\":\"Gree 1.5 Ton Split AC Inverter PCB Board\",\"issue\":\"Compressor tripping error E7 / no power on outdoor card\",\"status\":\"READY_FOR_PICKUP\",\"cost\":3500,\"notes\":\"Replaced primary filtering capacitor and relay switch. Burn-in tested for 2 hours under full 12A load. Ready for collection!\",\"warranty\":\"30 Days\"} -->",
+      "whatsapp_message_id": "sim_out_1793982015080",
+      "ai_confidence_score": 0.97,
+      "created_at": "2026-11-06T16:20:15.085Z",
+      "updated_at": "2026-11-06T16:20:15.085Z"
     }
   ],
   "knowledge_documents": [
@@ -1674,6 +1566,17 @@
       "extracted_details": "{\"order_code\":\"ZP-ORD-9343\",\"invoice_no\":\"ZP-INV-9343\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+234114607218715\"}",
       "created_at": "2026-11-04T14:37:14.928Z",
       "updated_at": "2026-11-04T14:37:14.928Z"
+    },
+    {
+      "id": "aa5094be-987e-44bf-aa08-327db66b21c0",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "session_id": "portal_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-5234\",\"items\":[\"ZepTech Smart Voltage Protector & Surge Suppressor\"],\"amount\":4800}",
+      "created_at": "2026-11-06T16:20:37.460Z",
+      "updated_at": "2026-11-06T16:20:37.460Z"
     }
   ],
   "products": [
@@ -1900,7 +1803,7 @@
       "title": "ZepTech Smart Voltage Protector & Surge Suppressor",
       "category": "Accessories",
       "price": 4800,
-      "stock_quantity": 25,
+      "stock_quantity": 24,
       "specs": [
         "Digital Real-time Voltage Display",
         "Auto Cut-off Under 160V / Over 260V",
@@ -1912,7 +1815,7 @@
       "inquiry_count": 115,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-25T08:50:27.635Z",
+      "updated_at": "2026-11-06T16:20:37.438Z",
       "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
     }
   ],
@@ -2388,6 +2291,29 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-11-04T14:37:14.918Z",
       "updated_at": "2026-11-04T14:37:14.918Z"
+    },
+    {
+      "id": "a4d537cb-3af7-4c49-acc0-65d84c9c787a",
+      "order_code": "ZP-ORD-5234",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "customer_name": "Rana Ahmad",
+      "customer_phone": "+92 300 9876543",
+      "delivery_address": "House 42, Sector C, Bahria Town, Lahore",
+      "items": [
+        {
+          "product_id": "prod-acc-surge-11",
+          "title": "ZepTech Smart Voltage Protector & Surge Suppressor",
+          "price": 4800,
+          "quantity": 1,
+          "category": "Accessories"
+        }
+      ],
+      "total_amount": 4800,
+      "order_status": "DISPATCHED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-06T16:20:37.448Z",
+      "updated_at": "2026-11-06T16:20:59.056Z"
     }
   ],
   "repairs": [

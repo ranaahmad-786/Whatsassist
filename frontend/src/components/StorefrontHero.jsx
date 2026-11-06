@@ -6,7 +6,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import acGreeImg from '../assets/products/ac-gree.jpg';
+import dawlanceMicroImg from '../assets/products/dawlance-microwave.jpg';
 
 const SLIDES = [
   {
@@ -29,7 +31,7 @@ const SLIDES = [
     subtitle: 'Dawlance & Gree T3 Compressor Units',
     description: 'Full DC inverter technology engineered for Pakistani extreme summer temperatures up to 52°C with low-voltage startup.',
     cta: 'Explore Cooling',
-    image: 'https://images.unsplash.com/photo-1614633833026-0e544577884d?auto=format&fit=crop&w=800&q=80',
+    image: acGreeImg,
     alt: 'Gree 1.5 Ton Inverter AC',
     badge: 'Summer Special',
   },
@@ -41,7 +43,7 @@ const SLIDES = [
     subtitle: 'Digital Air Fryer & Convection Ovens',
     description: 'Even heat circulation, digital recipe presets, and rust-resistant cavity for modern Pakistani homes.',
     cta: 'View Kitchen Deals',
-    image: 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80',
+    image: dawlanceMicroImg,
     alt: 'Dawlance Convection Microwave Oven',
     badge: 'Popular Choice',
   },
@@ -113,6 +115,10 @@ export default function StorefrontHero({ onSelectCategory, onShopNow }) {
               <img
                 src={slide.image}
                 alt={slide.alt}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = acGreeImg;
+                }}
                 className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
               />
             </div>
