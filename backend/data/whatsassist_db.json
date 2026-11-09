@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-11-06T16:20:50.531Z",
+      "updated_at": "2026-11-06T17:30:47.825Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -24,7 +24,7 @@
       "role": "customer",
       "is_active": 1,
       "created_at": "2026-10-25T08:50:27.621Z",
-      "updated_at": "2026-11-06T16:22:39.646Z"
+      "updated_at": "2026-11-07T11:14:56.599Z"
     }
   ],
   "whatsapp_configs": [
@@ -459,9 +459,9 @@
       "whatsapp_phone": "+241790082908344",
       "customer_name": "Sajida Noreen",
       "first_seen_at": "2026-10-30T14:16:23.708Z",
-      "last_active_at": "2026-10-30T14:23:26.375Z",
+      "last_active_at": "2026-11-06T17:33:05.568Z",
       "created_at": "2026-10-30T14:16:23.713Z",
-      "updated_at": "2026-10-30T14:23:26.381Z"
+      "updated_at": "2026-11-06T17:33:05.577Z"
     },
     {
       "id": "cf33697e-b864-42ee-a466-39add245f009",
@@ -531,6 +531,16 @@
       "handoff_reason": null,
       "created_at": "2026-11-04T14:36:05.857Z",
       "updated_at": "2026-11-04T14:36:05.857Z"
+    },
+    {
+      "id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "445b3ff6-914f-4fbd-9103-7f6f6ccc1e2e",
+      "session_status": "AI_ACTIVE",
+      "sentiment_score": 0.5,
+      "handoff_reason": null,
+      "created_at": "2026-11-06T17:31:54.877Z",
+      "updated_at": "2026-11-06T17:31:54.877Z"
     }
   ],
   "messages": [
@@ -842,6 +852,72 @@
       "ai_confidence_score": 0.97,
       "created_at": "2026-11-06T16:20:15.085Z",
       "updated_at": "2026-11-06T16:20:15.085Z"
+    },
+    {
+      "id": "9adc9d56-9348-47cd-9ad3-6004e62a9a87",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Bye",
+      "whatsapp_message_id": "AC0F552843E3C68F03BEC4EA9AA44528",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-06T17:31:54.893Z",
+      "updated_at": "2026-11-06T17:31:54.893Z"
+    },
+    {
+      "id": "1c3bb293-60b5-4941-8090-b9ee0669863e",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "Thank you for reaching out to ZepTech Smart Electronics & E-Mobility Store!\nWe specialize in:\n1️⃣ Smart E-Bikes (70-80 km lithium range, zero fuel expense, Rs. 98,000 - 145,000)\n2️⃣ DC Inverter ACs (Gree & Haier T3 Inverters, Rs. 138,000 - 154,000)\n3️⃣ Convection & Microwave Ovens (Dawlance & Haier, Rs. 32,000 - 38,500)\n4️⃣ Inverter Refrigerators & 4K Smart Android TVs (Rs. 89,000 - 115,000)\n5️⃣ Hardware Repair Diagnostics & Token Tracking (e.g. REP-101)\n\n🚚 Free Cash on Delivery (COD) within 24-48 hours across Lahore!\n👉 To place an order, reply with your desired product name or type \"How to order\"!",
+      "whatsapp_message_id": "baileys_ai_1793986317460",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-06T17:31:57.465Z",
+      "updated_at": "2026-11-06T17:31:57.465Z"
+    },
+    {
+      "id": "d3e447c2-18af-4407-b043-a3a9c5da47b2",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Smart e bikes",
+      "whatsapp_message_id": "AC2BDF59013A60A7A4D1477C247682A2",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-06T17:32:12.773Z",
+      "updated_at": "2026-11-06T17:32:12.773Z"
+    },
+    {
+      "id": "ce8bf750-2db8-4589-bf26-3feca86322ad",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🛒 ZepTech PRODUCT DETAILS:\n🏷️ Model: ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\n📂 Category: E-Bikes\n💰 Price: Rs. 145,000 PKR\n📦 In-Stock: ✅ 4 units available\n⚡ Specifications: 48V 24Ah Lithium-Ion Battery, 80km Range Per Single Charge, 1000W BLDC Waterproof Motor, Digital LCD Instrument Cluster, Front Disc Brake & Alloy Wheels\n🚚 Delivery: Free 24-48 hour Cash on Delivery across Lahore.\n🛡️ Warranty: Official Brand Warranty Included.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛒 HOW TO ORDER THIS ITEM:\n👉 Option 1: Reply \"Order ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge), [Your Name], [Lahore Delivery Address]\"\n👉 Option 2: Reply \"How to order\" for payment and delivery details\n📞 Call/WhatsApp: +92 331 4228724\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<!-- PRODUCT_CARDS: {\"type\":\"products\",\"items\":[{\"id\":\"prod-ebike-thunder-01\",\"title\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"category\":\"E-Bikes\",\"price\":145000,\"stock\":4,\"specs\":[\"48V 24Ah Lithium-Ion Battery\",\"80km Range Per Single Charge\",\"1000W BLDC Waterproof Motor\",\"Digital LCD Instrument Cluster\",\"Front Disc Brake & Alloy Wheels\"],\"image_icon\":\"ðŸ›µ\"},{\"id\":\"prod-ebike-eco-02\",\"title\":\"ZepTech Commuter E-Bike Eco (40km Range, Removable Battery)\",\"category\":\"E-Bikes\",\"price\":98000,\"stock\":7,\"specs\":[\"36V 15Ah Removable Battery\",\"40km Range Per Charge\",\"500W Hub Motor\",\"Regenerative Braking\",\"Lightweight Alloy Frame\"],\"image_icon\":\"âš¡\"}]} -->",
+      "whatsapp_message_id": "baileys_ai_1793986334597",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-06T17:32:14.604Z",
+      "updated_at": "2026-11-06T17:32:14.604Z"
+    },
+    {
+      "id": "43b8de3f-e4da-4907-baa5-2305cbacf6ac",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Order zeptec thunder e bike 70cc sajida johar town",
+      "whatsapp_message_id": "ACDB65477D44F7722FC34D417FE69076",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-06T17:33:05.597Z",
+      "updated_at": "2026-11-06T17:33:05.597Z"
+    },
+    {
+      "id": "c1f6a241-a4d5-4163-99ed-03b12ad2805f",
+      "session_id": "dea3a85b-1881-4cfb-b212-33985d861a1a",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "====================================================\n        ZEPTECH SMART ELECTRONICS & E-MOBILITY\n      OFFICIAL ORDER CONFIRMATION SLIP / INVOICE\n====================================================\n🧾 Invoice No:       #ZP-INV-1611\n📦 Order Code:       ZP-ORD-1611\n📅 Booking Date:     06 Nov 2026, 10:33 PM\n📊 Order Status:     CONFIRMED (Processing for Dispatch)\n────────────────────────────────────────────────────\n👤 CUSTOMER DETAILS:\n• Customer Name:     Sajida Noreen\n• WhatsApp Phone:    +241790082908344\n• Delivery Address:  Gulberg III, Main Market, Lahore\n────────────────────────────────────────────────────\n🛒 ITEM PURCHASED:\n• Product:           ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\n• Category:          E-Bikes\n• Quantity:          1 Unit\n• Unit Price:        Rs. 145,000 PKR\n• Delivery Charges:  FREE (Rs. 0 - Lahore 24-48 Hours)\n────────────────────────────────────────────────────\n💰 TOTAL AMOUNT DUE: Rs. 145,000 PKR\n💳 Payment Terms:    Cash on Delivery (COD) - Pay upon delivery\n🛡️ Official Warranty:3-Year motor warranty & 1-Year lithium battery warranty\n────────────────────────────────────────────────────\n🚚 DISPATCH & DELIVERY NOTICE:\nOur dispatch team will confirm by phone at +241790082908344 before courier departure. Please inspect your item and pay the courier rider.\n\n🔍 To track your package anytime, simply reply: \"Track ZP-ORD-1611\".\n📞 HelpLine / Support: +92 331 4228724\nThank you for shopping with ZepTech Smart Electronics!\n====================================================<!-- ORDER_DATA: {\"type\":\"order\",\"invoice_no\":\"ZP-INV-1611\",\"order_code\":\"ZP-ORD-1611\",\"product_title\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"payment\":\"Cash on Delivery (COD)\",\"status\":\"CONFIRMED\",\"customer_name\":\"Sajida Noreen\",\"customer_phone\":\"+241790082908344\",\"address\":\"Gulberg III, Main Market, Lahore\",\"warranty\":\"3-Year motor warranty & 1-Year lithium battery warranty\",\"date_time\":\"06 Nov 2026, 10:33 PM\"} -->",
+      "whatsapp_message_id": "baileys_ai_1793986385678",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-06T17:33:05.685Z",
+      "updated_at": "2026-11-06T17:33:05.685Z"
     }
   ],
   "knowledge_documents": [
@@ -1577,6 +1653,28 @@
       "extracted_details": "{\"order_code\":\"ZP-ORD-5234\",\"items\":[\"ZepTech Smart Voltage Protector & Surge Suppressor\"],\"amount\":4800}",
       "created_at": "2026-11-06T16:20:37.460Z",
       "updated_at": "2026-11-06T16:20:37.460Z"
+    },
+    {
+      "id": "6cdb7e6f-c5b1-4fe5-b9d0-c2c638afc9f5",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "session_id": "portal_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-9219\",\"items\":[\"Haier Fully Automatic Inverter Washing Machine (12kg)\"],\"amount\":92000}",
+      "created_at": "2026-11-06T17:29:50.612Z",
+      "updated_at": "2026-11-06T17:29:50.612Z"
+    },
+    {
+      "id": "b04f1b0c-022c-45df-9594-fe9a68dbbfaa",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust_order",
+      "session_id": "sess_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-1611\",\"invoice_no\":\"ZP-INV-1611\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"phone\":\"+241790082908344\"}",
+      "created_at": "2026-11-06T17:33:05.673Z",
+      "updated_at": "2026-11-06T17:33:05.673Z"
     }
   ],
   "products": [
@@ -1586,7 +1684,7 @@
       "title": "ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)",
       "category": "E-Bikes",
       "price": 145000,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "specs": [
         "48V 24Ah Lithium-Ion Battery",
         "80km Range Per Single Charge",
@@ -1599,7 +1697,7 @@
       "inquiry_count": 88,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-11-04T14:32:13.021Z",
+      "updated_at": "2026-11-06T17:37:18.397Z",
       "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -1674,7 +1772,7 @@
       "title": "Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)",
       "category": "Air Conditioners",
       "price": 142000,
-      "stock_quantity": 0,
+      "stock_quantity": 15,
       "specs": [
         "1.5 Ton T3 Inverter Compressor",
         "Energy Saving Inverter (Up to 60% Saving)",
@@ -1687,7 +1785,7 @@
       "inquiry_count": 95,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-11-04T14:37:14.910Z",
+      "updated_at": "2026-11-06T16:40:28.799Z",
       "image_url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -1782,7 +1880,7 @@
       "title": "Haier Fully Automatic Inverter Washing Machine (12kg)",
       "category": "Household Electronics",
       "price": 92000,
-      "stock_quantity": 5,
+      "stock_quantity": 4,
       "specs": [
         "12kg Wash Capacity",
         "Direct Drive Inverter Motor",
@@ -1794,7 +1892,7 @@
       "inquiry_count": 49,
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-25T08:50:27.635Z",
+      "updated_at": "2026-11-06T17:29:50.585Z",
       "image_url": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -2314,6 +2412,50 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-11-06T16:20:37.448Z",
       "updated_at": "2026-11-06T16:20:59.056Z"
+    },
+    {
+      "id": "455ce567-ddd6-4ae2-adb3-f21010bfd50c",
+      "order_code": "ZP-ORD-9219",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "customer_name": "Ahmad",
+      "customer_phone": "+92 300 9876543",
+      "delivery_address": "House 42, Sector C, Bahria Town, Lahore",
+      "items": [
+        {
+          "product_id": "prod-wm-haier-10",
+          "title": "Haier Fully Automatic Inverter Washing Machine (12kg)",
+          "price": 92000,
+          "quantity": 1,
+          "category": "Household Electronics"
+        }
+      ],
+      "total_amount": 92000,
+      "order_status": "DELIVERED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-06T17:29:50.601Z",
+      "updated_at": "2026-11-06T17:30:59.580Z"
+    },
+    {
+      "id": "64b6c238-5996-4b36-b322-53dfb7e1a4b7",
+      "order_code": "ZP-ORD-1611",
+      "invoice_no": "ZP-INV-1611",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_name": "Sajida Noreen",
+      "customer_phone": "+241790082908344",
+      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "items": [
+        {
+          "title": "ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)",
+          "price": 145000,
+          "quantity": 1
+        }
+      ],
+      "total_amount": 145000,
+      "order_status": "CONFIRMED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-06T17:33:05.663Z",
+      "updated_at": "2026-11-06T17:33:05.663Z"
     }
   ],
   "repairs": [

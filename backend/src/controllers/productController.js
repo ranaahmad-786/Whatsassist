@@ -79,7 +79,7 @@ const productController = {
       return res.status(403).json({ success: false, message: 'Only store managers can add products' });
     }
     const storeId = resolveStoreId(req);
-    const { title, category, price, stock_quantity, specs, description, image_icon, is_featured } = req.body;
+    const { title, category, price, stock_quantity, specs, description, image_url, image_icon, is_featured } = req.body;
 
     if (!title || !price || !category) {
       return res.status(400).json({ success: false, message: 'Title, category, and price are required' });
@@ -94,6 +94,7 @@ const productController = {
       stock_quantity: Number(stock_quantity || 0),
       specs: Array.isArray(specs) ? specs : (typeof specs === 'string' ? specs.split(',').map(s => s.trim()) : []),
       description: description || '',
+      image_url: image_url || '',
       image_icon: image_icon || '📦',
       inquiry_count: 0,
       is_featured: Boolean(is_featured)

@@ -69,22 +69,182 @@ export const DEFAULT_PRODUCT_IMAGES = {
   'prod-acc-surge-11': surgeImg,
 };
 
-export const getProductImage = (product) => {
-  if (product?.id && DEFAULT_PRODUCT_IMAGES[product.id]) {
-    return DEFAULT_PRODUCT_IMAGES[product.id];
+// Smart Keyword-to-Image Map for Pakistani Retail & Consumer Electronics
+export const SMART_KEYWORD_IMAGES = [
+  // 1. Cycles, Bicycles, Sports Bikes, E-Bikes
+  {
+    keywords: ['cycle', 'bicycle', 'sports cycle', 'mountain bike', 'bike', 'ebike', 'e-bike', 'scooter', 'sohrab', 'phoenix', 'pedal'],
+    url: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
+    category: 'E-Bikes',
+    label: 'Bicycle / Sports Cycle',
+  },
+  // 2. Digital Clocks, Smart Watches, Wall Clocks, Alarm Clocks
+  {
+    keywords: ['digital clock', 'wall clock', 'alarm clock', 'table clock', 'led clock', 'smart clock', 'clock', 'smartwatch', 'smart watch', 'watch', 'fitness band'],
+    url: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Digital Clock',
+  },
+  // 3. Air Conditioners (AC, Split, Inverter)
+  {
+    keywords: ['ac', 'air conditioner', 'inverter ac', 'split ac', 'cooling unit', 'ton ac', 't3 compressor'],
+    url: acGreeImg,
+    category: 'Air Conditioners',
+    label: 'Inverter AC',
+  },
+  // 4. Microwave, Oven, Air Fryer, Kitchen Stove
+  {
+    keywords: ['microwave', 'oven', 'air fryer', 'convection', 'baking', 'toaster', 'stove', 'kitchen'],
+    url: haierMicroImg,
+    category: 'Ovens & Kitchen',
+    label: 'Microwave & Oven',
+  },
+  // 5. Refrigerators, Fridges, Deep Freezers
+  {
+    keywords: ['fridge', 'refrigerator', 'deep freezer', 'freezer', 'chiller'],
+    url: dawlanceFridgeImg,
+    category: 'Refrigerators',
+    label: 'Refrigerator',
+  },
+  // 6. LED TVs, Smart TVs, Displays, Monitors
+  {
+    keywords: ['tv', 'television', 'led tv', 'smart tv', 'oled', 'qled', '4k uhd', 'monitor'],
+    url: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=800&q=80',
+    category: 'LED TVs',
+    label: 'Smart LED TV',
+  },
+  // 7. Washing Machines, Dryers
+  {
+    keywords: ['washing machine', 'washer', 'dryer', 'automatic washing', 'laundry'],
+    url: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Washing Machine',
+  },
+  // 8. Fans, Air Coolers, Pedestal Fans
+  {
+    keywords: ['fan', 'pedestal fan', 'ceiling fan', 'exhaust fan', 'air cooler', 'cooler', 'mist fan', 'bracket fan'],
+    url: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Electric Fan',
+  },
+  // 9. Irons, Steam Irons
+  {
+    keywords: ['iron', 'steam iron', 'dry iron', 'istri', 'garment steamer'],
+    url: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Electric Iron',
+  },
+  // 10. Blenders, Juicers, Food Processors, Grinders
+  {
+    keywords: ['blender', 'juicer', 'grinder', 'mixer', 'food processor', 'chopper'],
+    url: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=80',
+    category: 'Ovens & Kitchen',
+    label: 'Blender & Juicer',
+  },
+  // 11. Kettles, Coffee Makers, Dispensers
+  {
+    keywords: ['kettle', 'electric kettle', 'coffee maker', 'espresso', 'tea maker', 'water dispenser', 'dispenser'],
+    url: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80',
+    category: 'Ovens & Kitchen',
+    label: 'Electric Kettle',
+  },
+  // 12. Smart Watches, Wrist Watches
+  {
+    keywords: ['smartwatch', 'smart watch', 'wrist watch', 'fitness tracker'],
+    url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80',
+    category: 'Accessories',
+    label: 'Smart Watch',
+  },
+  // 13. Laptops, Computers, PCs
+  {
+    keywords: ['laptop', 'notebook', 'macbook', 'computer', 'desktop pc', 'pc'],
+    url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Laptop Computer',
+  },
+  // 14. Smart Phones, Mobiles, Tablets
+  {
+    keywords: ['phone', 'smartphone', 'mobile', 'iphone', 'galaxy', 'tablet', 'ipad'],
+    url: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80',
+    category: 'Accessories',
+    label: 'Smart Phone',
+  },
+  // 15. Headphones, Earbuds, Speakers
+  {
+    keywords: ['headphone', 'headphones', 'earphone', 'earbuds', 'airpods', 'speaker', 'soundbar', 'bluetooth speaker'],
+    url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
+    category: 'Accessories',
+    label: 'Audio Headphones',
+  },
+  // 16. Solar Panels, UPS, Inverter Batteries
+  {
+    keywords: ['solar', 'solar panel', 'ups', 'battery', 'inverter battery', 'generator'],
+    url: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Solar & Power',
+  },
+  // 17. Room Heaters, Geysers
+  {
+    keywords: ['heater', 'room heater', 'electric heater', 'fan heater', 'geyser', 'water heater'],
+    url: 'https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=800&q=80',
+    category: 'Household Electronics',
+    label: 'Room Heater',
+  },
+  // 18. Voltage Protectors, Surges, Plugs, Adapters, Chargers
+  {
+    keywords: ['protector', 'voltage', 'surge', 'stabilizer', 'adapter', 'socket', 'extension', 'charger', 'cable', 'plug'],
+    url: surgeImg,
+    category: 'Accessories',
+    label: 'Voltage Protector',
+  },
+];
+
+export const detectProductMatch = (title = '', category = '', specs = '', description = '') => {
+  const text = `${title || ''} ${specs || ''} ${description || ''} ${category || ''}`.toLowerCase();
+  for (const entry of SMART_KEYWORD_IMAGES) {
+    for (const kw of entry.keywords) {
+      if (text.includes(kw)) {
+        return entry;
+      }
+    }
   }
-  const cat = product?.category;
-  if (cat === 'E-Bikes') return DEFAULT_PRODUCT_IMAGES['prod-ebike-thunder-01'];
+  return null;
+};
+
+export const detectProductImage = (title = '', category = '', specs = '', description = '') => {
+  const match = detectProductMatch(title, category, specs, description);
+  if (match) return match.url;
+
+  const cat = category || '';
+  if (cat === 'E-Bikes') return SMART_KEYWORD_IMAGES[0].url;
   if (cat === 'Refrigerators') return dawlanceFridgeImg;
   if (cat === 'Air Conditioners') return acGreeImg;
   if (cat === 'Ovens & Kitchen' || cat === 'Kitchen Appliances') return haierMicroImg;
   if (cat === 'LED TVs') return DEFAULT_PRODUCT_IMAGES['prod-tv-samsung-08'];
   if (cat === 'Household Electronics') return DEFAULT_PRODUCT_IMAGES['prod-wm-haier-10'];
   if (cat === 'Accessories') return surgeImg;
-  if (product?.image_url && typeof product.image_url === 'string' && product.image_url.startsWith('http')) {
+
+  return 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80';
+};
+
+export const getProductImage = (product) => {
+  if (!product) return 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80';
+
+  if (product.id && DEFAULT_PRODUCT_IMAGES[product.id]) {
+    return DEFAULT_PRODUCT_IMAGES[product.id];
+  }
+
+  if (
+    product.image_url &&
+    typeof product.image_url === 'string' &&
+    (product.image_url.startsWith('http') || product.image_url.startsWith('data:') || product.image_url.startsWith('/src')) &&
+    !product.image_url.includes('photo-1544716278-ca5e3f4abd8c')
+  ) {
     return product.image_url;
   }
-  return surgeImg;
+
+  const specText = Array.isArray(product.specs) ? product.specs.join(' ') : (product.specs || '');
+  return detectProductImage(product.title, product.category, specText, product.description);
 };
 
 // 4 Featured Categories matching the wireframe row
@@ -262,8 +422,10 @@ export default function Products() {
     e.preventDefault();
     setSaving(true);
     try {
+      const autoImg = crudFormData.image_url?.trim() || detectProductImage(crudFormData.title, crudFormData.category, crudFormData.specs, crudFormData.description);
       const payload = {
         ...crudFormData,
+        image_url: autoImg,
         price: Number(crudFormData.price),
         stock_quantity: Number(crudFormData.stock_quantity),
       };
@@ -508,27 +670,81 @@ export default function Products() {
         {/* Add/Edit Product Modal */}
         {showCrudModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md">
-            <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-6">
+            <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                  {editingId ? 'Edit Product Item' : 'Add New Electronic Item'}
-                </h3>
-                <button onClick={() => setShowCrudModal(false)} className="text-slate-400 hover:text-slate-600">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                    {editingId ? 'Edit Product Item' : 'Add New Electronic Item'}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    Real photos auto-pair with item title (e.g. Cycle, Digital Clock, Fan, AC)
+                  </p>
+                </div>
+                <button onClick={() => setShowCrudModal(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               <form onSubmit={handleSaveProduct} className="space-y-4 mt-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Title</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    Product Title <span className="text-emerald-500">*</span>
+                  </label>
                   <input
                     type="text"
                     required
+                    placeholder="e.g. Sports Cycle, Digital Clock, Gree Inverter AC, Electric Fan"
                     value={crudFormData.title}
-                    onChange={(e) => setCrudFormData({ ...crudFormData, title: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                    onChange={(e) => {
+                      const newTitle = e.target.value;
+                      const matched = detectProductMatch(newTitle);
+                      setCrudFormData((prev) => ({
+                        ...prev,
+                        title: newTitle,
+                        category: matched && prev.category === 'E-Bikes' ? matched.category : prev.category,
+                      }));
+                    }}
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500/20 focus:outline-none"
                   />
                 </div>
+
+                {/* Live Smart Image Preview Box */}
+                {(() => {
+                  const previewImg = crudFormData.image_url?.trim() || detectProductImage(crudFormData.title, crudFormData.category, crudFormData.specs, crudFormData.description);
+                  const match = detectProductMatch(crudFormData.title, crudFormData.category, crudFormData.specs);
+                  return (
+                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center gap-3">
+                      <div className="w-16 h-16 rounded-xl bg-white dark:bg-slate-900 overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+                        <img
+                          src={previewImg}
+                          alt="Auto-detected item"
+                          className="w-full h-full object-cover rounded-lg"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80';
+                          }}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                            {crudFormData.image_url?.trim() ? 'Custom Image Active' : (match ? `Auto-Matched: ${match.label}` : 'Smart Image Engine')}
+                          </span>
+                        </div>
+                        <p className="text-xs font-bold text-slate-900 dark:text-white truncate mt-0.5">
+                          {crudFormData.title ? crudFormData.title : 'Type item title (e.g. Cycle, Digital Clock)'}
+                        </p>
+                        <p className="text-[11px] text-slate-400 mt-0.5">
+                          {crudFormData.image_url?.trim()
+                            ? 'Using custom image URL entered below'
+                            : 'System automatically pairs real photograph based on your title'}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })()}
+
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Category</label>
@@ -543,7 +759,7 @@ export default function Products() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Price (PKR)</label>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Price (PKR) <span className="text-emerald-500">*</span></label>
                     <input
                       type="number"
                       required
@@ -553,38 +769,53 @@ export default function Products() {
                     />
                   </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Stock Quantity</label>
-                  <input
-                    type="number"
-                    required
-                    value={crudFormData.stock_quantity}
-                    onChange={(e) => setCrudFormData({ ...crudFormData, stock_quantity: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
-                  />
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Stock Quantity <span className="text-emerald-500">*</span></label>
+                    <input
+                      type="number"
+                      required
+                      value={crudFormData.stock_quantity}
+                      onChange={(e) => setCrudFormData({ ...crudFormData, stock_quantity: e.target.value })}
+                      className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Custom Image URL (Optional)</label>
+                    <input
+                      type="url"
+                      placeholder="https://... (leave empty for auto)"
+                      value={crudFormData.image_url || ''}
+                      onChange={(e) => setCrudFormData({ ...crudFormData, image_url: e.target.value })}
+                      className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                    />
+                  </div>
                 </div>
+
                 <div>
                   <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Specifications (Specs)</label>
                   <input
                     type="text"
                     value={crudFormData.specs}
                     onChange={(e) => setCrudFormData({ ...crudFormData, specs: e.target.value })}
-                    placeholder="e.g. 70km Range, 48V Battery, Inverter Motor"
+                    placeholder="e.g. 70km Range, 48V Battery, Inverter Motor, LED Display"
                     className="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
                   />
                 </div>
-                <div className="flex justify-end gap-2 pt-2">
+
+                <div className="flex justify-end gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
                   <button
                     type="button"
                     onClick={() => setShowCrudModal(false)}
-                    className="px-4 py-2 rounded-xl border border-slate-300 text-xs font-bold"
+                    className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={saving}
-                    className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black dark:bg-emerald-600 text-white text-xs font-bold"
+                    className="px-5 py-2 rounded-xl bg-slate-900 hover:bg-black dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-sm"
                   >
                     {saving ? 'Saving...' : 'Save Product'}
                   </button>
