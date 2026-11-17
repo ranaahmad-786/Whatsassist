@@ -101,10 +101,12 @@ const orderController = {
       id: uuidv4(),
       merchant_id: storeId,
       customer_id: isCustomer ? req.merchant.id : 'cust_direct',
+      customer_name: finalName,
+      whatsapp_phone: finalPhone,
       session_id: 'portal_order',
       lead_type: 'ORDER_PLACED',
       status: 'QUALIFIED',
-      extracted_details: JSON.stringify({ order_code: orderCode, items: items.map(i => i.title), amount: total_amount })
+      extracted_details: JSON.stringify({ order_code: orderCode, items: items.map(i => i.title), amount: total_amount, customer_name: finalName, phone: finalPhone })
     });
 
     res.status(201).json({ success: true, order: newOrder, message: 'Order created successfully' });

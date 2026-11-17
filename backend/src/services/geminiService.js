@@ -496,10 +496,12 @@ ${repair.status === 'READY_FOR_PICKUP' ? '✅ Your device is fully repaired, ben
           id: uuidv4(),
           merchant_id: activeMerchantId,
           customer_id: 'cust_order',
+          customer_name: finalCustomerName,
+          whatsapp_phone: customerPhone,
           session_id: 'sess_order',
           lead_type: 'ORDER_PLACED',
           status: 'QUALIFIED',
-          extracted_details: JSON.stringify({ order_code: orderCode, invoice_no: invoiceNum, item: targetProduct.title, amount: targetProduct.price, phone: customerPhone })
+          extracted_details: JSON.stringify({ order_code: orderCode, invoice_no: invoiceNum, item: targetProduct.title, amount: targetProduct.price, phone: customerPhone, customer_name: finalCustomerName })
         });
 
         const targetWarranty = targetProduct.category === 'E-Bikes' ? SHOP_METADATA.warranties.ebike :

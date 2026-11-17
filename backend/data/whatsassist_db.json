@@ -10,7 +10,7 @@
       "role": "owner",
       "is_active": 1,
       "created_at": "2026-10-24T10:47:01.824Z",
-      "updated_at": "2026-11-06T17:30:47.825Z",
+      "updated_at": "2026-11-17T13:41:40.068Z",
       "name": "Muhammad Ahmad Khan"
     },
     {
@@ -24,7 +24,7 @@
       "role": "customer",
       "is_active": 1,
       "created_at": "2026-10-25T08:50:27.621Z",
-      "updated_at": "2026-11-07T11:14:56.599Z"
+      "updated_at": "2026-11-17T13:39:41.695Z"
     }
   ],
   "whatsapp_configs": [
@@ -449,9 +449,9 @@
       "whatsapp_phone": "+234114607218715",
       "customer_name": "Ayesha Aslam",
       "first_seen_at": "2026-10-30T12:21:01.759Z",
-      "last_active_at": "2026-11-04T14:37:14.842Z",
+      "last_active_at": "2026-11-17T13:45:48.710Z",
       "created_at": "2026-10-30T12:21:01.767Z",
-      "updated_at": "2026-11-04T14:37:14.848Z"
+      "updated_at": "2026-11-17T13:45:48.716Z"
     },
     {
       "id": "445b3ff6-914f-4fbd-9103-7f6f6ccc1e2e",
@@ -469,9 +469,9 @@
       "whatsapp_phone": "+923314228724",
       "customer_name": "Shopper (Storefront)",
       "first_seen_at": "2026-11-04T14:28:16.193Z",
-      "last_active_at": "2026-11-06T16:20:15.040Z",
+      "last_active_at": "2026-11-17T13:40:41.333Z",
       "created_at": "2026-11-04T14:28:16.198Z",
-      "updated_at": "2026-11-06T16:20:15.046Z"
+      "updated_at": "2026-11-17T13:40:41.338Z"
     }
   ],
   "conversation_sessions": [
@@ -918,6 +918,116 @@
       "ai_confidence_score": 0.96,
       "created_at": "2026-11-06T17:33:05.685Z",
       "updated_at": "2026-11-06T17:33:05.685Z"
+    },
+    {
+      "id": "7b61ccd0-697d-4191-9a87-1ac0111769c9",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "ZepTech E-Bikes ki prices aur range kya hai?",
+      "whatsapp_message_id": "sim_in_1794922834054",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-17T13:40:34.060Z",
+      "updated_at": "2026-11-17T13:40:34.060Z"
+    },
+    {
+      "id": "df9d02da-e2e0-49e7-ae63-67edccdd91eb",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🛵 ZepTech Thunder 70cc Smart E-Bike Technical Performance:\n- Range: 70 se 80 km per full charge (Verified urban driving range)\n- Battery: 60V / 24Ah Grade-A Lithium-ion (Intelligent BMS protection ke sath, 3 saal life cycle)\n- Charging Time: 3.5 se 4 ghante aam 220V household socket par\n- Top Speed: 60 km/h (3 digital speed modes: Eco, Normal, Sport)\n- Petrol Savings: Running cost sirf Rs. 0.70 per km hai (jabke petrol bike Rs. 7.50/km leti hai). Mahana Rs. 18,000+ ki bachat!\n- Price: Rs. 145,000 (3-Year motor & 1-Year battery replacement warranty shamil)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛒 ORDER OPTIONS:\n👉 1-Click Order: Reply \"Order ZepTech Thunder E-Bike, [Aap Ka Naam], [Lahore Address]\"\n🚚 Free Cash on Delivery (COD) across Lahore.",
+      "whatsapp_message_id": "sim_out_1794922836467",
+      "ai_confidence_score": 0.97,
+      "created_at": "2026-11-17T13:40:36.473Z",
+      "updated_at": "2026-11-17T13:40:36.473Z"
+    },
+    {
+      "id": "a56bb2a3-7d9b-475e-bccd-de211a9b1e37",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "1",
+      "whatsapp_message_id": "sim_in_1794922841347",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-17T13:40:41.355Z",
+      "updated_at": "2026-11-17T13:40:41.355Z"
+    },
+    {
+      "id": "2f296c74-9144-47cc-8df0-1bd0172f2fad",
+      "session_id": "d64f23ec-e1c4-4da5-84c8-8ff3d978d537",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🎉 Excellent choice! You selected:\n📦 Item: *Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)*\n💰 Price: *Rs. 142,000 PKR* (Free COD in Lahore)\n🛡️ Warranty: Official Brand Warranty Included.\n\nTo generate your official order confirmation slip and dispatch the parcel, please reply with your Name & Lahore Address:\n👉 \"My name is [Name], Delivery address: [House, Street, Area Lahore]\"",
+      "whatsapp_message_id": "sim_out_1794922841386",
+      "ai_confidence_score": 0.97,
+      "created_at": "2026-11-17T13:40:41.392Z",
+      "updated_at": "2026-11-17T13:40:41.392Z"
+    },
+    {
+      "id": "fb9417b1-8c37-46c7-b0ea-7fdc929767dc",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Hy",
+      "whatsapp_message_id": "AC08CAF90C5398B47B411526478855BA",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-17T13:44:41.007Z",
+      "updated_at": "2026-11-17T13:44:41.007Z"
+    },
+    {
+      "id": "73e7c37e-4f3d-4e4d-9e01-0ab9edfcf720",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "Aap ke rabte ka shukriya! ZepTech Smart Electronics & E-Mobility par hamare paas yeh items dastiyab hain:\n1️⃣ Smart E-Bikes (70-80 km lithium range, Rs. 98,000 se 145,000)\n2️⃣ DC Inverter ACs (Gree & Haier 1.5 Ton & 1 Ton T3 Inverter, Rs. 138,000 se 154,000)\n3️⃣ Baking & Microwave Ovens (Dawlance & Haier Convection, Rs. 32,000 se 38,500)\n4️⃣ Refrigerators & 4K Smart Android TVs (Rs. 89,000 se 115,000)\n5️⃣ Hardware Repair Diagnostics (REP-xxx token tracking)\n\n🚚 Free Cash on Delivery (COD) across Lahore!\n👉 Order karne ke liye kisi bhi product ka naam likh kar bhejein ya reply karein: \"How to order\"",
+      "whatsapp_message_id": "baileys_ai_1794923082930",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-17T13:44:42.936Z",
+      "updated_at": "2026-11-17T13:44:42.936Z"
+    },
+    {
+      "id": "08527b14-c0de-4076-8f68-5500e14dec43",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Microwave oven Kon Kon sy hy",
+      "whatsapp_message_id": "AC8B772B3CE3E6F3B78DA6FCFD88CC30",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-17T13:45:05.108Z",
+      "updated_at": "2026-11-17T13:45:05.108Z"
+    },
+    {
+      "id": "7ce59a1a-3765-4731-92ba-5e399bcfebf7",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "🛒 ZEPTECH PRODUCT DETAILS:\n🏷️ Item: Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\n📂 Category: Ovens & Kitchen\n💰 Price: Rs. 38,500 PKR\n📦 Stock Status: ✅ 7 units available in Lahore store\n⚡ Key Specifications: 30L Large Capacity Cavity, Convection Baking + Grill + Microwave, Digital LED Touch Panel, Auto Cook Pakistani Recipes, Child Safety Lock\n🚚 Delivery: Free Cash on Delivery (COD) within 24-48 hours across Lahore.\n🛡️ Warranty: Official Brand Warranty Included.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛒 HOW TO ORDER THIS ITEM:\n👉 Option 1: Reply \"Order Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters), [Aap Ka Naam], [Delivery Address in Lahore]\"\n👉 Option 2: Reply \"How to order\" for full ordering instructions\n📞 Call/WhatsApp: +92 331 4228724\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<!-- PRODUCT_CARDS: {\"type\":\"products\",\"items\":[{\"id\":\"prod-oven-dawlance-03\",\"title\":\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\",\"category\":\"Ovens & Kitchen\",\"price\":38500,\"stock\":7,\"specs\":[\"30L Large Capacity Cavity\",\"Convection Baking + Grill + Microwave\",\"Digital LED Touch Panel\",\"Auto Cook Pakistani Recipes\",\"Child Safety Lock\"],\"image_icon\":\"ðŸ²\"},{\"id\":\"prod-oven-haier-04\",\"title\":\"Haier Smart Inverter Microwave & Air Fryer (25L Digital)\",\"category\":\"Ovens & Kitchen\",\"price\":32000,\"stock\":8,\"specs\":[\"25L Cavity Size\",\"Built-in Air Fryer Function\",\"Inverter Even Heating Technology\",\"Non-stick Easy Clean Cavity\",\"Defrost By Weight & Time\"],\"image_icon\":\"ðŸ³\"}]} -->",
+      "whatsapp_message_id": "baileys_ai_1794923106832",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-17T13:45:06.837Z",
+      "updated_at": "2026-11-17T13:45:06.837Z"
+    },
+    {
+      "id": "a13035d9-dae3-486c-bb49-41eae4107cf3",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "CUSTOMER",
+      "message_text": "Order Dawlance DW-MD10 Baking oven",
+      "whatsapp_message_id": "AC39FCFD21569C64FD4220C9117FA9E8",
+      "ai_confidence_score": null,
+      "created_at": "2026-11-17T13:45:48.733Z",
+      "updated_at": "2026-11-17T13:45:48.733Z"
+    },
+    {
+      "id": "719d64b0-9b90-4e9b-86b8-bfadfae36804",
+      "session_id": "ef562c15-92ea-4332-abc8-ab9659444bf7",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "sender_type": "AI_AGENT",
+      "message_text": "====================================================\n        ZEPTECH SMART ELECTRONICS & E-MOBILITY\n      OFFICIAL ORDER CONFIRMATION SLIP / INVOICE\n====================================================\n🧾 Invoice No:       #ZP-INV-8692\n📦 Order Code:       ZP-ORD-8692\n📅 Booking Date:     17 Nov 2026, 06:45 PM\n📊 Order Status:     CONFIRMED (Processing for Dispatch)\n────────────────────────────────────────────────────\n👤 CUSTOMER DETAILS:\n• Customer Name:     Ayesha Aslam\n• WhatsApp Phone:    +234114607218715\n• Delivery Address:  Gulberg III, Main Market, Lahore\n────────────────────────────────────────────────────\n🛒 ITEM PURCHASED:\n• Product:           Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\n• Category:          Ovens & Kitchen\n• Quantity:          1 Unit\n• Unit Price:        Rs. 38,500 PKR\n• Delivery Charges:  FREE (Rs. 0 - Lahore 24-48 Hours)\n────────────────────────────────────────────────────\n💰 TOTAL AMOUNT DUE: Rs. 38,500 PKR\n💳 Payment Terms:    Cash on Delivery (COD) - Pay upon delivery\n🛡️ Official Warranty:2-Year magnetron heating warranty\n────────────────────────────────────────────────────\n🚚 DISPATCH & DELIVERY NOTICE:\nOur dispatch team will confirm by phone at +234114607218715 before courier departure. Please inspect your item and pay the courier rider.\n\n🔍 To track your package anytime, simply reply: \"Track ZP-ORD-8692\".\n📞 HelpLine / Support: +92 331 4228724\nThank you for shopping with ZepTech Smart Electronics!\n====================================================<!-- ORDER_DATA: {\"type\":\"order\",\"invoice_no\":\"ZP-INV-8692\",\"order_code\":\"ZP-ORD-8692\",\"product_title\":\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\",\"amount\":38500,\"payment\":\"Cash on Delivery (COD)\",\"status\":\"CONFIRMED\",\"customer_name\":\"Ayesha Aslam\",\"customer_phone\":\"+234114607218715\",\"address\":\"Gulberg III, Main Market, Lahore\",\"warranty\":\"2-Year magnetron heating warranty\",\"date_time\":\"17 Nov 2026, 06:45 PM\"} -->",
+      "whatsapp_message_id": "baileys_ai_1794923148803",
+      "ai_confidence_score": 0.96,
+      "created_at": "2026-11-17T13:45:48.809Z",
+      "updated_at": "2026-11-17T13:45:48.809Z"
     }
   ],
   "knowledge_documents": [
@@ -1333,7 +1443,9 @@
       "status": "NEW",
       "extracted_details": "{\"query\":\"whats the price of AC?\",\"detected_at\":\"2026-10-24T11:48:12.104Z\"}",
       "created_at": "2026-10-24T11:48:12.107Z",
-      "updated_at": "2026-10-24T12:21:28.099Z"
+      "updated_at": "2026-10-24T12:21:28.099Z",
+      "customer_name": "Ayesha Khan",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "24555ef9-c48e-4915-a129-4c12fd3dec1a",
@@ -1344,7 +1456,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9111\",\"item\":\"Haier 1.5 Ton DC Inverter AC (HSU-18HFT / Heating & Cooling)\",\"amount\":142000}",
       "created_at": "2026-10-25T06:25:30.464Z",
-      "updated_at": "2026-10-25T06:25:30.464Z"
+      "updated_at": "2026-10-25T06:25:30.464Z",
+      "customer_name": "Usman Tariq",
+      "whatsapp_phone": "+92 321 4567890"
     },
     {
       "id": "1a744e00-b559-4258-8cb8-e56c9dbd3b34",
@@ -1355,7 +1469,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-3322\",\"item\":\"Haier 1.5 Ton DC Inverter AC (HSU-18HFT / Heating & Cooling)\",\"amount\":142000}",
       "created_at": "2026-10-25T06:38:16.428Z",
-      "updated_at": "2026-10-25T06:38:16.428Z"
+      "updated_at": "2026-10-25T06:38:16.428Z",
+      "customer_name": "Bilal Khan",
+      "whatsapp_phone": "+92 302 4567890"
     },
     {
       "id": "9ce21b72-9298-4f23-a0a5-902cd6920458",
@@ -1366,7 +1482,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9518\",\"item\":\"HP EliteBook 840 G6 (Core i5 8th Gen, 16GB, 256GB SSD)\",\"amount\":68000}",
       "created_at": "2026-10-25T07:28:11.256Z",
-      "updated_at": "2026-10-25T07:28:11.256Z"
+      "updated_at": "2026-10-25T07:28:11.256Z",
+      "customer_name": "Zainab Bibi",
+      "whatsapp_phone": "+92 301 9876543"
     },
     {
       "id": "465ab164-ff99-498c-b1ad-e699f5d21cfe",
@@ -1377,7 +1495,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-3443\",\"item\":\"Haier Smart Inverter Microwave & Air Fryer (25L Digital)\",\"amount\":32000}",
       "created_at": "2026-10-25T09:07:42.986Z",
-      "updated_at": "2026-10-25T09:07:42.986Z"
+      "updated_at": "2026-10-25T09:07:42.986Z",
+      "customer_name": "Badar Rajput",
+      "whatsapp_phone": "+92 300 1234567"
     },
     {
       "id": "91869218-dfdf-4ccd-92c1-b9ecf35ab7da",
@@ -1388,7 +1508,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9313\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000}",
       "created_at": "2026-10-25T09:17:21.012Z",
-      "updated_at": "2026-10-25T09:17:21.012Z"
+      "updated_at": "2026-10-25T09:17:21.012Z",
+      "customer_name": "Dr. Hamza Sheikh",
+      "whatsapp_phone": "+92 333 5551234"
     },
     {
       "id": "be48a03f-2e9d-4794-a6c9-148e12b0281a",
@@ -1399,7 +1521,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-7036\",\"item\":\"Haier Smart Inverter Microwave & Air Fryer (25L Digital)\",\"amount\":32000}",
       "created_at": "2026-10-25T09:32:57.857Z",
-      "updated_at": "2026-10-25T09:32:57.857Z"
+      "updated_at": "2026-10-25T09:32:57.857Z",
+      "customer_name": "Noor Fatima",
+      "whatsapp_phone": "+92 300 9998877"
     },
     {
       "id": "f8468329-c0ee-470b-8d17-3c8bfa624a05",
@@ -1410,7 +1534,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-6626\",\"items\":[\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\"],\"amount\":145000}",
       "created_at": "2026-10-25T09:45:05.399Z",
-      "updated_at": "2026-10-25T09:45:05.399Z"
+      "updated_at": "2026-10-25T09:45:05.399Z",
+      "customer_name": "Hamza Malik",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "3c2a6a32-8836-4772-accc-871c839de82e",
@@ -1421,7 +1547,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-2799\",\"item\":\"Haier 1.5 Ton Puri Inverter AC (Self Cleaning T3 / HSU-18HFT)\",\"amount\":154000}",
       "created_at": "2026-10-25T09:55:26.097Z",
-      "updated_at": "2026-10-25T09:55:26.097Z"
+      "updated_at": "2026-10-25T09:55:26.097Z",
+      "customer_name": "Muhammad Ahmad",
+      "whatsapp_phone": "+92 331 4228724"
     },
     {
       "id": "f71d5c81-cd2d-45d6-8764-078b76296ba5",
@@ -1432,7 +1560,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-8674\",\"item\":\"ZepTech Commuter E-Bike Eco (40km Range, Removable Battery)\",\"amount\":98000}",
       "created_at": "2026-10-25T10:17:02.552Z",
-      "updated_at": "2026-10-25T10:17:02.552Z"
+      "updated_at": "2026-10-25T10:17:02.552Z",
+      "customer_name": "Noor",
+      "whatsapp_phone": "92300999877"
     },
     {
       "id": "8c7594a9-7f3a-4799-8a70-2a853c984ccc",
@@ -1443,7 +1573,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-6816\",\"items\":[\"Haier Smart Inverter Microwave & Air Fryer (25L Digital)\"],\"amount\":32000}",
       "created_at": "2026-10-25T10:20:56.149Z",
-      "updated_at": "2026-10-25T10:20:56.149Z"
+      "updated_at": "2026-10-25T10:20:56.149Z",
+      "customer_name": "Hamza Malik",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "ef44ace6-7e17-42e8-bbdc-4e1a7aecd2ec",
@@ -1454,7 +1586,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-6355\",\"item\":\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\",\"amount\":38500}",
       "created_at": "2026-10-26T08:53:42.492Z",
-      "updated_at": "2026-10-26T08:53:42.492Z"
+      "updated_at": "2026-10-26T08:53:42.492Z",
+      "customer_name": "Ayesha Khan",
+      "whatsapp_phone": "+923009876543"
     },
     {
       "id": "fa5b0943-9122-44e3-863a-2ab8eed9cef4",
@@ -1465,7 +1599,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-7404\",\"items\":[\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\"],\"amount\":145000}",
       "created_at": "2026-10-26T08:54:40.709Z",
-      "updated_at": "2026-10-26T08:54:40.709Z"
+      "updated_at": "2026-10-26T08:54:40.709Z",
+      "customer_name": "Hamza Malik",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "66e2edf6-9f4a-4134-b8ec-222d9ba2077e",
@@ -1476,7 +1612,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-3041\",\"item\":\"Haier Smart Inverter Microwave & Air Fryer (25L Digital)\",\"amount\":32000}",
       "created_at": "2026-10-26T09:13:33.448Z",
-      "updated_at": "2026-10-26T09:13:33.448Z"
+      "updated_at": "2026-10-26T09:13:33.448Z",
+      "customer_name": "Dr. Hamza Sheikh",
+      "whatsapp_phone": "+923335551234"
     },
     {
       "id": "ec80e17d-43e5-4aab-a8be-5323419e3d14",
@@ -1487,7 +1625,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-1718\",\"items\":[\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\"],\"amount\":38500}",
       "created_at": "2026-10-28T07:49:54.250Z",
-      "updated_at": "2026-10-28T07:49:54.250Z"
+      "updated_at": "2026-10-28T07:49:54.250Z",
+      "customer_name": "Hamza Malik",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "3d8fd8ed-07bf-4387-a3fb-80f9af5195ff",
@@ -1498,7 +1638,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-3042\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000}",
       "created_at": "2026-10-28T07:55:52.288Z",
-      "updated_at": "2026-10-28T07:55:52.288Z"
+      "updated_at": "2026-10-28T07:55:52.288Z",
+      "customer_name": "Ayesha Khan",
+      "whatsapp_phone": "+923009876543"
     },
     {
       "id": "9f52a357-f56a-48f0-88dc-a265617144e6",
@@ -1509,7 +1651,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-1840\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000}",
       "created_at": "2026-10-29T21:46:08.686Z",
-      "updated_at": "2026-10-29T21:46:08.686Z"
+      "updated_at": "2026-10-29T21:46:08.686Z",
+      "customer_name": "Rana Ahmad",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "8278ebd0-6bb3-4a0a-95d4-ed3151b935c6",
@@ -1520,7 +1664,9 @@
       "status": "NEW",
       "extracted_details": "{\"service\":\"2 Split AC Maintenance\",\"date\":\"Friday\"}",
       "created_at": "2026-10-30T07:22:32.885Z",
-      "updated_at": "2026-10-30T07:22:32.885Z"
+      "updated_at": "2026-10-30T07:22:32.885Z",
+      "customer_name": "Dr. Hamza Sheikh",
+      "whatsapp_phone": "+923335551234"
     },
     {
       "id": "dfb103de-06b4-4d01-a233-f648796bd9d6",
@@ -1531,7 +1677,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5501\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923009998877\"}",
       "created_at": "2026-10-30T12:45:51.112Z",
-      "updated_at": "2026-10-30T12:45:51.112Z"
+      "updated_at": "2026-10-30T12:45:51.112Z",
+      "customer_name": "Hamza",
+      "whatsapp_phone": "+923009998877"
     },
     {
       "id": "b5204585-30ef-4356-8bb9-49398ec8195c",
@@ -1542,7 +1690,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-3363\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"phone\":\"+241790082908344\"}",
       "created_at": "2026-10-30T14:22:15.022Z",
-      "updated_at": "2026-10-30T14:22:15.022Z"
+      "updated_at": "2026-10-30T14:22:15.022Z",
+      "customer_name": "Hamza Malik",
+      "whatsapp_phone": "+241790082908344"
     },
     {
       "id": "b655f346-b717-47a4-bfcd-0a3c4c055da7",
@@ -1553,7 +1703,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9468\",\"items\":[\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\"],\"amount\":38500}",
       "created_at": "2026-10-31T13:24:04.959Z",
-      "updated_at": "2026-10-31T13:24:04.959Z"
+      "updated_at": "2026-10-31T13:24:04.959Z",
+      "customer_name": "Ahmad ",
+      "whatsapp_phone": "03314228724"
     },
     {
       "id": "d94734ca-7ef2-4e3c-9f14-35f032e59c6c",
@@ -1564,7 +1716,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5167\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:32:40.749Z",
-      "updated_at": "2026-10-31T14:32:40.749Z"
+      "updated_at": "2026-10-31T14:32:40.749Z",
+      "customer_name": "WhatsApp Customer",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "443fc191-fd3b-4159-adee-02713f609105",
@@ -1575,7 +1729,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-8604\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:52:13.005Z",
-      "updated_at": "2026-10-31T14:52:13.005Z"
+      "updated_at": "2026-10-31T14:52:13.005Z",
+      "customer_name": "Muhammad Ahmad",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "44b81bfa-40a1-42e4-8926-fbac7b8cac2d",
@@ -1586,7 +1742,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5330\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:52:13.044Z",
-      "updated_at": "2026-10-31T14:52:13.044Z"
+      "updated_at": "2026-10-31T14:52:13.044Z",
+      "customer_name": "WhatsApp Customer",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "dfeddd74-23cd-4da2-a294-efef77174395",
@@ -1597,7 +1755,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5597\",\"invoice_no\":\"ZP-INV-5597\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:55:10.554Z",
-      "updated_at": "2026-10-31T14:55:10.554Z"
+      "updated_at": "2026-10-31T14:55:10.554Z",
+      "customer_name": "Muhammad Ahmad",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "d807cec5-53b1-45a7-ab14-513cad22c2ca",
@@ -1608,7 +1768,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-8368\",\"invoice_no\":\"ZP-INV-8368\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+923314228724\"}",
       "created_at": "2026-10-31T14:59:14.316Z",
-      "updated_at": "2026-10-31T14:59:14.316Z"
+      "updated_at": "2026-10-31T14:59:14.316Z",
+      "customer_name": "WhatsApp Customer",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "c9a21857-04ea-491f-9b52-6d0f8140c4e3",
@@ -1619,7 +1781,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-4915\",\"invoice_no\":\"ZP-INV-4915\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"phone\":\"+234114607218715\"}",
       "created_at": "2026-10-31T15:03:58.828Z",
-      "updated_at": "2026-10-31T15:03:58.828Z"
+      "updated_at": "2026-10-31T15:03:58.828Z",
+      "customer_name": "Ayesha Aslam",
+      "whatsapp_phone": "+234114607218715"
     },
     {
       "id": "c03067d3-1de1-4d65-b2a1-00981fa084d1",
@@ -1630,7 +1794,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5740\",\"items\":[\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\"],\"amount\":145000}",
       "created_at": "2026-11-04T14:32:13.037Z",
-      "updated_at": "2026-11-04T14:32:13.037Z"
+      "updated_at": "2026-11-04T14:32:13.037Z",
+      "customer_name": "Muhammad Ahmad Khan",
+      "whatsapp_phone": "+923314228724"
     },
     {
       "id": "593523bc-bee1-45a6-8fd1-819e830b6c62",
@@ -1641,7 +1807,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9343\",\"invoice_no\":\"ZP-INV-9343\",\"item\":\"Gree 1.5 Ton Fairy Inverter AC (Heat & Cool / 18FITH)\",\"amount\":142000,\"phone\":\"+234114607218715\"}",
       "created_at": "2026-11-04T14:37:14.928Z",
-      "updated_at": "2026-11-04T14:37:14.928Z"
+      "updated_at": "2026-11-04T14:37:14.928Z",
+      "customer_name": "Ayesha Aslam",
+      "whatsapp_phone": "+234114607218715"
     },
     {
       "id": "aa5094be-987e-44bf-aa08-327db66b21c0",
@@ -1652,7 +1820,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-5234\",\"items\":[\"ZepTech Smart Voltage Protector & Surge Suppressor\"],\"amount\":4800}",
       "created_at": "2026-11-06T16:20:37.460Z",
-      "updated_at": "2026-11-06T16:20:37.460Z"
+      "updated_at": "2026-11-06T16:20:37.460Z",
+      "customer_name": "Rana Ahmad",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "6cdb7e6f-c5b1-4fe5-b9d0-c2c638afc9f5",
@@ -1663,7 +1833,9 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-9219\",\"items\":[\"Haier Fully Automatic Inverter Washing Machine (12kg)\"],\"amount\":92000}",
       "created_at": "2026-11-06T17:29:50.612Z",
-      "updated_at": "2026-11-06T17:29:50.612Z"
+      "updated_at": "2026-11-06T17:29:50.612Z",
+      "customer_name": "Ahmad",
+      "whatsapp_phone": "+92 300 9876543"
     },
     {
       "id": "b04f1b0c-022c-45df-9594-fe9a68dbbfaa",
@@ -1674,7 +1846,35 @@
       "status": "QUALIFIED",
       "extracted_details": "{\"order_code\":\"ZP-ORD-1611\",\"invoice_no\":\"ZP-INV-1611\",\"item\":\"ZepTech Thunder E-Bike 70cc (Lithium 48V, 80km Range, Fast Charge)\",\"amount\":145000,\"phone\":\"+241790082908344\"}",
       "created_at": "2026-11-06T17:33:05.673Z",
-      "updated_at": "2026-11-06T17:33:05.673Z"
+      "updated_at": "2026-11-06T17:33:05.673Z",
+      "customer_name": "Sajida Noreen",
+      "whatsapp_phone": "+241790082908344"
+    },
+    {
+      "id": "b50dfe57-d528-437b-9f92-7d0434262223",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "session_id": "portal_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "QUALIFIED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-3023\",\"items\":[\"Haier Fully Automatic Inverter Washing Machine (12kg)\"],\"amount\":92000}",
+      "created_at": "2026-11-09T11:40:23.782Z",
+      "updated_at": "2026-11-09T11:40:23.782Z",
+      "customer_name": "Zaryab",
+      "whatsapp_phone": "+92 300 9876543"
+    },
+    {
+      "id": "c1af8d58-eacd-4c15-9a2c-ded3a8aff7bb",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust_order",
+      "session_id": "sess_order",
+      "lead_type": "ORDER_PLACED",
+      "status": "CONTACTED",
+      "extracted_details": "{\"order_code\":\"ZP-ORD-8692\",\"invoice_no\":\"ZP-INV-8692\",\"item\":\"Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)\",\"amount\":38500,\"phone\":\"+234114607218715\"}",
+      "created_at": "2026-11-17T13:45:48.798Z",
+      "updated_at": "2026-11-17T13:48:16.920Z",
+      "customer_name": "Ayesha Aslam",
+      "whatsapp_phone": "+234114607218715"
     }
   ],
   "products": [
@@ -1728,7 +1928,7 @@
       "title": "Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)",
       "category": "Ovens & Kitchen",
       "price": 38500,
-      "stock_quantity": 7,
+      "stock_quantity": 6,
       "specs": [
         "30L Large Capacity Cavity",
         "Convection Baking + Grill + Microwave",
@@ -1741,7 +1941,7 @@
       "inquiry_count": 67,
       "is_featured": true,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-10-31T13:24:04.939Z",
+      "updated_at": "2026-11-17T13:45:48.774Z",
       "image_url": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -1880,7 +2080,7 @@
       "title": "Haier Fully Automatic Inverter Washing Machine (12kg)",
       "category": "Household Electronics",
       "price": 92000,
-      "stock_quantity": 4,
+      "stock_quantity": 3,
       "specs": [
         "12kg Wash Capacity",
         "Direct Drive Inverter Motor",
@@ -1892,7 +2092,7 @@
       "inquiry_count": 49,
       "is_featured": false,
       "created_at": "2026-10-25T08:50:27.635Z",
-      "updated_at": "2026-11-06T17:29:50.585Z",
+      "updated_at": "2026-11-09T11:40:23.756Z",
       "image_url": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -2456,6 +2656,50 @@
       "payment_method": "Cash on Delivery (COD)",
       "created_at": "2026-11-06T17:33:05.663Z",
       "updated_at": "2026-11-06T17:33:05.663Z"
+    },
+    {
+      "id": "18ff171d-8587-4fc0-9e1a-7907553b8f86",
+      "order_code": "ZP-ORD-3023",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_id": "cust-demo-1001-uuid-zeptech",
+      "customer_name": "Zaryab",
+      "customer_phone": "+92 300 9876543",
+      "delivery_address": "House 42, Sector C,  Township , Lahore",
+      "items": [
+        {
+          "product_id": "prod-wm-haier-10",
+          "title": "Haier Fully Automatic Inverter Washing Machine (12kg)",
+          "price": 92000,
+          "quantity": 1,
+          "category": "Household Electronics"
+        }
+      ],
+      "total_amount": 92000,
+      "order_status": "CONFIRMED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-09T11:40:23.766Z",
+      "updated_at": "2026-11-09T11:40:23.766Z"
+    },
+    {
+      "id": "dfe963a8-c790-4c94-a60a-2098e3ddc677",
+      "order_code": "ZP-ORD-8692",
+      "invoice_no": "ZP-INV-8692",
+      "merchant_id": "1c8b9736-ad03-4251-bacf-1e1bff38fd00",
+      "customer_name": "Ayesha Aslam",
+      "customer_phone": "+234114607218715",
+      "delivery_address": "Gulberg III, Main Market, Lahore",
+      "items": [
+        {
+          "title": "Dawlance DW-MD10 Convection & Baking Microwave Oven (30 Liters)",
+          "price": 38500,
+          "quantity": 1
+        }
+      ],
+      "total_amount": 38500,
+      "order_status": "DELIVERED",
+      "payment_method": "Cash on Delivery (COD)",
+      "created_at": "2026-11-17T13:45:48.786Z",
+      "updated_at": "2026-11-17T13:46:43.553Z"
     }
   ],
   "repairs": [

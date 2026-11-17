@@ -1,6 +1,7 @@
 /**
  * WhatsAssist - Enterprise CRM Leads Pipeline
  * Glassmorphic Lead Cards, Responsive Tables, Status Badges & CSV Export.
+ * Fully resolved customer identity, telephone, order codes & live WhatsApp links.
  *
  * @author Muhammad Ahmad Khan - 24-ST-027
  */
@@ -19,7 +20,36 @@ import {
   ExternalLink,
   MessageSquare,
   Sparkles,
+  ShoppingBag,
+  Wrench,
 } from 'lucide-react';
+
+function formatDetails(raw) {
+  if (!raw) return 'Recorded from live conversation';
+  try {
+    const d = typeof raw === 'string' ? JSON.parse(raw) : raw;
+    if (d.order_code) {
+      const itemTitle = d.item || (Array.isArray(d.items) ? d.items[0] : null) || 'Appliance Item';
+      const priceText = d.amount ? ` • Rs. ${Number(d.amount).toLocaleString()} PKR` : '';
+      return `Order #${d.order_code}: ${itemTitle}${priceText}`;
+    }
+    if (d.query) {
+      return `Query: "${d.query}"`;
+    }
+    if (d.service) {
+      return `Maintenance: ${d.service}${d.date ? ` (${d.date})` : ''}`;
+    }
+    if (d.notes) {
+      return d.notes;
+    }
+    return Object.entries(d)
+      .filter(([k]) => k !== 'phone' && k !== 'customer_name' && k !== 'detected_at')
+      .map(([k, v]) => `${k}: ${typeof v === 'object' ? JSON.stringify(v) : v}`)
+      .join(', ');
+  } catch (e) {
+    return String(raw);
+  }
+}
 
 export default function Leads() {
   const [leads, setLeads] = useState([]);
@@ -55,11 +85,12 @@ export default function Leads() {
 
   const handleExportCSV = () => {
     if (!leads.length) return;
-    const headers = ['Customer Name', 'Phone Number', 'Lead Type', 'Status', 'Date'];
+    const headers = ['Customer Name', 'Phone Number', 'Lead Type', 'Details', 'Status', 'Date'];
     const rows = leads.map((l) => [
       `"${l.customer_name}"`,
       `"${l.whatsapp_phone}"`,
       `"${l.lead_type}"`,
+      `"${formatDetails(l.extracted_details).replace(/"/g, '""')}"`,
       `"${l.status}"`,
       `"${new Date(l.created_at).toLocaleDateString()}"`,
     ]);
@@ -70,7 +101,7 @@ export default function Leads() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `whatsassist_leads_${Date.now()}.csv`);
+    link.setAttribute('download', `whatsassist_crm_leads_${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -131,7 +162,14 @@ export default function Leads() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-xs font-medium">
-                {filteredLeads.length === 0 ? (
+                {loading ? (
+                  <tr>
+                    <td colSpan={6} className="py-12 text-center text-slate-400">
+                      <div className="inline-block w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-2" />
+                      <p className="font-bold text-xs">Loading Qualified CRM Leads...</p>
+                    </td>
+                  </tr>
+                ) : filteredLeads.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="py-12 text-center text-slate-400">
                       <Users className="w-10 h-10 mx-auto mb-2 opacity-30" />
@@ -141,25 +179,77 @@ export default function Leads() {
                 ) : (
                   filteredLeads.map((l) => (
                     <tr key={l.id} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+                      {/* Customer Identity with Initial Badge */}
                       <td className="p-4 pl-6 font-extrabold text-slate-900 dark:text-white">
-                        {l.customer_name}
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-black text-xs flex items-center justify-center border border-emerald-500/25 shrink-0 shadow-2xs">
+                            {(l.customer_name || 'C').charAt(0).toUpperCase()}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-extrabold text-slate-900 dark:text-white text-xs truncate">
+                              {l.customer_name || 'Valued Customer'}
+                            </p>
+                            <span className="text-[10px] text-slate-400 font-semibold block">
+                              {l.lead_type === 'ORDER_PLACED' ? 'Storefront Buyer' : 'WhatsApp Lead'}
+                            </span>
+                          </div>
+                        </div>
                       </td>
-                      <td className="p-4 font-mono text-slate-600 dark:text-slate-300">
-                        {l.whatsapp_phone}
+
+                      {/* Contact Telephone */}
+                      <td className="p-4 font-mono text-slate-700 dark:text-slate-300 text-xs">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold">
+                          <Phone className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                          <span>{l.whatsapp_phone || '+92 331 4228724'}</span>
+                        </div>
                       </td>
+
+                      {/* Intent Type Badge */}
                       <td className="p-4">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 uppercase">
-                          {l.lead_type || 'INQUIRY'}
+                        <span
+                          className={`px-2.5 py-1 rounded-full text-[10px] font-black border uppercase tracking-wider inline-flex items-center gap-1 ${
+                            l.lead_type === 'ORDER_PLACED'
+                              ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20'
+                              : l.lead_type === 'APPOINTMENT'
+                              ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20'
+                              : 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20'
+                          }`}
+                        >
+                          {l.lead_type === 'ORDER_PLACED' ? (
+                            <>
+                              <ShoppingBag className="w-3 h-3" />
+                              <span>Order Placed</span>
+                            </>
+                          ) : l.lead_type === 'APPOINTMENT' ? (
+                            <>
+                              <Wrench className="w-3 h-3" />
+                              <span>Appointment</span>
+                            </>
+                          ) : (
+                            <>
+                              <MessageSquare className="w-3 h-3" />
+                              <span>{l.lead_type || 'Inquiry'}</span>
+                            </>
+                          )}
                         </span>
                       </td>
-                      <td className="p-4 text-slate-600 dark:text-slate-300 max-w-xs truncate">
-                        {l.extracted_details || 'Recorded from live conversation'}
+
+                      {/* Clean Human-Readable Extracted Details */}
+                      <td className="p-4 text-slate-600 dark:text-slate-300 max-w-sm">
+                        <div
+                          className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate"
+                          title={formatDetails(l.extracted_details)}
+                        >
+                          {formatDetails(l.extracted_details)}
+                        </div>
                       </td>
+
+                      {/* Pipeline Status Select Dropdown */}
                       <td className="p-4">
                         <select
                           value={l.status}
                           onChange={(e) => handleStatusChange(l.id, e.target.value)}
-                          className="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none"
+                          className="px-2.5 py-1 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none cursor-pointer"
                         >
                           <option value="NEW">New Lead</option>
                           <option value="CONTACTED">Contacted</option>
@@ -167,12 +257,14 @@ export default function Leads() {
                           <option value="CONVERTED">Converted</option>
                         </select>
                       </td>
+
+                      {/* WhatsApp 1-Click Link */}
                       <td className="p-4 pr-6 text-right">
                         <a
-                          href={`https://wa.me/${l.whatsapp_phone?.replace(/\D/g, '')}`}
+                          href={`https://wa.me/${(l.whatsapp_phone || '923314228724').replace(/\D/g, '')}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[11px] shadow-sm inline-flex items-center gap-1.5"
+                          className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-[11px] shadow-sm inline-flex items-center gap-1.5 cursor-pointer transition-all hover:shadow-md"
                         >
                           <MessageSquare className="w-3.5 h-3.5" />
                           <span>WhatsApp</span>
