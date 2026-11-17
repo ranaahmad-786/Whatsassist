@@ -8,6 +8,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react';
 import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import logoImg from '../assets/logo.jpg';
@@ -18,6 +19,7 @@ export default function Login() {
   const { login } = useAuth();
 
   const [form, setForm] = useState({ email: 'ranaahmadkhan.112211@gmail.com', password: 'admin123' });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -161,18 +163,52 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              required
-              placeholder="Enter your account password"
-              className="w-full rounded-xl px-4 py-2.5 text-sm border focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-950/70 border-slate-700/80 text-white placeholder-slate-500"
-            />
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-xs font-bold text-slate-300">
+                Password
+              </label>
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="text-[11px] font-semibold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 cursor-pointer focus:outline-none"
+              >
+                {showPassword ? (
+                  <>
+                    <EyeOff className="w-3.5 h-3.5" />
+                    <span>Hide</span>
+                  </>
+                ) : (
+                  <>
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>Show Password</span>
+                  </>
+                )}
+              </button>
+            </div>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                required
+                placeholder="Enter your account password"
+                className="w-full rounded-xl pl-4 pr-11 py-2.5 text-sm border focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-950/70 border-slate-700/80 text-white placeholder-slate-500"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-emerald-400 transition-colors p-1 cursor-pointer focus:outline-none"
+                title={showPassword ? 'Hide password' : 'Show password'}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  <EyeOff className="w-4 h-4 text-emerald-400" />
+                ) : (
+                  <Eye className="w-4 h-4 text-slate-400 hover:text-slate-200" />
+                )}
+              </button>
+            </div>
           </div>
 
           <button
